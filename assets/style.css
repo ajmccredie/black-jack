@@ -1,3 +1,45 @@
 body {
     background-color: green;
 }
+
+#dealer {
+    display: flex;
+    width: 80vw;
+    margin-top: 40px;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    justify-content: space-around;
+}
+
+#player-one {
+    display: flex;
+    width: 80vw;
+    margin-top: 40px;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    justify-content: space-around;
+}
+
+#button-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#start-button {
+    height: 50px;
+    width: 130px;
+    background-color: red;
+    border: solid black 3px;
+    color: whitesmoke;
+    justify-content: center;
+}
+
+#card {
+    background-color: #fff;
+    height: 176px;
+    width: 124px;
+    border: solid black 2px;
+    border-radius: 7px;
+    margin: 20px;
+}
