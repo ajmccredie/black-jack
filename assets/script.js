@@ -8,7 +8,7 @@ function loadGameButton() {
 createDeck();
 
 function createDeck() {
-    var suits = ['hearts', 'diamonds', 'spades', 'clubs'];
+    var suits = ['♥', '♦', '♠', '♣'];
     var cardValue = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
     var orderedDeck = []
     
