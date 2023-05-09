@@ -25,21 +25,28 @@ function shuffleDeck() {
 }
 
 function dealStartCards() {
-
+    document.getElementById("player-one");
+    //show two start cards//
+    document.getElementById("dealer");
+    //eventually these two start cards will be hidden//
 }
 
 function valueCards() {
-
+    //automatic coding for what to do with aces//
 }
 
 function drawMore() {
-
+    //dealer has to draw more below 17//
 }
 
 function compareHands() {
-
+    //check what happens if hands are the same//
 }
 
 function displayScore() {
 
+}
+
+function incrementScore() {
+    //show the cumulative total for the player//
 }
