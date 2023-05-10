@@ -27,7 +27,13 @@ let shuffled = shuffleDeck(gameDeck);
 function shuffleDeck(gameDeck) {
     var deckSize = gameDeck.length;
     console.log(deckSize);
-
+        for (let i = deckSize - 1; i > 0; i--) {
+            var newIndex = Math.floor(Math.random() * (i + 1))
+            var oldCard = gameDeck[newIndex]
+            gameDeck[newIndex] = gameDeck[i]
+            gameDeck[i] = oldCard
+        }
+    console.log(gameDeck);
 }
 
 function dealStartCards() {
