@@ -37,11 +37,22 @@ body {
     justify-content: center;
 }
 
-#card {
+#card-front {
     background-color: #fff;
     height: 176px;
     width: 124px;
     border: solid black 2px;
     border-radius: 7px;
     margin: 20px;
+    box-shadow: 1px 1px;
+}
+
+#card-back {
+    background-image: url("images/card_back.png") no-repeat center center;
+    height: 176px;
+    width: 124px;
+    border: solid black 2px;
+    border-radius: 7px;
+    margin: 20px;
+    box-shadow: 1px 1px;
 }
