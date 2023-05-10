@@ -55,6 +55,7 @@ function valueCards() {
 
 function drawMore() {
     //dealer has to draw more below 17//
+    //need a set of buttons to appear//
 }
 
 function compareHands() {
