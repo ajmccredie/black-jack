@@ -46,6 +46,15 @@ function dealStartCards(shuffled) {
     //  deal dealer cards and split the information of suits and values
     let dealerCard1 = shuffled[0];
     let dc1suit = dealerCard1.slice(-1);
+    console.log(dc1suit);
+    if (dc1suit === '♥') {
+        dc1suitColour = "red";
+    } else if (dc1suit === '♦') {
+        dc1suitColour = "red";
+    } else {
+        dc1suitColour = "black";
+    }
+    console.log(dc1suitColour);
     let dc1val = dealerCard1.slice(0, -1);
     console.log(dc1val);
     if (dc1val === "J") {
@@ -62,6 +71,15 @@ function dealStartCards(shuffled) {
     console.log(dc1value);
     let dealerCard2 = shuffled[1];
     let dc2suit = dealerCard2.slice(-1);
+    console.log(dc2suit);
+    if (dc2suit === '♥') {
+        dc2suitColour = "red";
+    } else if (dc2suit === '♦') {
+        dc2suitColour = "red";
+    } else {
+        dc2suitColour = "black";
+    }
+    console.log(dc2suitColour);
     let dc2val = dealerCard2.slice(0, -1);
     console.log(dc2val);
     if (dc2val === "J") {
@@ -82,7 +100,16 @@ function dealStartCards(shuffled) {
     // repeat process for player 1
     let p1Card1 = shuffled[2];
     let p1c1suit = p1Card1.slice(-1);
-    let p1c1val = +p1Card1.slice(0, -1);
+    console.log(p1c1suit);
+    if (p1c1suit === '♥') {
+        p1c1suitColour = "red";
+    } else if (p1c1suit === '♦') {
+        p1c1suitColour = "red";
+    } else {
+        p1c1suitColour = "black";
+    }
+    console.log(p1c1suitColour);
+    let p1c1val = p1Card1.slice(0, -1);
     if (p1c1val === "J") {
         p1c1value = 10;
     } else if (p1c1val === "Q") {
@@ -94,9 +121,19 @@ function dealStartCards(shuffled) {
     } else {
         p1c1value = +p1c1val;
     }
+    console.log(p1c1value);
     let p1Card2 = shuffled[3];
     let p1c2suit = p1Card2.slice(-1);
-    let p1c2val = +p1Card2.slice(0, -1);
+    console.log(p1c2suit);
+    if (p1c2suit === '♥') {
+        p1c2suitColour = "red";
+    } else if (p1c2suit === '♦') {
+        p1c2suitColour = "red";
+    } else {
+        p1c2suitColour = "black";
+    }
+    console.log(p1c2suitColour);
+    let p1c2val = p1Card2.slice(0, -1);
     if (p1c2val === "J") {
         p1c2value = 10;
     } else if (p1c2val === "Q") {
@@ -108,6 +145,7 @@ function dealStartCards(shuffled) {
     } else {
         p1c2value = +p1c2val;
     }
+    console.log(p1c2value);
     p1Tot = p1c1value + p1c2value;
     console.log(p1Tot);
     console.log(`The dealer's cards are ${dealerCard1} and ${dealerCard2}`);
