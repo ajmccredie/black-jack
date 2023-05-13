@@ -41,6 +41,7 @@ dealStartCards(shuffled);
 function dealStartCards(shuffled) {
  //   document.getElementById("player-one");
     let dealerCards = shuffled[0, 1];
+    console.log(dealerCards);
     let p1Cards = shuffled[2, 3];
     console.log(`The dealer's cards are ${dealerCards[0]} and ${dealerCards[1]}`);
     console.log(p1Cards);

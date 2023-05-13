@@ -37,7 +37,7 @@ body {
     justify-content: center;
 }
 
-#card-front {
+.card.front {
     background-color: #fff;
     height: 176px;
     width: 124px;
@@ -47,7 +47,7 @@ body {
     box-shadow: 1px 1px;
 }
 
-#card-back {
+.card.back {
     background-image: url("images/card_back.png") no-repeat center center;
     height: 176px;
     width: 124px;
