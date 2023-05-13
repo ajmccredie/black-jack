@@ -152,7 +152,12 @@ function dealStartCards(shuffled) {
     console.log(`The suit of dealer card 1 is ${dealerCard1.slice(-1)} and its value is ${dealerCard1.slice(0,-1)}`)
     console.log(`The player's cards are ${p1Card1} and ${p1Card2}`);
     //show two start cards//
- //   document.getElementById("dealer");
+    const dC1Div = document.createElement('div')
+    dC1Div.innerText = dc1suit
+    dC1Div.dataset.value = `${dc1val} ${dc1suit}`
+    dC1Div.classList.add("card", "front")
+    console.log(dC1Div);
+    document.getElementById("dealer").appendChild(dC1Div);
     //eventually these two start cards will be hidden//
 }
 
