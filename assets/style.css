@@ -45,10 +45,6 @@ body {
     color: black;
 }
 
-.card.front::before {
-
-}
-
 .card.front {
     background-color: #fff;
     height: 176px;
@@ -61,6 +57,19 @@ body {
     border-radius: 7px;
     margin: 20px;
     box-shadow: 1px 1px grey;
+    position: relative;
+}
+
+.card.front::before {
+    content: attr(data-value);
+    display: flex;
+   /* flex-direction: column; */
+    font-size: 30px;
+    width: 30px;
+    line-height: 21px;
+    position: absolute;
+    top: 7px;
+    left: 5px;
 }
 
 .card.back {
