@@ -39,12 +39,16 @@ let shuffled = shuffleDeck(gameDeck);
 dealStartCards(shuffled);
 
 function dealStartCards(shuffled) {
+    console.log(shuffled);
  //   document.getElementById("player-one");
-    let dealerCards = shuffled[0, 1];
-    console.log(dealerCards);
-    let p1Cards = shuffled[2, 3];
-    console.log(`The dealer's cards are ${dealerCards[0]} and ${dealerCards[1]}`);
-    console.log(p1Cards);
+    
+    let dealerCard1 = shuffled[0];
+    let dealerCard2 = shuffled[1];
+    let p1Card1 = shuffled[2];
+    let p1Card2 = shuffled[3];
+    console.log(`The dealer's cards are ${dealerCard1} and ${dealerCard2}`);
+    console.log(`The suit of dealer card 1 is ${dealerCard1.slice(-1)} and its value is ${dealerCard1.slice(0,-1)}`)
+    console.log(`The player's cards are ${p1Card1} and ${p1Card2}`);
     //show two start cards//
  //   document.getElementById("dealer");
     //eventually these two start cards will be hidden//
