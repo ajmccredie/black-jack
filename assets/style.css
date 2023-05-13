@@ -37,14 +37,30 @@ body {
     justify-content: center;
 }
 
+.red {
+    color: red;
+}
+
+.black {
+    color: black;
+}
+
+.card.front::before {
+
+}
+
 .card.front {
     background-color: #fff;
     height: 176px;
     width: 124px;
-    border: solid black 2px;
+    font-size: 150px;
+    display: flex;
+    justify-content: center;
+    border: solid black 1px;
+    align-items: center;
     border-radius: 7px;
     margin: 20px;
-    box-shadow: 1px 1px;
+    box-shadow: 1px 1px grey;
 }
 
 .card.back {
