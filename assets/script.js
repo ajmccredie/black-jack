@@ -167,6 +167,7 @@ function dealStartCards(shuffled) {
     dealerScore.innerText = dealerTot
     dealerScore.classList.add("score")
     dealer.appendChild(dealerScore);
+    dealerScore.style.display = "none";
 
     const dC2Div = document.createElement('div')
     dC2Div.innerText = dc2suit
@@ -202,15 +203,25 @@ function dealStartCards(shuffled) {
 
 function valueCards() {
     //automatic coding for what to do with aces//
+    dealer = document.querySelector('#dealer');
+    dealerScore = dealer.querySelector('.score');
+    dealerScore.style.display = "block";
+
+    playerOne = document.querySelector('#player-one');
+    playerOneScore = playerOne.querySelector('.score');
+
+    if (playerOneScore >= dealerScore) {
+        console.log("player one wins");
+    } else {
+        console.log("player one loses");
+    }
+    // a better way to display and increment the scores will be needed
 }
 
 function drawMore() {
     //dealer has to draw more below 17//
-    //need a set of buttons to appear//
-}
+    
 
-function compareHands() {
-    //check what happens if hands are the same//
 }
 
 function displayScore() {
