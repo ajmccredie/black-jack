@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <title>Black Jack</title>
     <link rel="stylesheet" href="assets/style.css">
-    <script src="assets/script.js"></script>
+    <script src="assets/script.js" defer></script>
 </head>
 <body>
     <div id="dealer"><div data-value = "3 ♦" class="card front red">♦</div> <div class="card front black" data-value = "10 ♠">♠</div></div>
     <div id="game-title"><h1>Black Jack</h1></div>
-    <div id="button-area"><div id="start-button" onclick="this.parentElement.style.display = 'none';" style="display: none"><h2>Let's Play!</h2></div></div>
+    <div id="button-area"><div id="start-button" onclick="dealStartCards(shuffled)" onclick="this.parentElement.style.display = 'none';" style="display: none"><h2>Let's Play!</h2></div></div>
     <div id="player-one"><div data-value = "J ♣" class="card front">♣</div> <div data-value = "A ♥" class="card front red">♥</div></div>
     <div><button id="stick">Stick</button><button id="twist">Twist</button></div>
     <footer>'♥', '♦', '♠', '♣'</footer>
