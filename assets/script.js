@@ -6,15 +6,6 @@ window.onload = function() {
     btn.style.display = "block";
 }
 
-function loadGameButton() {
-    const btn = document.getElementById("start-button");
-    btn.style.display = "block";
-    btn.innerHTML = "<h2>Let's Play</h2>";
- //   createDeck(); //where this will eventually end up
-}
-
-//createDeck()
-
 function createDeck() {
     const SUITS = ['♥', '♦', '♠', '♣'];
     const CARDVALUE = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
@@ -47,6 +38,8 @@ let shuffled = shuffleDeck(gameDeck);
 dealStartCards(shuffled);
 
 function dealStartCards(shuffled) {
+    const title = document.getElementById("game-title");
+    title.style.display = "none";
     console.log(shuffled);
     //   set initial dealer total to 0
     let dealerTot = 0;
