@@ -160,9 +160,31 @@ function dealStartCards(shuffled) {
     const dC1Div = document.createElement('div')
     dC1Div.innerText = dc1suit
     dC1Div.dataset.value = `${dc1val} ${dc1suit}`
-    dC1Div.classList.add("card", "front")
+    dC1Div.classList.add("card", "front", `${dc1suitColour}`)
     console.log(dC1Div);
     dealer.appendChild(dC1Div);
+
+    const dC2Div = document.createElement('div')
+    dC2Div.innerText = dc2suit
+    dC2Div.dataset.value = `${dc2val} ${dc2suit}`
+    dC2Div.classList.add("card", "front", `${dc2suitColour}`)
+    console.log(dC2Div);
+    dealer.appendChild(dC2Div);
+
+    const playerOne = document.getElementById("player-one");
+    const p1C1Div = document.createElement('div')
+    p1C1Div.innerText = p1c1suit
+    p1C1Div.dataset.value = `${p1c1val} ${p1c1suit}`
+    p1C1Div.classList.add("card", "front", `${p1c1suitColour}`)
+    console.log(p1C1Div);
+    playerOne.appendChild(p1C1Div);
+
+    const p1C2Div = document.createElement('div')
+    p1C2Div.innerText = p1c2suit
+    p1C2Div.dataset.value = `${p1c2val} ${p1c2suit}`
+    p1C2Div.classList.add("card", "front", `${p1c2suitColour}`)
+    console.log(p1C2Div);
+    playerOne.appendChild(p1C2Div);
 
     //eventually these two start cards will be hidden//
 }
