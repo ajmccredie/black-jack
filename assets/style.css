@@ -2,6 +2,8 @@
 
 body {
     background-color: green;
+    background: url(/assets/images/freepik_green_textile_texture.jpg) no-repeat center center;
+    background-size: cover;
 }
 
 #dealer {
@@ -34,6 +36,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-shadow: 3px 3px 0 whitesmoke,
+        -1px -1px 0 whitesmoke;
 }
 
 #start-button {
@@ -41,9 +45,9 @@ body {
     font-size: 13px;
     height: 50px;
     width: 140px;
-    background-color: red;
-    border: solid black 1px;
-    box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+    background-color: rgb(209, 11, 11);
+    border: solid whitesmoke 0.5px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     color: whitesmoke;
     display: flex;
