@@ -282,7 +282,18 @@ function drawMore(shuffled) {
     }
     console.log(dcNvalue);
 
-    
+    let dealer = document.querySelector('#dealer');
+    let dealerScore = dealer.querySelector('.score');
+    let newDealerScore = dealerScore + dcNvalue;
+    console.log(newDealerScore);
+    dealerScore.innerHTML = newDealerScore;
+
+    //need to get current score, add to it and then display new score
+    let playerOneScore = playerOne.querySelector('.score');
+    console.log(playerOneScore);
+    let newPOneScore = playerOneScore + pOcNvalue;
+    console.log(newPOneScore);
+    playerOneScore.innerHTML = newPOneScore;
 
 }
 
