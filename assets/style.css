@@ -10,16 +10,16 @@ body {
     margin-top: 40px;
     margin-left: 10vw;
     margin-right: 10vw;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 #player-one {
     display: flex;
     width: 80vw;
-    margin-top: 40px;
+    margin-top: 140px;
     margin-left: 10vw;
     margin-right: 10vw;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 #button-area {

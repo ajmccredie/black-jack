@@ -163,6 +163,9 @@ function dealStartCards(shuffled) {
     dC1Div.classList.add("card", "front", `${dc1suitColour}`)
     console.log(dC1Div);
     dealer.appendChild(dC1Div);
+    const dealerScore = document.createElement('div')
+    dealerScore.innerText = dealerTot
+    dealer.appendChild(dealerScore);
 
     const dC2Div = document.createElement('div')
     dC2Div.innerText = dc2suit
@@ -178,6 +181,9 @@ function dealStartCards(shuffled) {
     p1C1Div.classList.add("card", "front", `${p1c1suitColour}`)
     console.log(p1C1Div);
     playerOne.appendChild(p1C1Div);
+    const p1Score = document.createElement('div')
+    p1Score.innerText = p1Tot
+    playerOne.appendChild(p1Score);
 
     const p1C2Div = document.createElement('div')
     p1C2Div.innerText = p1c2suit
