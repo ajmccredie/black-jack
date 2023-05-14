@@ -245,6 +245,15 @@ function drawMore(shuffled) {
         pOcNvalue = +pOcNval;
     }
     console.log(pOcNvalue);
+    const playerOne = document.getElementById("player-one");
+    const p1CNDiv = document.createElement('div')
+    p1CNDiv.innerText = pOcNsuit
+    p1CNDiv.dataset.value = `${pOcNval} ${pOcNsuit}`
+    p1CNDiv.classList.add("card", "front", `${pOcNsuitColour}`)
+    console.log(p1CNDiv);
+    playerOne.appendChild(p1CNDiv);
+
+
 
     //dealer has to draw more below 17//
     let dealerCardNext = shuffled.pop();
