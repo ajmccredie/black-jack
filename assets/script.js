@@ -165,6 +165,7 @@ function dealStartCards(shuffled) {
     dealer.appendChild(dC1Div);
     const dealerScore = document.createElement('div')
     dealerScore.innerText = dealerTot
+    dealerScore.classList.add("score")
     dealer.appendChild(dealerScore);
 
     const dC2Div = document.createElement('div')
@@ -183,6 +184,7 @@ function dealStartCards(shuffled) {
     playerOne.appendChild(p1C1Div);
     const p1Score = document.createElement('div')
     p1Score.innerText = p1Tot
+    p1Score.classList.add("score")
     playerOne.appendChild(p1Score);
 
     const p1C2Div = document.createElement('div')
@@ -192,7 +194,10 @@ function dealStartCards(shuffled) {
     console.log(p1C2Div);
     playerOne.appendChild(p1C2Div);
 
-    //eventually these two start cards will be hidden//
+    const stickButton = document.getElementById("stick");
+    stickButton.style.display = "block";
+    const twistButton = document.getElementById("twist");
+    twistButton.style.display = "block";
 }
 
 function valueCards() {
