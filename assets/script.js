@@ -1,11 +1,19 @@
 console.log("Hello from the console");
 
-
-function loadGameButton() {
-
+window.onload = function() {
+    createDeck();
+    const btn = document.getElementById("start-button");
+    btn.style.display = "block";
 }
 
-createDeck();
+function loadGameButton() {
+    const btn = document.getElementById("start-button");
+    btn.style.display = "block";
+    btn.innerHTML = "<h2>Let's Play</h2>";
+ //   createDeck(); //where this will eventually end up
+}
+
+//createDeck()
 
 function createDeck() {
     const SUITS = ['♥', '♦', '♠', '♣'];
