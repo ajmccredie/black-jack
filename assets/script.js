@@ -38,8 +38,10 @@ let shuffled = shuffleDeck(gameDeck);
 //dealStartCards(shuffled);
 
 function dealStartCards(shuffled) {
-  //  const gTitle = document.getElementById("game-title");
-   // gTitle.style.display = "none";
+    const gTitle = document.getElementById("game-title");
+    gTitle.style.display = "none";
+    const btn = document.getElementById("start-button");
+    btn.style.display = "none";
     console.log(shuffled);
     //   set initial dealer total to 0
     let dealerTot = 0;
