@@ -218,8 +218,61 @@ function valueCards() {
     // a better way to display and increment the scores will be needed
 }
 
-function drawMore() {
+function drawMore(shuffled) {
+    console.log(shuffled);
+    let pOCardNext = shuffled.pop();
+    let pOcNsuit = pOCardNext.slice(-1);
+    console.log(pOcNsuit);
+    if (pOcNsuit === '♥') {
+        pOcNsuitColour = "red";
+    } else if (pOcNsuit === '♦') {
+        pOcNsuitColour = "red";
+    } else {
+        pOcNsuitColour = "black";
+    }
+    console.log(pOcNsuitColour);
+    let pOcNval = pOCardNext.slice(0, -1);
+    console.log(pOcNval);
+    if (pOcNval === "J") {
+        pOcNvalue = 10;
+    } else if (pOcNval === "Q") {
+        pOcNvalue = 10;
+    } else if (pOcNval === "K") {
+        pOcNvalue = 10;
+    } else if (pOcNval === "A") {
+        pOcNvalue = 11;
+    } else {
+        pOcNvalue = +pOcNval;
+    }
+    console.log(pOcNvalue);
+
     //dealer has to draw more below 17//
+    let dealerCardNext = shuffled.pop();
+    let dcNsuit = dealerCardNext.slice(-1);
+    console.log(dcNsuit);
+    if (dcNsuit === '♥') {
+        dcNsuitColour = "red";
+    } else if (dcNsuit === '♦') {
+        dcNsuitColour = "red";
+    } else {
+        dcNsuitColour = "black";
+    }
+    console.log(dcNsuitColour);
+    let dcNval = dealerCardNext.slice(0, -1);
+    console.log(dcNval);
+    if (dcNval === "J") {
+        dcNvalue = 10;
+    } else if (dcNval === "Q") {
+        dcNvalue = 10;
+    } else if (dcNval === "K") {
+        dcNvalue = 10;
+    } else if (dcNval === "A") {
+        dcNvalue = 11;
+    } else {
+        dcNvalue = +dcNval;
+    }
+    console.log(dcNvalue);
+
     
 
 }
