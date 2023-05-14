@@ -102,9 +102,12 @@ body {
 }
 
 .card.back {
-    background-image: url("images/card_back.png") no-repeat center center;
     height: 176px;
     width: 124px;
+    background: url("/assets/images/card_back.png") no-repeat center center;
+    background-size: 134px 186px;
+    overflow: hidden;
+    font-size: 0.5px;
     border: solid black 2px;
     border-radius: 7px;
     margin: 20px;

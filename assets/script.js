@@ -160,7 +160,7 @@ function dealStartCards(shuffled) {
     const dC1Div = document.createElement('div')
     dC1Div.innerText = dc1suit
     dC1Div.dataset.value = `${dc1val} ${dc1suit}`
-    dC1Div.classList.add("card", "front", `${dc1suitColour}`)
+    dC1Div.classList.add("card", "back", `${dc1suitColour}`)
     console.log(dC1Div);
     dealer.appendChild(dC1Div);
     const dealerScore = document.createElement('div')
@@ -170,7 +170,7 @@ function dealStartCards(shuffled) {
     const dC2Div = document.createElement('div')
     dC2Div.innerText = dc2suit
     dC2Div.dataset.value = `${dc2val} ${dc2suit}`
-    dC2Div.classList.add("card", "front", `${dc2suitColour}`)
+    dC2Div.classList.add("card", "back", `${dc2suitColour}`)
     console.log(dC2Div);
     dealer.appendChild(dC2Div);
 
