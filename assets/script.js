@@ -23,7 +23,6 @@ let gameDeck = createDeck();
 
 function shuffleDeck(gameDeck) {
     var deckSize = gameDeck.length;
-    console.log(deckSize);
         for (let i = deckSize - 1; i > 0; i--) {
             var newIndex = Math.floor(Math.random() * (i + 1))
             var oldCard = gameDeck[newIndex]
@@ -207,6 +206,17 @@ function valueCards() {
     dealerScore = dealer.querySelector('.score');
     dealerScore.style.display = "block";
 
+    dealerCards = dealer.querySelectorAll('.card');
+    console.log(dealerCards);
+    var cardPile = dealerCards.length;
+    for (let i = cardPile - 1; i >= 0; i--) {
+        console.log(dealerCards[i]);
+        dealerCard = dealerCards[i];
+        dealerCard.classList.remove("back");
+        dealerCard.classList.add("front");
+    }
+    
+
     playerOne = document.querySelector('#player-one');
     playerOneScore = playerOne.querySelector('.score');
 
@@ -258,7 +268,8 @@ function drawMore(shuffled) {
 
     //dealer has to draw more below 17//
     let dealer = document.querySelector('#dealer');
-    let dealerScore = parseInt(dealer.querySelector('.score').value);
+    let dealerScore = parseInt(dealer.querySelector('.score').innerText);
+    console.log(dealerScore);
     
     if (dealerScore <= 17) {
         let dealerCardNext = shuffled.pop();
@@ -287,6 +298,13 @@ function drawMore(shuffled) {
         }
         console.log(dcNvalue);
 
+        const dCNDiv = document.createElement('div')
+        dCNDiv.innerText = dcNsuit
+        dCNDiv.dataset.value = `${dcNval} ${dcNsuit}`
+        dCNDiv.classList.add("card", "back", `${dcNsuitColour}`)
+        console.log(dCNDiv);
+        dealer.appendChild(dCNDiv);
+
         let newDealerScore = dealerScore + dcNvalue;
         console.log(newDealerScore);
         dealerScore.innerHTML = newDealerScore;
@@ -294,7 +312,7 @@ function drawMore(shuffled) {
     
 
     //need to get current score, add to it and then display new score
-    let playerOneScore = parseInt(playerOne.querySelector('.score').value);
+    let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
     console.log(playerOneScore);
     let newPOneScore = playerOneScore + pOcNvalue;
     console.log(newPOneScore);
