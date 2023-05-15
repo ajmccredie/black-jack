@@ -215,19 +215,7 @@ function valueCards() {
         dealerCard.classList.remove("back");
         dealerCard.classList.add("front");
     }
-    
-
-    playerOne = document.querySelector('#player-one');
-    playerOneScore = playerOne.querySelector('.score');
-
-    displayScore();
-
-    if (playerOneScore >= dealerScore) {
-        console.log("player one wins");
-    } else {
-        console.log("player one loses");
-    }
-    // a better way to display and increment the scores will be needed
+    displayScore()
 }
 
 function drawMore(shuffled) {
@@ -264,6 +252,13 @@ function drawMore(shuffled) {
     p1CNDiv.classList.add("card", "front", `${pOcNsuitColour}`)
     console.log(p1CNDiv);
     playerOne.appendChild(p1CNDiv);
+    //need to get current score, add to it and then display new score
+    let playerOneS = document.getElementById("player-one");
+    let playerOneScore = parseInt(playerOneS.querySelector('.score').innerText);
+    console.log(playerOneScore);
+    let newPOneScore = +playerOneScore + pOcNvalue;
+    console.log(newPOneScore);
+    playerOneScore.innerHTML = newPOneScore;
 
 
     //dealer has to draw more below 17//
@@ -305,23 +300,29 @@ function drawMore(shuffled) {
         console.log(dCNDiv);
         dealer.appendChild(dCNDiv);
 
-        let newDealerScore = dealerScore + dcNvalue;
+        let newDealerScore = +dealerScore + dcNvalue;
         console.log(newDealerScore);
         dealerScore.innerHTML = newDealerScore;
     }
-    
-
-    //need to get current score, add to it and then display new score
-    let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
-    console.log(playerOneScore);
-    let newPOneScore = playerOneScore + pOcNvalue;
-    console.log(newPOneScore);
-    playerOneScore.innerHTML = newPOneScore;
-
 }
 
 function displayScore() {
+    let playerOne = document.querySelector('#player-one');
+    let playerOneScore = playerOne.querySelector('.score');
 
+    let dealer = document.querySelector('#dealer');
+    let dealerScore = playerOne.querySelector('.score');
+
+    if (playerOneScore > 21) {
+        console.log("player one is bust");
+    } else if (dealerScore > 21) {
+        console.log("player one wins");
+    } else if (playerOneScore >= dealerScore) {
+        console.log("player one wins");
+    } else {
+        console.log("player one loses");
+    }
+    // a better way to display and increment the scores will be needed
 }
 
 function incrementScore() {
