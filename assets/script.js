@@ -210,6 +210,8 @@ function valueCards() {
     playerOne = document.querySelector('#player-one');
     playerOneScore = playerOne.querySelector('.score');
 
+    displayScore();
+
     if (playerOneScore >= dealerScore) {
         console.log("player one wins");
     } else {
@@ -254,42 +256,45 @@ function drawMore(shuffled) {
     playerOne.appendChild(p1CNDiv);
 
 
-
     //dealer has to draw more below 17//
-    let dealerCardNext = shuffled.pop();
-    let dcNsuit = dealerCardNext.slice(-1);
-    console.log(dcNsuit);
-    if (dcNsuit === '♥') {
-        dcNsuitColour = "red";
-    } else if (dcNsuit === '♦') {
-        dcNsuitColour = "red";
-    } else {
-        dcNsuitColour = "black";
-    }
-    console.log(dcNsuitColour);
-    let dcNval = dealerCardNext.slice(0, -1);
-    console.log(dcNval);
-    if (dcNval === "J") {
-        dcNvalue = 10;
-    } else if (dcNval === "Q") {
-        dcNvalue = 10;
-    } else if (dcNval === "K") {
-        dcNvalue = 10;
-    } else if (dcNval === "A") {
-        dcNvalue = 11;
-    } else {
-        dcNvalue = +dcNval;
-    }
-    console.log(dcNvalue);
-
     let dealer = document.querySelector('#dealer');
-    let dealerScore = dealer.querySelector('.score');
-    let newDealerScore = dealerScore + dcNvalue;
-    console.log(newDealerScore);
-    dealerScore.innerHTML = newDealerScore;
+    let dealerScore = parseInt(dealer.querySelector('.score').value);
+    
+    if (dealerScore <= 17) {
+        let dealerCardNext = shuffled.pop();
+        let dcNsuit = dealerCardNext.slice(-1);
+        console.log(dcNsuit);
+        if (dcNsuit === '♥') {
+            dcNsuitColour = "red";
+        } else if (dcNsuit === '♦') {
+            dcNsuitColour = "red";
+        } else {
+            dcNsuitColour = "black";
+        }
+        console.log(dcNsuitColour);
+        let dcNval = dealerCardNext.slice(0, -1);
+        console.log(dcNval);
+        if (dcNval === "J") {
+            dcNvalue = 10;
+        } else if (dcNval === "Q") {
+            dcNvalue = 10;
+        } else if (dcNval === "K") {
+            dcNvalue = 10;
+        } else if (dcNval === "A") {
+            dcNvalue = 11;
+        } else {
+            dcNvalue = +dcNval;
+        }
+        console.log(dcNvalue);
+
+        let newDealerScore = dealerScore + dcNvalue;
+        console.log(newDealerScore);
+        dealerScore.innerHTML = newDealerScore;
+    }
+    
 
     //need to get current score, add to it and then display new score
-    let playerOneScore = playerOne.querySelector('.score');
+    let playerOneScore = parseInt(playerOne.querySelector('.score').value);
     console.log(playerOneScore);
     let newPOneScore = playerOneScore + pOcNvalue;
     console.log(newPOneScore);
