@@ -183,6 +183,11 @@ function dealStartCards(shuffled) {
     console.log(p1C1Div);
     playerOne.appendChild(p1C1Div);
     const p1Score = document.createElement('div')
+    if (p1Tot == 22) {
+        p1Tot = p1Tot - 10;
+    } else {
+        p1Tot = p1Tot;
+    }
     p1Score.innerText = p1Tot
     p1Score.classList.add("score")
     playerOne.appendChild(p1Score);
@@ -258,8 +263,7 @@ function drawMore(shuffled) {
     console.log(playerOneScore);
     let newPOneScore = +playerOneScore + pOcNvalue;
     console.log(newPOneScore);
-    playerOneScore.innerHTML = newPOneScore;
-
+    playerOneS.querySelector('.score').innerText = newPOneScore
 
     //dealer has to draw more below 17//
     let dealer = document.querySelector('#dealer');
@@ -302,16 +306,19 @@ function drawMore(shuffled) {
 
         let newDealerScore = +dealerScore + dcNvalue;
         console.log(newDealerScore);
-        dealerScore.innerHTML = newDealerScore;
+        dealerScore.innerText = newDealerScore
+        dealer.querySelector('.score').innerText = newDealerScore
     }
 }
 
 function displayScore() {
     let playerOne = document.querySelector('#player-one');
-    let playerOneScore = playerOne.querySelector('.score');
+    let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
+    console.log(`Player one scored ${playerOneScore}`)
 
     let dealer = document.querySelector('#dealer');
-    let dealerScore = playerOne.querySelector('.score');
+    let dealerScore = parseInt(dealer.querySelector('.score').innerText);
+    console.log(`Dealer scored ${dealerScore}`)
 
     if (playerOneScore > 21) {
         console.log("player one is bust");
