@@ -311,6 +311,10 @@ function drawMore(shuffled) {
         dealerScore.innerText = newDealerScore
         dealer.querySelector('.score').innerText = newDealerScore
     }
+    
+    if (newPOneScore > 21) {
+        displayScore()
+    }
 }
 
 function displayScore() {
