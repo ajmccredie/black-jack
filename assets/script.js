@@ -262,6 +262,7 @@ function drawMore(shuffled) {
     let playerOneScore = parseInt(playerOneS.querySelector('.score').innerText);
     console.log(playerOneScore);
     let newPOneScore = +playerOneScore + pOcNvalue;
+    //if (newDealerScore)                                 need some code here to deal with Aces
     console.log(newPOneScore);
     playerOneS.querySelector('.score').innerText = newPOneScore
 
@@ -305,6 +306,7 @@ function drawMore(shuffled) {
         dealer.appendChild(dCNDiv);
 
         let newDealerScore = +dealerScore + dcNvalue;
+        //if (newDealerScore)                                 need some code here to deal with Aces
         console.log(newDealerScore);
         dealerScore.innerText = newDealerScore
         dealer.querySelector('.score').innerText = newDealerScore
@@ -320,15 +322,37 @@ function displayScore() {
     let dealerScore = parseInt(dealer.querySelector('.score').innerText);
     console.log(`Dealer scored ${dealerScore}`)
 
+    const gameEndQuery = document.createElement('div')
+    let startAgain = document.querySelector('#start-over')
+    startAgain.style.display = "block";
     if (playerOneScore > 21) {
         console.log("player one is bust");
+        message = "You have gone bust. The dealer wins";
     } else if (dealerScore > 21) {
         console.log("player one wins");
+        message = "You win!";
     } else if (playerOneScore >= dealerScore) {
         console.log("player one wins");
+        message = "You win!";
     } else {
         console.log("player one loses");
+        message = "The dealer wins.";
     }
+
+    console.log(message);
+    const reDraw = document.createElement('button')
+    reDraw.innerText = "Reshuffle and start again."
+
+    const playAgain = document.createElement('button')
+    playAgain.innerText = "Continue to the next round."
+
+    gameEndQuery.innerText = message
+
+    //gameEndQuery.classList.add("card", "back", `${dcNsuitColour}`)
+    startAgain.appendChild(gameEndQuery);
+    startAgain.appendChild(reDraw);
+    startAgain.appendChild(playAgain);
+
     // a better way to display and increment the scores will be needed
 }
 
