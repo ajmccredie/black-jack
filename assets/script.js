@@ -348,7 +348,7 @@ function displayScore() {
 
     gameEndQuery.innerText = message
 
-    //gameEndQuery.classList.add("card", "back", `${dcNsuitColour}`)
+    startAgain.classList.add("game-end-pop-up")
     startAgain.appendChild(gameEndQuery);
     startAgain.appendChild(reDraw);
     startAgain.appendChild(playAgain);

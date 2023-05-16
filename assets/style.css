@@ -149,3 +149,33 @@ footer {
     bottom: auto;
     height: 150px;
 }
+
+.game-end-pop-up {
+    height: 300px;
+    width: 300px;
+    font-family: "Josefin", Verdana, sans-serif;
+    font-size: 36px;
+    color: whitesmoke;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    border: solid black 2px;
+    justify-content: center;
+}
+
+.game-end-pop-up button {
+    font-family: "Josefin", Verdana, sans-serif;
+    font-size: 12px;
+    width: 140px;
+    margin: 30px;
+    background-color: rgb(209, 11, 11);
+    border: solid whitesmoke 0.5px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    color: whitesmoke;
+    cursor: pointer;
+    letter-spacing: 1.5px;
+    align-items: wrap;
+}
