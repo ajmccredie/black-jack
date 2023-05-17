@@ -46,7 +46,7 @@ function dealStartCards(shuffled) {
     let dealerTot = 0;
     let p1Tot = 0;
     //  deal dealer cards and split the information of suits and values
-    let dealerCard1 = shuffled[0];
+    let dealerCard1 = shuffled.pop();
     let dc1suit = dealerCard1.slice(-1);
     console.log(dc1suit);
     if (dc1suit === '♥') {
@@ -71,7 +71,7 @@ function dealStartCards(shuffled) {
         dc1value = +dc1val;
     }
     console.log(dc1value);
-    let dealerCard2 = shuffled[1];
+    let dealerCard2 = shuffled.pop();
     let dc2suit = dealerCard2.slice(-1);
     console.log(dc2suit);
     if (dc2suit === '♥') {
@@ -100,7 +100,7 @@ function dealStartCards(shuffled) {
     dealerTot = dc1value + dc2value;
     console.log(dealerTot);
     // repeat process for player 1
-    let p1Card1 = shuffled[2];
+    let p1Card1 = shuffled.pop();
     let p1c1suit = p1Card1.slice(-1);
     console.log(p1c1suit);
     if (p1c1suit === '♥') {
@@ -124,7 +124,7 @@ function dealStartCards(shuffled) {
         p1c1value = +p1c1val;
     }
     console.log(p1c1value);
-    let p1Card2 = shuffled[3];
+    let p1Card2 = shuffled.pop();
     let p1c2suit = p1Card2.slice(-1);
     console.log(p1c2suit);
     if (p1c2suit === '♥') {
