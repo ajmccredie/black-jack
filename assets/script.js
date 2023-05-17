@@ -214,6 +214,7 @@ function valueCards() {
     
     //this will need to become a while loop
     while (dealerScore < playerOneScore) {
+        console.log("We're in the loop!")
         let dealerCardNext = shuffled.pop();
         let dcNsuit = dealerCardNext.slice(-1);
         console.log(dcNsuit);
@@ -312,52 +313,6 @@ function drawMore(shuffled) {
     console.log(newPOneScore);
     playerOneS.querySelector('.score').innerText = newPOneScore
 
-    //dealer has to draw more below 17//
-    let dealer = document.querySelector('#dealer');
-    let dealerScore = parseInt(dealer.querySelector('.score').innerText);
-    console.log(dealerScore);
-    
-    if (dealerScore <= 17) {
-        let dealerCardNext = shuffled.pop();
-        let dcNsuit = dealerCardNext.slice(-1);
-        console.log(dcNsuit);
-        if (dcNsuit === '♥') {
-            dcNsuitColour = "red";
-        } else if (dcNsuit === '♦') {
-            dcNsuitColour = "red";
-        } else {
-            dcNsuitColour = "black";
-        }
-        console.log(dcNsuitColour);
-        let dcNval = dealerCardNext.slice(0, -1);
-        console.log(dcNval);
-        if (dcNval === "J") {
-            dcNvalue = 10;
-        } else if (dcNval === "Q") {
-            dcNvalue = 10;
-        } else if (dcNval === "K") {
-            dcNvalue = 10;
-        } else if (dcNval === "A") {
-            dcNvalue = 11;
-        } else {
-            dcNvalue = +dcNval;
-        }
-        console.log(dcNvalue);
-
-        const dCNDiv = document.createElement('div')
-        dCNDiv.innerText = dcNsuit
-        dCNDiv.dataset.value = `${dcNval} ${dcNsuit}`
-        dCNDiv.classList.add("card", "back", `${dcNsuitColour}`)
-        console.log(dCNDiv);
-        dealer.appendChild(dCNDiv);
-
-        let newDealerScore = +dealerScore + dcNvalue;
-        //if (newDealerScore)                                 need some code here to deal with Aces
-        console.log(newDealerScore);
-        dealerScore.innerText = newDealerScore
-        dealer.querySelector('.score').innerText = newDealerScore
-    }
-    
     if (newPOneScore > 21) {
         displayScore()
     }
