@@ -397,5 +397,25 @@ function clearCurrentcards() {
 }
 
 function incrementScore() {
-    //show the cumulative total for the player//
+    let scoreArea = document.querySelector('#running-score');
+    scoreArea.style.display = "flex";
+    
+    //parseInt of current scores
+
+    //create and write the text for dealer and player
+
+    if (playerOneScore > 21) {
+        dealerCumulative++
+    } else if (dealerScore > 21) {
+        playerCumulative++
+    } else if (playerOneScore >= dealerScore) {
+        playerCumulative++
+    } else {
+        dealerCumulative++
+    }
+
+    console.log(dealerCumulative);
+    console.log(playerCumulative);
+
+    // access and update both HTML
 }
