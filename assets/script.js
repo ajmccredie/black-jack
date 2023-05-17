@@ -249,6 +249,12 @@ function valueCards() {
         dealer.appendChild(dCNDiv);
 
         let newDealerScore = +dealerScore + dcNvalue;
+        
+        if (newDealerScore > 21) {
+            if (dcNval === "A") {
+                newDealerScore = newDealerScore - 10;
+            } //else if ()                                      need to access the other cards attributes
+        }
         //if (newDealerScore)                                 need some code here to deal with Aces
         console.log(newDealerScore);
         dealerScore.innerText = newDealerScore
@@ -354,11 +360,11 @@ function displayScore() {
 
     gameEndQuery.innerText = message
 
-    startAgain.classList.add("game-end-pop-up")
+    gameEndQuery.classList.add("game-end-pop-up")
     startAgain.appendChild(gameEndQuery);
-    startAgain.appendChild(reDraw);
+    gameEndQuery.appendChild(reDraw);
     
-    startAgain.appendChild(playAgain);
+    gameEndQuery.appendChild(playAgain);
 
     // a better way to display and increment the scores will be needed
 }
