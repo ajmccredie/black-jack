@@ -352,11 +352,18 @@ function displayScore() {
 
     console.log(message);
     const reDraw = document.createElement('button')
+    reDraw.classList.add("reDraw")
     reDraw.innerText = "Reshuffle and start again"
-    reDraw.addEventListener("click", createDeck());  
+    reDraw.addEventListener("click", function () {
+        createDeck();
+      });
 
     const playAgain = document.createElement('button')
     playAgain.innerText = "Continue to the next round"
+    playAgain.addEventListener("click", function () {
+        dealStartCards(shuffled);
+      });
+    console.log(shuffled)
 
     gameEndQuery.innerText = message
 
