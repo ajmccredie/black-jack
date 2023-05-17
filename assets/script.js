@@ -156,13 +156,13 @@ function dealStartCards(shuffled) {
     //show two start cards//
     
     const dealer = document.getElementById("dealer");
+    const dealerScore = document.createElement('div')
     const dC1Div = document.createElement('div')
     dC1Div.innerText = dc1suit
     dC1Div.dataset.value = `${dc1val} ${dc1suit}`
     dC1Div.classList.add("card", "back", `${dc1suitColour}`)
     console.log(dC1Div);
     dealer.appendChild(dC1Div);
-    const dealerScore = document.createElement('div')
     dealerScore.innerText = dealerTot
     dealerScore.classList.add("score")
     dealer.appendChild(dealerScore);
@@ -176,12 +176,6 @@ function dealStartCards(shuffled) {
     dealer.appendChild(dC2Div);
 
     const playerOne = document.getElementById("player-one");
-    const p1C1Div = document.createElement('div')
-    p1C1Div.innerText = p1c1suit
-    p1C1Div.dataset.value = `${p1c1val} ${p1c1suit}`
-    p1C1Div.classList.add("card", "front", `${p1c1suitColour}`)
-    console.log(p1C1Div);
-    playerOne.appendChild(p1C1Div);
     const p1Score = document.createElement('div')
     if (p1Tot == 22) {
         p1Tot = p1Tot - 10;
@@ -191,6 +185,12 @@ function dealStartCards(shuffled) {
     p1Score.innerText = p1Tot
     p1Score.classList.add("score")
     playerOne.appendChild(p1Score);
+    const p1C1Div = document.createElement('div')
+    p1C1Div.innerText = p1c1suit
+    p1C1Div.dataset.value = `${p1c1val} ${p1c1suit}`
+    p1C1Div.classList.add("card", "front", `${p1c1suitColour}`)
+    console.log(p1C1Div);
+    playerOne.appendChild(p1C1Div);
 
     const p1C2Div = document.createElement('div')
     p1C2Div.innerText = p1c2suit
