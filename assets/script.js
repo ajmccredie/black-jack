@@ -345,10 +345,10 @@ function displayScore() {
 
     console.log(message);
     const reDraw = document.createElement('button')
-    reDraw.innerText = "Reshuffle and start again."
+    reDraw.innerText = "Reshuffle and start again"
 
     const playAgain = document.createElement('button')
-    playAgain.innerText = "Continue to the next round."
+    playAgain.innerText = "Continue to the next round"
 
     gameEndQuery.innerText = message
 
