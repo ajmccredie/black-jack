@@ -213,7 +213,7 @@ function valueCards() {
     console.log(dealerScore);
     
     //this will need to become a while loop
-    if (dealerScore <= 21 && dealerScore < playerOneScore) {
+    while (dealerScore < playerOneScore) {
         let dealerCardNext = shuffled.pop();
         let dcNsuit = dealerCardNext.slice(-1);
         console.log(dcNsuit);
@@ -252,6 +252,9 @@ function valueCards() {
         console.log(newDealerScore);
         dealerScore.innerText = newDealerScore
         dealer.querySelector('.score').innerText = newDealerScore
+        if (dealerScore > 21) {
+            displayScore()
+        }
     }
 
     dealerCards = dealer.querySelectorAll('.card');
