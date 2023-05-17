@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Libre+Bodoni&display=swap');
 
 body {
+    height: 100vh;
     background: rgb(2, 76, 50) center/cover url(/assets/images/freepik_green_textile_texture.jpg) no-repeat;
     overflow: hidden;
 }
@@ -203,5 +204,48 @@ footer {
  
  /* for small screens 800px and down */
  @media screen and (max-width: 800px) {
+    #dealer {
+        margin-top: 60px;
+        margin-left: 10vw;
+    }
 
+    #game-title {
+        font-size: 60px;
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+       
+    #start-button {
+        font-size: 18px;
+        padding: 10px;
+        height: 60px;
+        width: 200px;
+    }
+
+    .card.front {
+        font-size: 70px;
+    }
+    #start-over {
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .game-end-pop-up {
+        width: 200px;
+        font-family: "Libre Bodoni", Times, serif;
+        font-size: 38px;
+        color: whitesmoke;
+        background-color: black;
+        display: flex;
+        padding: 50px;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 5px;
+        border: solid whitesmoke 2px;
+        justify-content: center;
+        box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+    }
+    
 }
