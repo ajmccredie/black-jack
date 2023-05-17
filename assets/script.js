@@ -389,6 +389,7 @@ function displayScore() {
     console.log(message);
     const reDraw = document.createElement('button')
     reDraw.innerText = "Reshuffle and start again"
+    reDraw.addEventListener("click", createDeck());  
 
     const playAgain = document.createElement('button')
     playAgain.innerText = "Continue to the next round"
@@ -398,6 +399,7 @@ function displayScore() {
     startAgain.classList.add("game-end-pop-up")
     startAgain.appendChild(gameEndQuery);
     startAgain.appendChild(reDraw);
+    
     startAgain.appendChild(playAgain);
 
     // a better way to display and increment the scores will be needed
