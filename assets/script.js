@@ -149,12 +149,8 @@ function dealStartCards(shuffled) {
     }
     console.log(p1c2value);
     p1Tot = p1c1value + p1c2value;
-    console.log(p1Tot);
-    console.log(`The dealer's cards are ${dealerCard1} and ${dealerCard2}`);
-    console.log(`The suit of dealer card 1 is ${dealerCard1.slice(-1)} and its value is ${dealerCard1.slice(0,-1)}`)
-    console.log(`The player's cards are ${p1Card1} and ${p1Card2}`);
-    //show two start cards//
     
+    //show two start cards//
     const dealer = document.getElementById("dealer");
     const dealerScore = document.createElement('div')
     const dC1Div = document.createElement('div')
@@ -167,6 +163,7 @@ function dealStartCards(shuffled) {
     dealerScore.classList.add("score")
     dealer.appendChild(dealerScore);
     dealerScore.style.display = "none";
+    dealer.appendChild(dC1Div);
 
     const dC2Div = document.createElement('div')
     dC2Div.innerText = dc2suit
@@ -206,10 +203,56 @@ function dealStartCards(shuffled) {
 }
 
 function valueCards() {
-    //automatic coding for what to do with aces//
+    //dealer needs to draw more on player stick
     dealer = document.querySelector('#dealer');
     dealerScore = dealer.querySelector('.score');
     dealerScore.style.display = "block";
+
+    let playerOne = document.querySelector('#player-one');
+    let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
+    console.log(dealerScore);
+    
+    //this will need to become a while loop
+    if (dealerScore <= 21 && dealerScore < playerOneScore) {
+        let dealerCardNext = shuffled.pop();
+        let dcNsuit = dealerCardNext.slice(-1);
+        console.log(dcNsuit);
+        if (dcNsuit === '♥') {
+            dcNsuitColour = "red";
+        } else if (dcNsuit === '♦') {
+            dcNsuitColour = "red";
+        } else {
+            dcNsuitColour = "black";
+        }
+        console.log(dcNsuitColour);
+        let dcNval = dealerCardNext.slice(0, -1);
+        console.log(dcNval);
+        if (dcNval === "J") {
+            dcNvalue = 10;
+        } else if (dcNval === "Q") {
+            dcNvalue = 10;
+        } else if (dcNval === "K") {
+            dcNvalue = 10;
+        } else if (dcNval === "A") {
+            dcNvalue = 11;
+        } else {
+            dcNvalue = +dcNval;
+        }
+        console.log(dcNvalue);
+
+        const dCNDiv = document.createElement('div')
+        dCNDiv.innerText = dcNsuit
+        dCNDiv.dataset.value = `${dcNval} ${dcNsuit}`
+        dCNDiv.classList.add("card", "back", `${dcNsuitColour}`)
+        console.log(dCNDiv);
+        dealer.appendChild(dCNDiv);
+
+        let newDealerScore = +dealerScore + dcNvalue;
+        //if (newDealerScore)                                 need some code here to deal with Aces
+        console.log(newDealerScore);
+        dealerScore.innerText = newDealerScore
+        dealer.querySelector('.score').innerText = newDealerScore
+    }
 
     dealerCards = dealer.querySelectorAll('.card');
     console.log(dealerCards);
