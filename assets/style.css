@@ -189,3 +189,19 @@ footer {
     letter-spacing: 1.5px;
     align-items: wrap;
 }
+
+/* media queries */
+/* For larger to medium screens size from 1200px wide and down */
+@media screen and (max-width: 1200px) {
+
+}
+  
+ /* for medium screen sizes from 950px wide and down */
+ @media screen and (max-width: 950px) {
+
+ }
+ 
+ /* for small screens 800px and down */
+ @media screen and (max-width: 800px) {
+
+}
