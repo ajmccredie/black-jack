@@ -210,7 +210,6 @@ function valueCards() {
 
     let playerOne = document.querySelector('#player-one');
     let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
-    console.log(dealerScore);
     
     //this will need to become a while loop
     while (dealerScore < playerOneScore) {
@@ -327,11 +326,9 @@ function drawMore(shuffled) {
 function displayScore() {
     let playerOne = document.querySelector('#player-one');
     let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
-    console.log(`Player one scored ${playerOneScore}`)
 
     let dealer = document.querySelector('#dealer');
     let dealerScore = parseInt(dealer.querySelector('.score').innerText);
-    console.log(`Dealer scored ${dealerScore}`)
 
     const gameEndQuery = document.createElement('div')
     let startAgain = document.querySelector('#start-over')
@@ -355,25 +352,48 @@ function displayScore() {
     reDraw.classList.add("reDraw")
     reDraw.innerText = "Reshuffle and start again"
     reDraw.addEventListener("click", function () {
-        createDeck();
+        location.reload();
       });
 
     const playAgain = document.createElement('button')
     playAgain.innerText = "Continue to the next round"
     playAgain.addEventListener("click", function () {
-        dealStartCards(shuffled);
+        clearCurrentcards();
       });
-    console.log(shuffled)
 
     gameEndQuery.innerText = message
-
     gameEndQuery.classList.add("game-end-pop-up")
     startAgain.appendChild(gameEndQuery);
     gameEndQuery.appendChild(reDraw);
-    
     gameEndQuery.appendChild(playAgain);
+}
 
-    // a better way to display and increment the scores will be needed
+function clearCurrentcards() {
+    // clear the decks to play again
+    function removeAllChildNodes(parent) {
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
+    }
+
+    let startAgain = document.querySelector('#start-over')
+    removeAllChildNodes(startAgain);
+
+    let playerOne = document.querySelector('#player-one');
+    // reset code found from javascripttutorial.net
+    
+    function removeAllChildNodes(parent) {
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
+    }
+    
+    removeAllChildNodes(playerOne);
+
+    let dealer = document.querySelector('#dealer');
+    removeAllChildNodes(dealer);
+
+    dealStartCards(shuffled)
 }
 
 function incrementScore() {
