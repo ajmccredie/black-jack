@@ -328,7 +328,7 @@ function displayScore() {
 
     const gameEndQuery = document.createElement('div')
     let startAgain = document.querySelector('#start-over')
-    startAgain.style.display = "block";
+    startAgain.style.display = "flex";
     if (playerOneScore > 21) {
         console.log("player one is bust");
         message = "You have gone bust. The dealer wins";
