@@ -324,6 +324,11 @@ function drawMore(shuffled) {
 }
 
 function displayScore() {
+    const stickButton = document.getElementById("stick");
+    stickButton.style.display = "none";
+    const twistButton = document.getElementById("twist");
+    twistButton.style.display = "none";    
+
     let playerOne = document.querySelector('#player-one');
     let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
 
