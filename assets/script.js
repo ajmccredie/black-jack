@@ -1,5 +1,3 @@
-console.log("Hello from the console");
-
 window.onload = function() {
     createDeck();
     const btn = document.getElementById("start-button");
@@ -21,6 +19,7 @@ function createDeck() {
 
 let gameDeck = createDeck();
 
+//the shuffle process of swapping index contents was inspired by XXX
 function shuffleDeck(gameDeck) {
     var deckSize = gameDeck.length;
         for (let i = deckSize - 1; i > 0; i--) {
@@ -97,8 +96,13 @@ function dealStartCards(shuffled) {
     }
     console.log(dc2value);
     //  find the dealer's current card total
-    dealerTot = dc1value + dc2value;
+    if 	(dc1value == "A" && dc2value == "A") {
+        dc1value = 1;
+    } else {
+        dealerTot = dc1value + dc2value;
+    }
     console.log(dealerTot);
+    
     // repeat process for player 1
     let p1Card1 = shuffled.pop();
     let p1c1suit = p1Card1.slice(-1);
@@ -148,7 +152,11 @@ function dealStartCards(shuffled) {
         p1c2value = +p1c2val;
     }
     console.log(p1c2value);
-    p1Tot = p1c1value + p1c2value;
+    if 	(p1c1val == "A" && p1c2val == "A") {
+        p1c1value = 1;
+    } else {
+        p1Tot = p1c1value + p1c2value;
+    }
     
     //show two start cards//
     const dealer = document.getElementById("dealer");
@@ -174,11 +182,6 @@ function dealStartCards(shuffled) {
 
     const playerOne = document.getElementById("player-one");
     const p1Score = document.createElement('div')
-    if (p1Tot == 22) {
-        p1Tot = p1Tot - 10;
-    } else {
-        p1Tot = p1Tot;
-    }
     p1Score.innerText = p1Tot
     p1Score.classList.add("score")
     playerOne.appendChild(p1Score);
@@ -203,17 +206,27 @@ function dealStartCards(shuffled) {
 }
 
 function valueCards() {
-    //dealer needs to draw more on player stick
+    //dealer needs to draw more on player stick if their score is lower
     dealer = document.querySelector('#dealer');
     dealerScore = dealer.querySelector('.score');
     dealerScore.style.display = "block";
+    dealerScore = dealerScore.innerText;
+
+    //need to access the data-values of divs 2 and 3 of dealer (div 1 is the score)
+    dc1val = document.querySelector('#dealer :nth-child(2)');
+    dc1value = dc1val.dataset.value;
+    console.log(dc1value);
+    dc2val = document.querySelector('#dealer :nth-child(3)');
+    dc2value = dc2val.dataset.value;
+    console.log(dc2value);
 
     let playerOne = document.querySelector('#player-one');
     let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
+    console.log(dealerScore);
+    console.log(playerOneScore);
     
     //this will need to become a while loop
     while (dealerScore < playerOneScore) {
-        console.log("We're in the loop!")
         let dealerCardNext = shuffled.pop();
         let dcNsuit = dealerCardNext.slice(-1);
         console.log(dcNsuit);
@@ -252,15 +265,23 @@ function valueCards() {
         if (newDealerScore > 21) {
             if (dcNval === "A") {
                 newDealerScore = newDealerScore - 10;
-            } //else if ()                                      need to access the other cards attributes
+            } else if (dc1value == "A") {
+                newDealerScore = newDealerScore - 10;
+            } else if (dc2value == "A") {
+                newDealerScore = newDealerScore - 10;
+            } else {
+                newDealerScore = newDealerScore;
+            }
+            console.log(newDealerScore);
         }
-        //if (newDealerScore)                                 need some code here to deal with Aces
+        
         console.log(newDealerScore);
-        dealerScore.innerText = newDealerScore
-        dealer.querySelector('.score').innerText = newDealerScore
-        if (dealerScore > 21) {
+        dealerScore.innerText = newDealerScore;
+        dealer.querySelector('.score').innerText = newDealerScore;
+        if (newDealerScore > 21) {
             displayScore()
         }
+    dealerScore = newDealerScore;
     }
 
     dealerCards = dealer.querySelectorAll('.card');
