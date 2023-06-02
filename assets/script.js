@@ -298,6 +298,7 @@ function valueCards() {
 }
 
 function drawMore(shuffled) {
+    // call in the remaining shuffled cards
     console.log(shuffled);
     let pOCardNext = shuffled.pop();
     let pOcNsuit = pOCardNext.slice(-1);
@@ -336,16 +337,20 @@ function drawMore(shuffled) {
     let playerOneScore = parseInt(playerOneS.querySelector('.score').innerText);
     console.log(playerOneScore);
     let newPOneScore = +playerOneScore + pOcNvalue;
+    // need to address the values of the two first cards in order to deal with aces
+
+
     if (newPOneScore > 21) {
         if (pOcNval === "A") {
             newPOneScore = newPOneScore - 10;
         } else if (pOc1val == "A") {
             newPOneScore = newPOneScore - 10;
-        } else if (pO2val == "A") {
+        } else if (pOc2val == "A") {
             newPOneScore = newPOneScore - 10;
         } else {
             newPOneScore = newPOneScore;
         }
+    }
     console.log(newPOneScore);
     playerOneS.querySelector('.score').innerText = newPOneScore
 
