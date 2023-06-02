@@ -336,7 +336,16 @@ function drawMore(shuffled) {
     let playerOneScore = parseInt(playerOneS.querySelector('.score').innerText);
     console.log(playerOneScore);
     let newPOneScore = +playerOneScore + pOcNvalue;
-    //if (newDealerScore)                                 need some code here to deal with Aces
+    if (newPOneScore > 21) {
+        if (pOcNval === "A") {
+            newPOneScore = newPOneScore - 10;
+        } else if (pOc1val == "A") {
+            newPOneScore = newPOneScore - 10;
+        } else if (pO2val == "A") {
+            newPOneScore = newPOneScore - 10;
+        } else {
+            newPOneScore = newPOneScore;
+        }
     console.log(newPOneScore);
     playerOneS.querySelector('.score').innerText = newPOneScore
 
