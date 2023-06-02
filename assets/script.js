@@ -338,7 +338,17 @@ function drawMore(shuffled) {
     console.log(playerOneScore);
     let newPOneScore = +playerOneScore + pOcNvalue;
     // need to address the values of the two first cards in order to deal with aces
-
+    //need to access the data-values of divs 2 and 3 of dealer (div 1 is the score)
+    pOc1valFind = document.querySelector('#player-one :nth-child(2)');
+    pOc1value = pOc1valFind.dataset.value;
+    console.log(pOc1value);
+    pOc1val = pOc1value[0];
+    console.log(pOc1val);
+    pOc2valFind = document.querySelector('#player-one :nth-child(3)');
+    pOc2value = pOc2valFind.dataset.value;
+    console.log(pOc2value);
+    pOc2val = pOc2value[0];
+    console.log(pOc2val);
 
     if (newPOneScore > 21) {
         if (pOcNval === "A") {
@@ -352,7 +362,7 @@ function drawMore(shuffled) {
         }
     }
     console.log(newPOneScore);
-    playerOneS.querySelector('.score').innerText = newPOneScore
+    playerOneS.querySelector('.score').innerText = newPOneScore;
 
     if (newPOneScore > 21) {
         displayScore()
@@ -410,7 +420,8 @@ function displayScore() {
 }
 
 function clearCurrentcards() {
-    // clear the decks to play again
+    incrementScore() //before the scores are wiped from the board
+    // clear the table to play again with the same shuffled deck in play
     function removeAllChildNodes(parent) {
         while (parent.firstChild) {
             parent.removeChild(parent.firstChild);
@@ -442,21 +453,34 @@ function incrementScore() {
     scoreArea.style.display = "flex";
     
     //parseInt of current scores
+    let playerOneCumulative = parseInt(document.querySelector('.player-one-running-total').innerText);
+    console.log(playerOneCumulative);
+    let dealerCumulative = parseInt(document.querySelector('.dealer-running-total').innerText);
+    console.log(dealerCumulative);
 
     //create and write the text for dealer and player
 
+    let playerOne = document.querySelector('#player-one');
+    let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
+
+    let dealer = document.querySelector('#dealer');
+    let dealerScore = parseInt(dealer.querySelector('.score').innerText);
+
+    // determine who to give the point to
     if (playerOneScore > 21) {
-        dealerCumulative++
+        ++dealerCumulative
     } else if (dealerScore > 21) {
-        playerCumulative++
+        ++playerOneCumulative
     } else if (playerOneScore >= dealerScore) {
-        playerCumulative++
+        ++playerOneCumulative
     } else {
-        dealerCumulative++
+        ++dealerCumulative
     }
 
     console.log(dealerCumulative);
-    console.log(playerCumulative);
+    console.log(playerOneCumulative);
 
     // access and update both HTML
+    document.querySelector('.dealer-running-total').innerText = dealerCumulative;
+    document.querySelector('.player-one-running-total').innerText = playerOneCumulative;
 }
