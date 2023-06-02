@@ -417,10 +417,10 @@ function displayScore() {
     startAgain.appendChild(gameEndQuery);
     gameEndQuery.appendChild(reDraw);
     gameEndQuery.appendChild(playAgain);
+    incrementScore() //before the scores are wiped from the board
 }
 
 function clearCurrentcards() {
-    incrementScore() //before the scores are wiped from the board
     // clear the table to play again with the same shuffled deck in play
     function removeAllChildNodes(parent) {
         while (parent.firstChild) {

@@ -190,6 +190,17 @@ footer {
     align-items: wrap;
 }
 
+#running-score {
+    font-size: 28px;
+    font-family: "Libre Bodoni", Times, serif;
+    display: flex;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 1px 1px 1px whitesmoke,
+        -1px -1px 1px whitesmoke;
+}
+
 /* media queries */
 /* For larger to medium screens size from 1200px wide and down */
 @media screen and (max-width: 1200px) {
