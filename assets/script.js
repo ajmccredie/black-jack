@@ -96,7 +96,7 @@ function dealStartCards(shuffled) {
     }
     console.log(dc2value);
     //  find the dealer's current card total
-    if 	(dc1value == "A" && dc2value == "A") {
+    if 	(dc1val == "A" && dc2val == "A") {
         dc1value = 1;
     } else {
         dealerTot = dc1value + dc2value;
@@ -230,7 +230,7 @@ function valueCards() {
     console.log(playerOneScore);
     
     //a while loop to deal with the dealer continuing to draw until they beat the player
-    while (dealerScore < playerOneScore) {
+    while (dealerScore < playerOneScore && dealerScore < 21) {
         let dealerCardNext = shuffled.pop();
         let dcNsuit = dealerCardNext.slice(-1);
         console.log(dcNsuit);
@@ -282,7 +282,6 @@ function valueCards() {
         console.log(newDealerScore);
         dealerScore.innerText = newDealerScore;
         dealer.querySelector('.score').innerText = newDealerScore;
-        if (newDealerScore > 21) break;
     dealerScore = newDealerScore;
     }
 
