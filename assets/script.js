@@ -206,26 +206,30 @@ function dealStartCards(shuffled) {
 }
 
 function valueCards() {
-    //dealer needs to draw more on player stick if their score is lower
+    //dealer needs to draw more on player stick if their score is lower, so need to access dealer score
     dealer = document.querySelector('#dealer');
     dealerScore = dealer.querySelector('.score');
     dealerScore.style.display = "block";
     dealerScore = dealerScore.innerText;
 
     //need to access the data-values of divs 2 and 3 of dealer (div 1 is the score)
-    dc1val = document.querySelector('#dealer :nth-child(2)');
-    dc1value = dc1val.dataset.value;
+    dc1valFind = document.querySelector('#dealer :nth-child(2)');
+    dc1value = dc1valFind.dataset.value;
     console.log(dc1value);
-    dc2val = document.querySelector('#dealer :nth-child(3)');
-    dc2value = dc2val.dataset.value;
+    dc1val = dc1value[0];
+    console.log(dc1val);
+    dc2valFind = document.querySelector('#dealer :nth-child(3)');
+    dc2value = dc2valFind.dataset.value;
     console.log(dc2value);
+    dc2val = dc2value[0];
+    console.log(dc2val);
 
     let playerOne = document.querySelector('#player-one');
     let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
     console.log(dealerScore);
     console.log(playerOneScore);
     
-    //this will need to become a while loop
+    //a while loop to deal with the dealer continuing to draw until they beat the player
     while (dealerScore < playerOneScore) {
         let dealerCardNext = shuffled.pop();
         let dcNsuit = dealerCardNext.slice(-1);
@@ -265,9 +269,9 @@ function valueCards() {
         if (newDealerScore > 21) {
             if (dcNval === "A") {
                 newDealerScore = newDealerScore - 10;
-            } else if (dc1value == "A") {
+            } else if (dc1val == "A") {
                 newDealerScore = newDealerScore - 10;
-            } else if (dc2value == "A") {
+            } else if (dc2val == "A") {
                 newDealerScore = newDealerScore - 10;
             } else {
                 newDealerScore = newDealerScore;
@@ -278,9 +282,7 @@ function valueCards() {
         console.log(newDealerScore);
         dealerScore.innerText = newDealerScore;
         dealer.querySelector('.score').innerText = newDealerScore;
-        if (newDealerScore > 21) {
-            displayScore()
-        }
+        if (newDealerScore > 21) break;
     dealerScore = newDealerScore;
     }
 
