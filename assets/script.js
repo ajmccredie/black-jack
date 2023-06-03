@@ -36,7 +36,9 @@ let shuffled = shuffleDeck(gameDeck);
 //dealStartCards(shuffled);
 
 function dealStartCards(shuffled) {
-    console.log(length.shuffled);
+    if (shuffled.length < 6) {
+        window.alert("You do not have enough cards in this deck");
+    }
     const gTitle = document.getElementById("game-title");
     gTitle.style.display = "none";
     const btn = document.getElementById("start-button");
@@ -231,6 +233,13 @@ function valueCards() {
     } else {
         dc1value = +dc1val;
     }
+    //check if the ace has already had 10 subtracted
+    let voidDc1 = dc1valFind.classList.contains('used');
+    console.log(voidDc1);
+    let validDC1 = !voidDc1;
+    console.log("valid?");
+    console.log(validDC1);
+
     //find the second card already there
     dc2valFind = document.querySelector('#dealer :nth-child(3)');
     dc2values = dc2valFind.dataset.value;
@@ -249,6 +258,12 @@ function valueCards() {
     } else {
         dc2value = +dc2val;
     }
+    //check if the ace has already subtracted 10
+    let voidDc2 = dc2valFind.classList.contains('used');
+    console.log(voidDc2);
+    let validDC2 = !voidDc2;
+    console.log("valid?");
+    console.log(validDC2);
 
     let playerOne = document.querySelector('#player-one');
     let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
@@ -295,25 +310,24 @@ function valueCards() {
         dealer.appendChild(dCNDiv);
 
         let newDealerScore = +dealerScore + dcNvalue;
-        
+
         if (newDealerScore > 21) {
             if (dcNval === "A") {
                 dcNvalue = 1;
-            } else if (dc1val === "A") {
-                newDealerScore = newDealerScore - 10;
+            } else if (dc1val == "A" && validDC1) {
+                dealerScore = +dealerScore - 10;
                 dc1valFind.classList.add("used");
-            } else if (dc2val === "A") {
-                newDealerScore = newDealerScore - 10;
+            } else if (dc2val == "A" && validDC2) {
+                dealerScore = +dealerScore - 10;
                 dc2valFind.classList.add("used");
             } else {
-                newDealerScore = newDealerScore;
+                dealerScore = +dealerScore;
             }
-            console.log(newDealerScore);
         }
-        //recalculate following loop
+        //recalcuate following loop
         newDealerScore = +dealerScore + dcNvalue;
-        
         console.log(newDealerScore);
+
         dealerScore.innerText = newDealerScore;
         dealer.querySelector('.score').innerText = newDealerScore;
     dealerScore = newDealerScore;
