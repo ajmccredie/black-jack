@@ -377,6 +377,7 @@ function displayScore() {
 
     let playerOne = document.querySelector('#player-one');
     let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
+    document.getElementById("player-one").style.marginTop = "10px";
 
     let dealer = document.querySelector('#dealer');
     let dealerScore = parseInt(dealer.querySelector('.score').innerText);
@@ -386,7 +387,8 @@ function displayScore() {
     startAgain.style.display = "flex";
     if (playerOneScore > 21) {
         console.log("player one is bust");
-        message = "You have gone bust. The dealer wins";
+        message = `You have gone bust.
+                    The dealer wins`;
     } else if (dealerScore > 21) {
         console.log("player one wins");
         message = "You win!";
@@ -445,6 +447,7 @@ function clearCurrentcards() {
     let dealer = document.querySelector('#dealer');
     removeAllChildNodes(dealer);
 
+    document.getElementById("player-one").style.marginTop = "10px";
     dealStartCards(shuffled)
 }
 

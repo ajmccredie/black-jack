@@ -9,7 +9,7 @@ body {
 #dealer {
     display: flex;
     width: 80vw;
-    margin-top: 40px;
+    margin-top: 10px;
     margin-left: 10vw;
     margin-right: 10vw;
     justify-content: center;
@@ -18,7 +18,7 @@ body {
 #player-one {
     display: flex;
     width: 80vw;
-    margin-top: 140px;
+    margin-top: 130px;
     margin-left: 10vw;
     margin-right: 10vw;
     justify-content: center;
@@ -128,7 +128,7 @@ body {
     font-family: "Josefin", Verdana, sans-serif;
     font-size: 18px;
     width: 140px;
-    margin: 30px;
+    margin: 10px 30px;
     background-color: rgb(209, 11, 11);
     border: solid whitesmoke 0.5px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
@@ -165,7 +165,8 @@ footer {
     color: whitesmoke;
     background-color: black;
     display: flex;
-    padding: 50px;
+    padding: 10px 30px;
+    text-align: center;
     align-items: center;
     flex-direction: column;
     border-radius: 5px;
@@ -178,7 +179,7 @@ footer {
     font-family: "Josefin", Verdana, sans-serif;
     font-size: 24px;
     width: 270px;
-    margin: 30px;
+    margin: 10px 30px;
     padding: 20px 10px;
     background-color: rgb(209, 11, 11);
     border: solid whitesmoke 0.5px;
@@ -190,23 +191,44 @@ footer {
     align-items: wrap;
 }
 
+#outer-running-score {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #running-score {
     border: solid whitesmoke 0.5px;
-    width: 350px;
+    display: flex;
+    align-items: center;
+    width: 70vw;
     margin: 30px;
     padding: 20px 10px;
     background-color: rgb(209, 11, 11);
+    justify-content: center;
 }
 
 .running-score-contents {
+    display: flex;
+    flex-direction: row;
     font-size: 28px;
     font-family: "Libre Bodoni", Times, serif;
+    font-weight: 900;
+    text-shadow: 1px 1px 2px whitesmoke,
+        -1px -1px 2px whitesmoke;
+    justify-content: space-between;
+}
+
+.cumulative-scores {
     display: flex;
-    font-weight: bolder;
-    //*justify-content: center;*//
+    width: 20vw;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
-    text-shadow: 1px 1px 1px whitesmoke,
-        -1px -1px 1px whitesmoke;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 0;
 }
 
 /* media queries */
