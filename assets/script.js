@@ -383,12 +383,9 @@ function drawMore(shuffled) {
     if (newPOneScore > 21) {
         if (pOcNval === "A") {
             newPOneScore = newPOneScore - 10;
-            pOcNval = "a";
-            console.log("A value changed to a");
         } else if (pOc1val == "A") {
             newPOneScore = newPOneScore - 10;
-            pOc1val = "a";
-            console.log("A value changed to a");
+            pOc1valFind.classList.add("used");
         } else if (pOc2val == "A") {
             newPOneScore = newPOneScore - 10;
             pOc2val = "a";
