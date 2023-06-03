@@ -36,6 +36,7 @@ let shuffled = shuffleDeck(gameDeck);
 //dealStartCards(shuffled);
 
 function dealStartCards(shuffled) {
+    console.log(length.shuffled);
     const gTitle = document.getElementById("game-title");
     gTitle.style.display = "none";
     const btn = document.getElementById("start-button");
@@ -256,6 +257,9 @@ function valueCards() {
     
     //a while loop to deal with the dealer continuing to draw until they beat the player
     while (dealerScore < playerOneScore && dealerScore < 21) {
+        if (shuffled.length < 1) {
+            window.alert("You have run out of cards in this deck");
+        }
         let dealerCardNext = shuffled.pop();
         console.log(dealerCardNext);
         let dcNsuit = dealerCardNext.slice(-1);
@@ -294,13 +298,13 @@ function valueCards() {
         
         if (newDealerScore > 21) {
             if (dcNval === "A") {
-                newDealerScore = newDealerScore - 10;
+                dcNvalue = 1;
             } else if (dc1val === "A") {
                 newDealerScore = newDealerScore - 10;
-                dc1val = "a";
+                dc1valFind.classList.add("used");
             } else if (dc2val === "A") {
                 newDealerScore = newDealerScore - 10;
-                dc2val = "a";
+                dc2valFind.classList.add("used");
             } else {
                 newDealerScore = newDealerScore;
             }
@@ -328,6 +332,9 @@ function valueCards() {
 }
 
 function drawMore(shuffled) {
+    if (shuffled.length < 5) {
+        window.alert("You have run out of cards in this deck");
+    }
     // call in the remaining shuffled cards
     console.log(shuffled);
     let pOCardNext = shuffled.pop();
@@ -374,26 +381,34 @@ function drawMore(shuffled) {
     console.log(pOc1value);
     pOc1val = pOc1value[0];
     console.log(pOc1val);
+    let voidc1 = pOc1valFind.classList.contains('used');
+    console.log(voidc1)
+    let validC1 = !voidc1;
+    console.log(validC1);
     pOc2valFind = document.querySelector('#player-one :nth-child(3)');
     pOc2value = pOc2valFind.dataset.value;
     console.log(pOc2value);
     pOc2val = pOc2value[0];
     console.log(pOc2val);
+    let voidc2 = pOc2valFind.classList.contains('used');
+    console.log(voidc2);
+    let validC2 = !voidc2;
+    console.log(validC2);
 
     if (newPOneScore > 21) {
         if (pOcNval === "A") {
-            newPOneScore = newPOneScore - 10;
-        } else if (pOc1val == "A") {
-            newPOneScore = newPOneScore - 10;
+            pOcNvalue = 1;
+        } else if (pOc1val == "A" && validC1) {
+            playerOneScore = +playerOneScore - 10;
             pOc1valFind.classList.add("used");
-        } else if (pOc2val == "A") {
-            newPOneScore = newPOneScore - 10;
-            pOc2val = "a";
-            console.log("A value changed to a");
+        } else if (pOc2val == "A" && validC2) {
+            playerOneScore = +playerOneScore - 10;
+            pOc2valFind.classList.add("used");
         } else {
-            newPOneScore = newPOneScore;
+            playerOneScore = +playerOneScore;
         }
     }
+    newPOneScore = +playerOneScore + pOcNvalue;
     console.log(newPOneScore);
     playerOneS.querySelector('.score').innerText = newPOneScore;
 
