@@ -191,11 +191,19 @@ footer {
 }
 
 #running-score {
+    border: solid whitesmoke 0.5px;
+    width: 350px;
+    margin: 30px;
+    padding: 20px 10px;
+    background-color: rgb(209, 11, 11);
+}
+
+.running-score-contents {
     font-size: 28px;
     font-family: "Libre Bodoni", Times, serif;
     display: flex;
     font-weight: bolder;
-    justify-content: center;
+    //*justify-content: center;*//
     align-items: center;
     text-shadow: 1px 1px 1px whitesmoke,
         -1px -1px 1px whitesmoke;
