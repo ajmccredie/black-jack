@@ -214,15 +214,40 @@ function valueCards() {
 
     //need to access the data-values of divs 2 and 3 of dealer (div 1 is the score)
     dc1valFind = document.querySelector('#dealer :nth-child(2)');
-    dc1value = dc1valFind.dataset.value;
-    console.log(dc1value);
-    dc1val = dc1value[0];
+    dc1values = dc1valFind.dataset.value;
+    console.log(dc1values);
+    dc1val = dc1values[0];
     console.log(dc1val);
+    //determine the actual numerical value of card (to deal with aces appropriately)
+    if (dc1val === "J") {
+        dc1value = 10;
+    } else if (dc1val === "Q") {
+        dc1value = 10;
+    } else if (dc1val === "K") {
+        dc2value = 10;
+    } else if (dc1val === "A") {
+        dc1value = 11;
+    } else {
+        dc1value = +dc1val;
+    }
+    //find the second card already there
     dc2valFind = document.querySelector('#dealer :nth-child(3)');
-    dc2value = dc2valFind.dataset.value;
-    console.log(dc2value);
-    dc2val = dc2value[0];
+    dc2values = dc2valFind.dataset.value;
+    console.log(dc2values);
+    dc2val = dc2values[0];
     console.log(dc2val);
+    //determine its numerical value like card 1
+    if (dc2val === "J") {
+        dc2value = 10;
+    } else if (dc2val === "Q") {
+        dc2value = 10;
+    } else if (dc2val === "K") {
+        dc2value = 10;
+    } else if (dc2val === "A") {
+        dc2value = 11;
+    } else {
+        dc2value = +dc2val;
+    }
 
     let playerOne = document.querySelector('#player-one');
     let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
@@ -232,6 +257,7 @@ function valueCards() {
     //a while loop to deal with the dealer continuing to draw until they beat the player
     while (dealerScore < playerOneScore && dealerScore < 21) {
         let dealerCardNext = shuffled.pop();
+        console.log(dealerCardNext);
         let dcNsuit = dealerCardNext.slice(-1);
         console.log(dcNsuit);
         if (dcNsuit === '♥') {
@@ -269,15 +295,19 @@ function valueCards() {
         if (newDealerScore > 21) {
             if (dcNval === "A") {
                 newDealerScore = newDealerScore - 10;
-            } else if (dc1val == "A") {
+            } else if (dc1val === "A") {
                 newDealerScore = newDealerScore - 10;
-            } else if (dc2val == "A") {
+                dc1val = "a";
+            } else if (dc2val === "A") {
                 newDealerScore = newDealerScore - 10;
+                dc2val = "a";
             } else {
                 newDealerScore = newDealerScore;
             }
             console.log(newDealerScore);
         }
+        //recalculate following loop
+        newDealerScore = +dealerScore + dcNvalue;
         
         console.log(newDealerScore);
         dealerScore.innerText = newDealerScore;
@@ -353,16 +383,28 @@ function drawMore(shuffled) {
     if (newPOneScore > 21) {
         if (pOcNval === "A") {
             newPOneScore = newPOneScore - 10;
+            pOcNval = "a";
+            console.log("A value changed to a");
         } else if (pOc1val == "A") {
             newPOneScore = newPOneScore - 10;
+            pOc1val = "a";
+            console.log("A value changed to a");
         } else if (pOc2val == "A") {
             newPOneScore = newPOneScore - 10;
+            pOc2val = "a";
+            console.log("A value changed to a");
         } else {
             newPOneScore = newPOneScore;
         }
     }
     console.log(newPOneScore);
     playerOneS.querySelector('.score').innerText = newPOneScore;
+
+    //Five card trick code (note the card count is 6 not 5 due to the score child element)
+    let cardCount = document.getElementById("player-one").children.length;
+    if (cardCount == 6 && newPOneScore <= 21) {
+        displayScore()
+    }
 
     if (newPOneScore > 21) {
         displayScore()
@@ -381,6 +423,7 @@ function displayScore() {
 
     let dealer = document.querySelector('#dealer');
     let dealerScore = parseInt(dealer.querySelector('.score').innerText);
+    let cardCount = document.getElementById("player-one").children.length;
 
     const gameEndQuery = document.createElement('div')
     let startAgain = document.querySelector('#start-over')
@@ -389,6 +432,10 @@ function displayScore() {
         console.log("player one is bust");
         message = `You have gone bust.
                     The dealer wins`;
+    } else if (playerOneScore <= 21 && cardCount == 6) {
+        console.log("player one wins");
+        message = `Five Card Trick! 
+                    You win!`;
     } else if (dealerScore > 21) {
         console.log("player one wins");
         message = "You win!";
