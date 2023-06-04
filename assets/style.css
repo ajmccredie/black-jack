@@ -72,14 +72,28 @@ body {
 .rules-and-play {
     font-family: "Josefin", Verdana, sans-serif;
     background-color: black;
-    border: 2px solid rgb(209, 11, 11);
+    border: 3px solid rgb(209, 11, 11);
     border-radius: 3px;
     width: 75vw;
     height: fit-content;
-    margin: 20% auto;
+    margin: 5% auto;
     padding: 5px 15px;
     color: whitesmoke;
-    font-size: medium;
+    font-size: large;
+}
+
+.rules-and-play h2 {
+    text-align: center;
+}
+
+.rules-and-play p {
+    padding-left: 10vw;
+}
+
+.black-jack-hand {
+    display: flex;
+    width: auto;
+    justify-content: center;
 }
 
 .close {
