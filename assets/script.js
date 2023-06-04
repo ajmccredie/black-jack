@@ -52,12 +52,6 @@ function howToPlay() {
     span.onclick = function() {
         modal.style.display = "none";
     }
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
 }
 
 function dealStartCards(shuffled) {
@@ -69,7 +63,7 @@ function dealStartCards(shuffled) {
     const btn = document.getElementById("start-button");
     btn.style.display = "none";
     const btn2 = document.getElementById("modal-button");
-    btn2.style.display = "block";
+    btn2.style.display = "none";
 
     console.log(shuffled);
     //   set initial dealer total to 0
