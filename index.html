@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Black Jack</title>
     <link rel="stylesheet" href="assets/style.css">
     <script src="assets/script.js" defer></script>
@@ -12,7 +13,7 @@
     <div id="cards-pile" style="display: none"></div>
     <div id="outer-running-score"><div id="running-score" style="display: none"><div class="running-score-contents"><div class="cumulative-scores"><p>Hands won:</p></div><div class="cumulative-scores"><p>Player one: </p><div class="player-one-running-total"> 0 </div></div><div class="cumulative-scores"><p>  Dealer: </p><div class="dealer-running-total"> 0 </div></div></div></div></div>
     <span id="start-over" style="display: none"></span>
-    <div id="button-area"><div id="start-button" onclick="dealStartCards(shuffled)" style="display: none"><h2>Let's Play!</h2></div><div id="modal-button" onclick="howToPlay()" style="display: none"><h2>How to Play</h2></div></div>
+    <div id="button-area"><div id="start-button" onclick="dealStartCards(shuffled)" style="display: none">Let's Play!</div><div id="modal-button" onclick="howToPlay()" style="display: none">How to Play</div></div>
     <div id="playModal" class="modal-information" style="display: none">
         <div class="rules-and-play">
           <span class="close">&times;</span>
@@ -33,6 +34,7 @@
       </div>
     <div id="player-one"></div>
     <div id="option-buttons"><button id="stick" onclick="valueCards()" style="display: none"><h2>Stick</h2></button><button id="twist" onclick="drawMore(shuffled)" style="display: none"><h2>Twist</h2></button></div>
-    <footer>'♥', '♦', '♠', '♣'</footer>
+    <footer class="pre-game">Exit game and return to start</footer>
+    <footer class="in-game">Exit game and return to start</footer>
 </body>
 </html>
