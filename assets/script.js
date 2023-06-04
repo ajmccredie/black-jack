@@ -8,8 +8,7 @@ window.onload = function() {
 
 function createDeck() {
     const SUITS = ['♥', '♦', '♠', '♣'];
- // const CARDVALUE = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-    const CARDVALUE = ['A', 'A', 'A', 'A', 'A', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+    const CARDVALUE = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
     var orderedDeck = []
     
     for(var suit = 0; suit < 4; suit++) {
@@ -81,7 +80,6 @@ function dealStartCards(shuffled) {
     // deal dealer cards and split the information of suits and values
     let dealerCard1 = shuffled.pop();
     let dc1suit = dealerCard1.slice(-1);
-    console.log(dc1suit);
     if (dc1suit === '♥') {
         dc1suitColour = "red";
     } else if (dc1suit === '♦') {
@@ -89,9 +87,7 @@ function dealStartCards(shuffled) {
     } else {
         dc1suitColour = "black";
     }
-    console.log(dc1suitColour);
     let dc1val = dealerCard1.slice(0, -1);
-    console.log(dc1val);
     if (dc1val === "J") {
         dc1value = 10;
     } else if (dc1val === "Q") {
@@ -103,10 +99,8 @@ function dealStartCards(shuffled) {
     } else {
         dc1value = +dc1val;
     }
-    console.log(dc1value);
     let dealerCard2 = shuffled.pop();
     let dc2suit = dealerCard2.slice(-1);
-    console.log(dc2suit);
     if (dc2suit === '♥') {
         dc2suitColour = "red";
     } else if (dc2suit === '♦') {
@@ -114,9 +108,7 @@ function dealStartCards(shuffled) {
     } else {
         dc2suitColour = "black";
     }
-    console.log(dc2suitColour);
     let dc2val = dealerCard2.slice(0, -1);
-    console.log(dc2val);
     if (dc2val === "J") {
         dc2value = 10;
     } else if (dc2val === "Q") {
@@ -128,7 +120,7 @@ function dealStartCards(shuffled) {
     } else {
         dc2value = +dc2val;
     }
-    console.log(dc2value);
+
     //  find the dealer's current card total
     if 	(dc1val == "A" && dc2val == "A") {
         dc1value = 1;
@@ -136,12 +128,10 @@ function dealStartCards(shuffled) {
     } else {
         dealerTot = dc1value + dc2value;
     }
-    console.log(dealerTot);
     
     // repeat process for player 1
     let p1Card1 = shuffled.pop();
     let p1c1suit = p1Card1.slice(-1);
-    console.log(p1c1suit);
     if (p1c1suit === '♥') {
         p1c1suitColour = "red";
     } else if (p1c1suit === '♦') {
@@ -149,7 +139,6 @@ function dealStartCards(shuffled) {
     } else {
         p1c1suitColour = "black";
     }
-    console.log(p1c1suitColour);
     let p1c1val = p1Card1.slice(0, -1);
     if (p1c1val === "J") {
         p1c1value = 10;
@@ -162,10 +151,8 @@ function dealStartCards(shuffled) {
     } else {
         p1c1value = +p1c1val;
     }
-    console.log(p1c1value);
     let p1Card2 = shuffled.pop();
     let p1c2suit = p1Card2.slice(-1);
-    console.log(p1c2suit);
     if (p1c2suit === '♥') {
         p1c2suitColour = "red";
     } else if (p1c2suit === '♦') {
@@ -173,7 +160,6 @@ function dealStartCards(shuffled) {
     } else {
         p1c2suitColour = "black";
     }
-    console.log(p1c2suitColour);
     let p1c2val = p1Card2.slice(0, -1);
     if (p1c2val === "J") {
         p1c2value = 10;
@@ -186,7 +172,6 @@ function dealStartCards(shuffled) {
     } else {
         p1c2value = +p1c2val;
     }
-    console.log(p1c2value);
     if 	(p1c1val == "A" && p1c2val == "A") {
         p1c1value = 1;
 
@@ -202,7 +187,6 @@ function dealStartCards(shuffled) {
     dC1Div.innerText = dc1suit
     dC1Div.dataset.value = `${dc1val} ${dc1suit}`
     dC1Div.classList.add("card", "back", `${dc1suitColour}`)
-    console.log(dC1Div);
     dealer.appendChild(dC1Div);
     dealerScore.innerText = dealerTot
     dealerScore.classList.add("score")
@@ -214,7 +198,6 @@ function dealStartCards(shuffled) {
     dC2Div.innerText = dc2suit
     dC2Div.dataset.value = `${dc2val} ${dc2suit}`
     dC2Div.classList.add("card", "back", `${dc2suitColour}`)
-    console.log(dC2Div);
     dealer.appendChild(dC2Div);
 
     const playerOne = document.getElementById("player-one");
@@ -226,14 +209,12 @@ function dealStartCards(shuffled) {
     p1C1Div.innerText = p1c1suit
     p1C1Div.dataset.value = `${p1c1val} ${p1c1suit}`
     p1C1Div.classList.add("card", "front", `${p1c1suitColour}`)
-    console.log(p1C1Div);
     playerOne.appendChild(p1C1Div);
 
     const p1C2Div = document.createElement('div')
     p1C2Div.innerText = p1c2suit
     p1C2Div.dataset.value = `${p1c2val} ${p1c2suit}`
     p1C2Div.classList.add("card", "front", `${p1c2suitColour}`)
-    console.log(p1C2Div);
     playerOne.appendChild(p1C2Div);
 
     const stickButton = document.getElementById("stick");
@@ -252,9 +233,7 @@ function valueCards() {
     //need to access the data-values of divs 2 and 3 of dealer (div 1 is the score)
     dc1valFind = document.querySelector('#dealer :nth-child(2)');
     dc1values = dc1valFind.dataset.value;
-    console.log(dc1values);
     dc1val = dc1values[0];
-    console.log(dc1val);
     //determine the actual numerical value of card (to deal with aces appropriately)
     if (dc1val === "J") {
         dc1value = 10;
@@ -271,9 +250,7 @@ function valueCards() {
     //find the second card already there
     dc2valFind = document.querySelector('#dealer :nth-child(3)');
     dc2values = dc2valFind.dataset.value;
-    console.log(dc2values);
     dc2val = dc2values[0];
-    console.log(dc2val);
     //determine its numerical value like card 1
     if (dc2val === "J") {
         dc2value = 10;
@@ -289,8 +266,6 @@ function valueCards() {
 
     let playerOne = document.querySelector('#player-one');
     let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
-    console.log(dealerScore);
-    console.log(playerOneScore);
     
     //a while loop to deal with the dealer continuing to draw until they beat the player
     while (dealerScore < playerOneScore && dealerScore < 21) {
@@ -298,9 +273,7 @@ function valueCards() {
             window.alert("You have run out of cards in this deck");
         }
         let dealerCardNext = shuffled.pop();
-        console.log(dealerCardNext);
         let dcNsuit = dealerCardNext.slice(-1);
-        console.log(dcNsuit);
         if (dcNsuit === '♥') {
             dcNsuitColour = "red";
         } else if (dcNsuit === '♦') {
@@ -308,9 +281,7 @@ function valueCards() {
         } else {
             dcNsuitColour = "black";
         }
-        console.log(dcNsuitColour);
         let dcNval = dealerCardNext.slice(0, -1);
-        console.log(dcNval);
         if (dcNval === "J") {
             dcNvalue = 10;
         } else if (dcNval === "Q") {
@@ -322,13 +293,11 @@ function valueCards() {
         } else {
             dcNvalue = +dcNval;
         }
-        console.log(dcNvalue);
 
         const dCNDiv = document.createElement('div')
         dCNDiv.innerText = dcNsuit
         dCNDiv.dataset.value = `${dcNval} ${dcNsuit}`
         dCNDiv.classList.add("card", "back", `${dcNsuitColour}`)
-        console.log(dCNDiv);
         dealer.appendChild(dCNDiv);
 
         let newDealerScore = +dealerScore + dcNvalue;
@@ -364,8 +333,6 @@ function valueCards() {
         }
         //recalcuate following loop
         newDealerScore = +dealerScore + dcNvalue;
-        console.log("I think the current dealer score is")
-        console.log(newDealerScore);
 
         dealerScore.innerText = newDealerScore;
         dealer.querySelector('.score').innerText = newDealerScore;
@@ -373,7 +340,6 @@ function valueCards() {
     }
 
     dealerCards = dealer.querySelectorAll('.card');
-    console.log(dealerCards);
     var cardPile = dealerCards.length;
     for (let i = cardPile - 1; i >= 0; i--) {
         console.log(dealerCards[i]);
@@ -389,10 +355,8 @@ function drawMore(shuffled) {
         window.alert("You have run out of cards in this deck");
     }
     // call in the remaining shuffled cards
-    console.log(shuffled);
     let pOCardNext = shuffled.pop();
     let pOcNsuit = pOCardNext.slice(-1);
-    console.log(pOcNsuit);
     if (pOcNsuit === '♥') {
         pOcNsuitColour = "red";
     } else if (pOcNsuit === '♦') {
@@ -400,9 +364,8 @@ function drawMore(shuffled) {
     } else {
         pOcNsuitColour = "black";
     }
-    console.log(pOcNsuitColour);
+
     let pOcNval = pOCardNext.slice(0, -1);
-    console.log(pOcNval);
     if (pOcNval === "J") {
         pOcNvalue = 10;
     } else if (pOcNval === "Q") {
@@ -414,39 +377,29 @@ function drawMore(shuffled) {
     } else {
         pOcNvalue = +pOcNval;
     }
-    console.log(pOcNvalue);
+
     const playerOne = document.getElementById("player-one");
     const p1CNDiv = document.createElement('div')
     p1CNDiv.innerText = pOcNsuit
     p1CNDiv.dataset.value = `${pOcNval} ${pOcNsuit}`
     p1CNDiv.classList.add("card", "front", `${pOcNsuitColour}`)
-    console.log(p1CNDiv);
     playerOne.appendChild(p1CNDiv);
     //need to get current score, add to it and then display new score
     let playerOneS = document.getElementById("player-one");
     let playerOneScore = parseInt(playerOneS.querySelector('.score').innerText);
-    console.log(playerOneScore);
     let newPOneScore = +playerOneScore + pOcNvalue;
     // need to address the values of the two first cards in order to deal with aces
     //need to access the data-values of divs 2 and 3 of dealer (div 1 is the score)
     pOc1valFind = document.querySelector('#player-one :nth-child(2)');
     pOc1value = pOc1valFind.dataset.value;
-    console.log(pOc1value);
     pOc1val = pOc1value[0];
-    console.log(pOc1val);
     let voidc1 = pOc1valFind.classList.contains('used');
-    console.log(voidc1)
     let validC1 = !voidc1;
-    console.log(validC1);
     pOc2valFind = document.querySelector('#player-one :nth-child(3)');
     pOc2value = pOc2valFind.dataset.value;
-    console.log(pOc2value);
     pOc2val = pOc2value[0];
-    console.log(pOc2val);
     let voidc2 = pOc2valFind.classList.contains('used');
-    console.log(voidc2);
     let validC2 = !voidc2;
-    console.log(validC2);
 
     if (newPOneScore > 21) {
         if (pOcNval === "A") {
