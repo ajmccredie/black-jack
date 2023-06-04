@@ -59,6 +59,43 @@ body {
     letter-spacing: 1.5px;
 }
 
+.modal-information {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow: auto; /*will scroll if required*/
+}
+
+.rules-and-play {
+    font-family: "Josefin", Verdana, sans-serif;
+    background-color: black;
+    border: 2px solid rgb(209, 11, 11);
+    border-radius: 3px;
+    width: 75vw;
+    height: fit-content;
+    margin: 20% auto;
+    padding: 5px 15px;
+    color: whitesmoke;
+    font-size: medium;
+}
+
+.close {
+    color: whitesmoke;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: rgb(209, 11, 11);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
 .red {
     color: red;
     border: solid black 1px;
