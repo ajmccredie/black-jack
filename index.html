@@ -12,7 +12,23 @@
     <div id="cards-pile" style="display: none"></div>
     <div id="outer-running-score"><div id="running-score" style="display: none"><div class="running-score-contents"><div class="cumulative-scores"><p>Hands won:</p></div><div class="cumulative-scores"><p>Player one: </p><div class="player-one-running-total"> 0 </div></div><div class="cumulative-scores"><p>  Dealer: </p><div class="dealer-running-total"> 0 </div></div></div></div></div>
     <span id="start-over" style="display: none"></span>
-    <div id="button-area"><div id="start-button" onclick="dealStartCards(shuffled)" style="display: none"><h2>Let's Play!</h2></div></div>
+    <div id="button-area"><div id="start-button" onclick="dealStartCards(shuffled)" style="display: none"><h2>Let's Play!</h2></div><div id="modal-button" onclick="howToPlay()" style="display: none"><h2>How to Play</h2></div></div>
+    <div id="playModal" class="modal-information" style="display: none">
+        <div class="rules-and-play">
+          <span class="close">&times;</span>
+          <h2>How to Play</h2>
+          <p>This is a simplified version of Black Jack/21s/Cribbage</p>
+          <p>You are aiming to score 21 with the cards in your hand.</p>
+          <p>If you score 22 or above, you are bust and the dealer wins.</p>
+          <p>If you score below 21, the closest to 21 wins.</p>
+          <p>Picture cards are worth 10, number cards keep their value.</p>
+          <p>Aces are worth 11 or 1 (the deductions are made automatically).</p>
+          <p>You are drawn two cards from a shuffled deck to start.</p>
+          <p>You can show your hand with "Stick".</p>
+          <p>You can draw more cards with "Twist".</p>
+          <p>You can continue playing hands until the 52 cards have been used.</p>
+        </div>
+      </div>
     <div id="player-one"></div>
     <div id="option-buttons"><button id="stick" onclick="valueCards()" style="display: none"><h2>Stick</h2></button><button id="twist" onclick="drawMore(shuffled)" style="display: none"><h2>Twist</h2></button></div>
     <footer>'♥', '♦', '♠', '♣'</footer>

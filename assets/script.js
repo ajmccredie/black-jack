@@ -2,6 +2,8 @@ window.onload = function() {
     createDeck();
     const btn = document.getElementById("start-button");
     btn.style.display = "block";
+    const btn2 = document.getElementById("modal-button");
+    btn2.style.display = "block";
 }
 
 function createDeck() {
@@ -35,6 +37,29 @@ function shuffleDeck(gameDeck) {
 let shuffled = shuffleDeck(gameDeck);
 //dealStartCards(shuffled);
 
+function howToPlay() {
+    var modal = document.getElementById("playModal");
+    var btn2 = document.getElementById("modal-button");
+    var span = document.getElementsByClassName("close")[0];
+    
+    // Code to open the modal
+    btn2.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // Code to close the modal window
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
 function dealStartCards(shuffled) {
     if (shuffled.length < 6) {
         window.alert("You do not have enough cards in this deck");
@@ -43,6 +68,9 @@ function dealStartCards(shuffled) {
     gTitle.style.display = "none";
     const btn = document.getElementById("start-button");
     btn.style.display = "none";
+    const btn2 = document.getElementById("modal-button");
+    btn2.style.display = "block";
+
     console.log(shuffled);
     //   set initial dealer total to 0
     let dealerTot = 0;
