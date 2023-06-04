@@ -8,7 +8,8 @@ window.onload = function() {
 
 function createDeck() {
     const SUITS = ['♥', '♦', '♠', '♣'];
-    const CARDVALUE = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+ //   const CARDVALUE = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+    const CARDVALUE = ['A', 'A', 'A', 'A', 'A', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
     var orderedDeck = []
     
     for(var suit = 0; suit < 4; suit++) {
@@ -35,7 +36,6 @@ function shuffleDeck(gameDeck) {
 }
 
 let shuffled = shuffleDeck(gameDeck);
-//dealStartCards(shuffled);
 
 function howToPlay() {
     var modal = document.getElementById("playModal");
@@ -55,21 +55,30 @@ function howToPlay() {
 }
 
 function dealStartCards(shuffled) {
+    // alert with too few cards to play
     if (shuffled.length < 6) {
         window.alert("You do not have enough cards in this deck");
     }
+    // remove items from the DOM not required for game play
     const gTitle = document.getElementById("game-title");
     gTitle.style.display = "none";
     const btn = document.getElementById("start-button");
     btn.style.display = "none";
     const btn2 = document.getElementById("modal-button");
     btn2.style.display = "none";
+    const animatedFooter = document.getElementById("pre-game");
+    animatedFooter.style.display = "none";
+    const staticFooter = document.getElementById("in-game");
+    staticFooter.style.display = "block";
+    staticFooter.addEventListener("click", function () {
+        location.reload();
+      });
 
     console.log(shuffled);
-    //   set initial dealer total to 0
+    // set initial dealer total to 0
     let dealerTot = 0;
     let p1Tot = 0;
-    //  deal dealer cards and split the information of suits and values
+    // deal dealer cards and split the information of suits and values
     let dealerCard1 = shuffled.pop();
     let dc1suit = dealerCard1.slice(-1);
     console.log(dc1suit);
@@ -123,6 +132,7 @@ function dealStartCards(shuffled) {
     //  find the dealer's current card total
     if 	(dc1val == "A" && dc2val == "A") {
         dc1value = 1;
+        dealerTot = dc1value + dc2value;
     } else {
         dealerTot = dc1value + dc2value;
     }
@@ -179,6 +189,7 @@ function dealStartCards(shuffled) {
     console.log(p1c2value);
     if 	(p1c1val == "A" && p1c2val == "A") {
         p1c1value = 1;
+        p1Tot = p1c1value + p1c2value;
     } else {
         p1Tot = p1c1value + p1c2value;
     }
