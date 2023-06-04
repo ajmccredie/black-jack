@@ -8,7 +8,7 @@ window.onload = function() {
 
 function createDeck() {
     const SUITS = ['♥', '♦', '♠', '♣'];
- //   const CARDVALUE = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+ // const CARDVALUE = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
     const CARDVALUE = ['A', 'A', 'A', 'A', 'A', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
     var orderedDeck = []
     
@@ -189,6 +189,7 @@ function dealStartCards(shuffled) {
     console.log(p1c2value);
     if 	(p1c1val == "A" && p1c2val == "A") {
         p1c1value = 1;
+
         p1Tot = p1c1value + p1c2value;
     } else {
         p1Tot = p1c1value + p1c2value;
@@ -266,12 +267,6 @@ function valueCards() {
     } else {
         dc1value = +dc1val;
     }
-    //check if the ace has already had 10 subtracted
-    let voidDc1 = dc1valFind.classList.contains('used');
-    console.log(voidDc1);
-    let validDC1 = !voidDc1;
-    console.log("valid?");
-    console.log(validDC1);
 
     //find the second card already there
     dc2valFind = document.querySelector('#dealer :nth-child(3)');
@@ -291,12 +286,6 @@ function valueCards() {
     } else {
         dc2value = +dc2val;
     }
-    //check if the ace has already subtracted 10
-    let voidDc2 = dc2valFind.classList.contains('used');
-    console.log(voidDc2);
-    let validDC2 = !voidDc2;
-    console.log("valid?");
-    console.log(validDC2);
 
     let playerOne = document.querySelector('#player-one');
     let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
@@ -344,26 +333,43 @@ function valueCards() {
 
         let newDealerScore = +dealerScore + dcNvalue;
 
+        //check if the ace has already had 10 subtracted
+        let voidDc1 = dc1valFind.classList.contains('used');
+        console.log(voidDc1);
+        let validDC1 = !voidDc1;
+        console.log("valid?");
+        console.log(validDC1);
+
+        //check if the ace has already subtracted 10
+        let voidDc2 = dc2valFind.classList.contains('used');
+        console.log(voidDc2);
+        let validDC2 = !voidDc2;
+        console.log("valid?");
+        console.log(validDC2);
+
         if (newDealerScore > 21) {
             if (dcNval === "A") {
                 dcNvalue = 1;
             } else if (dc1val == "A" && validDC1) {
                 dealerScore = +dealerScore - 10;
                 dc1valFind.classList.add("used");
+                console.log("I have subtracted 10 from the total");
             } else if (dc2val == "A" && validDC2) {
                 dealerScore = +dealerScore - 10;
                 dc2valFind.classList.add("used");
+                console.log("I have subtracted 10 from the total");
             } else {
                 dealerScore = +dealerScore;
             }
         }
         //recalcuate following loop
         newDealerScore = +dealerScore + dcNvalue;
+        console.log("I think the current dealer score is")
         console.log(newDealerScore);
 
         dealerScore.innerText = newDealerScore;
         dealer.querySelector('.score').innerText = newDealerScore;
-    dealerScore = newDealerScore;
+        dealerScore = +newDealerScore;
     }
 
     dealerCards = dealer.querySelectorAll('.card');
