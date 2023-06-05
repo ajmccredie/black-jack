@@ -1,9 +1,16 @@
 window.onload = function() {
-    createDeck();
+    var gameDeck = createDeck();
+    var shuffled = shuffleDeck(gameDeck);
     const btn = document.getElementById("start-button");
     btn.style.display = "block";
     const btn2 = document.getElementById("modal-button");
     btn2.style.display = "block";
+    console.log("initial game deck");
+    console.log(shuffled);
+    //store the deck in the DOM
+    var cardPile = document.getElementById("card-pile");
+    cardPile.appendChild(shuffled);
+    return shuffled;
 }
 
 function createDeck() {
@@ -16,10 +23,10 @@ function createDeck() {
             orderedDeck.push(CARDVALUE[cardNum] + SUITS[suit]);
         }
     }
-    return orderedDeck
+    return orderedDeck;
 }
 
-let gameDeck = createDeck();
+//let gameDeck = createDeck();
 
 //the shuffle process of swapping index contents was inspired by XXX
 function shuffleDeck(gameDeck) {
@@ -30,11 +37,10 @@ function shuffleDeck(gameDeck) {
             gameDeck[newIndex] = gameDeck[i]
             gameDeck[i] = oldCard
         }
-    console.log(gameDeck);
     return gameDeck
 }
 
-let shuffled = shuffleDeck(gameDeck);
+//let shuffled = shuffleDeck(gameDeck);
 
 function howToPlay() {
     var modal = document.getElementById("playModal");
@@ -53,16 +59,20 @@ function howToPlay() {
     }
 }
 
-function dealStartCards(shuffled) {
+function dealStartCards() {
+
+    //console.log(shuffled);
     // alert with too few cards to play
+    let mixedDeck = [];
     if (shuffled.length < 6) {
-        window.alert("You do not have enough cards in this deck");
-        let mixDeck = [];
-        let mixedDeck = addAnotherDeck(mixDeck, shuffled);
-        console.log("this is the new deck");
-        console.log(mixedDeck);
-        shuffled = mixedDeck;
+      window.alert("You do not have enough cards in this deck");
+      mixedDeck = addAnotherDeck();
+      console.log("this is the new deck");
+      console.log(mixedDeck);
     }
+    shuffled = mixedDeck.concat(shuffled);
+    console.log("Start cards deck");
+    console.log(shuffled);
     // remove items from the DOM not required for game play
     const gTitle = document.getElementById("game-title");
     gTitle.style.display = "none";
@@ -85,6 +95,7 @@ function dealStartCards(shuffled) {
     // deal dealer cards and split the information of suits and values
     let dealerCard1 = shuffled.pop();
     let dc1suit = dealerCard1.slice(-1);
+    console.log(dealerCard1);
     if (dc1suit === '♥') {
         dc1suitColour = "red";
     } else if (dc1suit === '♦') {
@@ -226,6 +237,8 @@ function dealStartCards(shuffled) {
     stickButton.style.display = "block";
     const twistButton = document.getElementById("twist");
     twistButton.style.display = "block";
+
+    return shuffled;
 }
 
 function valueCards() {
@@ -280,14 +293,16 @@ function valueCards() {
     
     //a while loop to deal with the dealer continuing to draw until they beat the player
     while (dealerScore < playerOneScore && dealerScore < 21 && playerOneScore !== 21 && !pOneFiveCardTrick) {
+        let mixedDeck = [];
         if (shuffled.length < 1) {
             window.alert("You have run out of cards in this deck");
-            let mixDeck = [];
-            let mixedDeck = addAnotherDeck(mixDeck, shuffled);
+            mixedDeck = addAnotherDeck();
             console.log("this is the new deck");
             console.log(mixedDeck);
-            shuffled = mixedDeck;
         }
+        shuffled = mixedDeck.concat(shuffled);
+        console.log("Dealer draw more deck");
+        console.log(shuffled);
         let dealerCardNext = shuffled.pop();
         let dcNsuit = dealerCardNext.slice(-1);
         if (dcNsuit === '♥') {
@@ -384,17 +399,20 @@ function valueCards() {
     } else if (dealerScore > 21) {
         displayScore()
     }
+    return shuffled;
 }
 
 function drawMore(shuffled) {
+    let mixedDeck = [];
     if (shuffled.length < 5) {
         window.alert("You have run out of cards in this deck");
-        let mixDeck = [];
-        let mixedDeck = addAnotherDeck(mixDeck, shuffled);
+        let mixedDeck = addAnotherDeck();
         console.log("this is the new deck");
         console.log(mixedDeck);
-        shuffled = mixedDeck;
-    }
+        }
+    shuffled = mixedDeck.concat(shuffled);
+    console.log("Draw more deck");
+    console.log(shuffled);
     // call in the remaining shuffled cards
     let pOCardNext = shuffled.pop();
     let pOcNsuit = pOCardNext.slice(-1);
@@ -468,6 +486,8 @@ function drawMore(shuffled) {
     if (newPOneScore > 21) {
         displayScore()
     }
+
+    return shuffled;
 }
 
 function displayScore() {
@@ -599,10 +619,9 @@ function incrementScore() {
     document.querySelector('.player-one-running-total').innerText = playerOneCumulative;
 }
 
-function addAnotherDeck(mixDeck, shuffled) {
+function addAnotherDeck() {
     // make a new deck
     let gameDeck = createDeck();
-    console.log(shuffled);
 
     //the shuffle process of swapping index contents was inspired by XXX
     function shuffleDeck(gameDeck) {
@@ -617,9 +636,7 @@ function addAnotherDeck(mixDeck, shuffled) {
         return gameDeck
     }
 
-    let shuffledNew = shuffleDeck(gameDeck);
-    console.log(shuffledNew)
-    let mixedDeck = shuffledNew.concat(shuffled);
-    console.log(mixedDeck);
-    return mixedDeck
+    let mixedDeck = shuffleDeck(gameDeck);
+
+    return mixedDeck;
 }
