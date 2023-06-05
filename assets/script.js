@@ -337,6 +337,12 @@ function valueCards() {
         dealerScore.innerText = newDealerScore;
         dealer.querySelector('.score').innerText = newDealerScore;
         dealerScore = +newDealerScore;
+
+        //Five card trick code for dealer (note the card count is 6 not 5 due to the score child element)
+        var cardCount = document.getElementById("dealer").children.length;
+        if (cardCount == 6 && dealerScore <= 21) {
+            displayScore()
+        }
     }
 
     dealerCards = dealer.querySelectorAll('.card');
@@ -347,7 +353,12 @@ function valueCards() {
         dealerCard.classList.remove("back");
         dealerCard.classList.add("front");
     }
-    displayScore()
+
+    if (cardCount !== 6 || dealerScore <= 21) {
+        displayScore()
+    } else if (dealerScore > 21) {
+        displayScore()
+    }
 }
 
 function drawMore(shuffled) {
@@ -441,7 +452,8 @@ function displayScore() {
 
     let dealer = document.querySelector('#dealer');
     let dealerScore = parseInt(dealer.querySelector('.score').innerText);
-    let cardCount = document.getElementById("player-one").children.length;
+    let pCardCount = document.getElementById("player-one").children.length;
+    let dCardCount = document.getElementById("dealer").children.length;
 
     const gameEndQuery = document.createElement('div')
     let startAgain = document.querySelector('#start-over')
@@ -450,7 +462,7 @@ function displayScore() {
         console.log("player one is bust");
         message = `You have gone bust.
                     The dealer wins`;
-    } else if (playerOneScore <= 21 && cardCount == 6) {
+    } else if (playerOneScore <= 21 && pCardCount == 6) {
         console.log("player one wins");
         message = `Five Card Trick! 
                     You win!`;
@@ -460,6 +472,10 @@ function displayScore() {
     } else if (playerOneScore >= dealerScore) {
         console.log("player one wins");
         message = "You win!";
+    } else if (dealerScore <= 21 && dCardCount == 6) {
+        console.log("dealer wins");
+        message = `Dealer has Five Card Trick! 
+                    The dealer wins.`;
     } else {
         console.log("player one loses");
         message = "The dealer wins.";
