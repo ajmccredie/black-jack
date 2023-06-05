@@ -57,6 +57,11 @@ function dealStartCards(shuffled) {
     // alert with too few cards to play
     if (shuffled.length < 6) {
         window.alert("You do not have enough cards in this deck");
+        let mixDeck = [];
+        let mixedDeck = addAnotherDeck(mixDeck, shuffled);
+        console.log("this is the new deck");
+        console.log(mixedDeck);
+        shuffled = mixedDeck;
     }
     // remove items from the DOM not required for game play
     const gTitle = document.getElementById("game-title");
@@ -277,6 +282,11 @@ function valueCards() {
     while (dealerScore < playerOneScore && dealerScore < 21 && playerOneScore !== 21 && !pOneFiveCardTrick) {
         if (shuffled.length < 1) {
             window.alert("You have run out of cards in this deck");
+            let mixDeck = [];
+            let mixedDeck = addAnotherDeck(mixDeck, shuffled);
+            console.log("this is the new deck");
+            console.log(mixedDeck);
+            shuffled = mixedDeck;
         }
         let dealerCardNext = shuffled.pop();
         let dcNsuit = dealerCardNext.slice(-1);
@@ -379,6 +389,11 @@ function valueCards() {
 function drawMore(shuffled) {
     if (shuffled.length < 5) {
         window.alert("You have run out of cards in this deck");
+        let mixDeck = [];
+        let mixedDeck = addAnotherDeck(mixDeck, shuffled);
+        console.log("this is the new deck");
+        console.log(mixedDeck);
+        shuffled = mixedDeck;
     }
     // call in the remaining shuffled cards
     let pOCardNext = shuffled.pop();
@@ -582,4 +597,29 @@ function incrementScore() {
     // access and update both HTML
     document.querySelector('.dealer-running-total').innerText = dealerCumulative;
     document.querySelector('.player-one-running-total').innerText = playerOneCumulative;
+}
+
+function addAnotherDeck(mixDeck, shuffled) {
+    // make a new deck
+    let gameDeck = createDeck();
+    console.log(shuffled);
+
+    //the shuffle process of swapping index contents was inspired by XXX
+    function shuffleDeck(gameDeck) {
+        var deckSize = gameDeck.length;
+            for (let i = deckSize - 1; i > 0; i--) {
+                var newIndex = Math.floor(Math.random() * (i + 1))
+                var oldCard = gameDeck[newIndex]
+                gameDeck[newIndex] = gameDeck[i]
+                gameDeck[i] = oldCard
+            }
+        console.log(gameDeck);
+        return gameDeck
+    }
+
+    let shuffledNew = shuffleDeck(gameDeck);
+    console.log(shuffledNew)
+    let mixedDeck = shuffledNew.concat(shuffled);
+    console.log(mixedDeck);
+    return mixedDeck
 }
