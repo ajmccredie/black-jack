@@ -266,9 +266,15 @@ function valueCards() {
 
     let playerOne = document.querySelector('#player-one');
     let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
+    var pOcardCount = document.getElementById("player-one").children.length;
+        if (pOcardCount == 6 && dealerScore <= 21) {
+            pOneFiveCardTrick = true;
+        } else {
+            pOneFiveCardTrick = false;
+        }
     
     //a while loop to deal with the dealer continuing to draw until they beat the player
-    while (dealerScore < playerOneScore && dealerScore < 21) {
+    while (dealerScore < playerOneScore && dealerScore < 21 && playerOneScore !== 21 && !pOneFiveCardTrick) {
         if (shuffled.length < 1) {
             window.alert("You have run out of cards in this deck");
         }
@@ -347,12 +353,21 @@ function valueCards() {
 
     dealerCards = dealer.querySelectorAll('.card');
     var cardPile = dealerCards.length;
-    for (let i = cardPile - 1; i >= 0; i--) {
-        console.log(dealerCards[i]);
-        dealerCard = dealerCards[i];
-        dealerCard.classList.remove("back");
-        dealerCard.classList.add("front");
+
+    // Turn dealer cards to show hand unless player has Black Jack or Five Card Trick
+    if (playerOneScore !== 21 && !pOneFiveCardTrick) {
+        for (let i = cardPile - 1; i >= 0; i--) {
+            console.log(dealerCards[i]);
+            dealerCard = dealerCards[i];
+            dealerCard.classList.remove("back");
+            dealerCard.classList.add("front");
+        } 
+    } else {
+        dealer = document.querySelector('#dealer');
+        dealerScore = dealer.querySelector('.score');
+        dealerScore.style.display = "none";
     }
+    
 
     if (cardCount !== 6 || dealerScore <= 21) {
         displayScore()
