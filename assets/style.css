@@ -343,7 +343,59 @@ footer .all-suits-banner img {
 /* media queries */
 /* For larger to medium screens size from 1200px wide and down */
 @media screen and (max-width: 1200px) {
+    #game-title {
+        font-size: 65px;
+    }
 
+    .card.front {
+        height: 141px;
+        width: 99px;
+        font-size: 120px;
+    }
+    
+    .card.front::before {
+        font-size: 25px;
+        width: 25px;
+        line-height: 19px;
+        top: 6px;
+        left: 4px;
+    }
+    
+    .card.front::after {
+        font-size: 25px;
+        width: 25px;
+        line-height: 19px;
+        bottom: 6px;
+        right: 4px;
+        transform: rotate(180deg);
+    }
+    
+    .card.back {
+        height: 141px;
+        width: 99px;
+        background-size: 107px 149px;
+        font-size: 0.1px;
+        border-radius: 5px;
+        margin: 16px;
+        box-shadow: 1px 1px;
+    }
+
+    #option-buttons button {
+        font-size: medium;
+    }
+
+    .running-score-contents {
+        font-size: 22px;
+    }
+
+    .game-end-pop-up, .more-cards-pop-up {
+        font-size: 30px;
+    }
+
+    .game-end-pop-up button, .more-cards-pop-up button {
+        font-size: 18px;
+        width: 230px;
+    }
 }
   
  /* for medium screen sizes from 950px wide and down */
