@@ -617,6 +617,30 @@ function incrementScore() {
     document.querySelector('.player-one-running-total').innerText = playerOneCumulative;
 }
 
+function newDeckQuery() {
+    let addNewDeck = document.querySelector('#more-cards')
+    addNewDeck.style.display = "flex";
+
+    const reDraw = document.createElement('button')
+    reDraw.classList.add("reDraw")
+    reDraw.innerText = "Reshuffle and start again"
+    reDraw.addEventListener("click", function () {
+        location.reload();
+      });
+
+    const playAgain = document.createElement('button')
+    playAgain.innerText = "Add in a brand new shuffled deck and keep playing!"
+    playAgain.addEventListener("click", function () {
+        addAnotherDeck();
+      });
+
+    addNewDeck.innerText = "You have insufficient cards in your current deck"
+    addNewDeck.classList.add("more-cards-pop-up")
+    startAgain.appendChild(addNewDeck);
+    addNewDeck.appendChild(reDraw);
+    addNewDeck.appendChild(playAgain);
+}
+
 function addAnotherDeck() {
     // make a new deck
     let gameDeck = createDeck();
