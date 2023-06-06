@@ -651,7 +651,12 @@ function addAnotherDeck() {
         return gameDeck
     }
 
+    // the newly made deck is inserted straight into the cards-pile in front of the remaining cards
     let mixedDeck = shuffleDeck(gameDeck);
-
-    return mixedDeck;
+    let cardsPile = document.getElementById("cards-pile");
+    mixedDeck.forEach(function(card) {
+        var cardElement = document.createElement("div");
+        cardElement.textContent = card;
+        cardsPile.insertBefore(cardElement, cardsPile.firstChild);
+      });
 }
