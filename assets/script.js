@@ -67,7 +67,7 @@ function dealStartCards() {
     // alert with too few cards to play
     if (shuffled.children.length < 6) {
         window.alert("You do not have enough cards in this deck");
-        addAnotherDeck();
+        newDeckQuery();
     }
     
     // remove items from the DOM not required for game play
@@ -300,7 +300,7 @@ function valueCards() {
 
         if (shuffled.children.length < 1) {
             window.alert("You have run out of cards in this deck");
-            addAnotherDeck();
+            newDeckQuery();
         }
 
         let nextDealerCard = shuffled.lastChild;
@@ -407,7 +407,7 @@ function drawMore() {
     let shuffled = document.getElementById("cards-pile");
     if (shuffled.children.length < 5) {
         window.alert("You have run out of cards in this deck");
-        addAnotherDeck();
+        newDeckQuery();
         }
 
     let nextPlayerOneCard = shuffled.lastChild;
@@ -553,6 +553,7 @@ function displayScore() {
 
 function clearCurrentcards() {
     // clear the table to play again with the same shuffled deck in play
+    // reset code found from javascripttutorial.net
     function removeAllChildNodes(parent) {
         while (parent.firstChild) {
             parent.removeChild(parent.firstChild);
@@ -563,14 +564,6 @@ function clearCurrentcards() {
     removeAllChildNodes(startAgain);
 
     let playerOne = document.querySelector('#player-one');
-    // reset code found from javascripttutorial.net
-    
-    function removeAllChildNodes(parent) {
-        while (parent.firstChild) {
-            parent.removeChild(parent.firstChild);
-        }
-    }
-    
     removeAllChildNodes(playerOne);
 
     let dealer = document.querySelector('#dealer');
@@ -618,6 +611,7 @@ function incrementScore() {
 }
 
 function newDeckQuery() {
+    const gameEndQuery = document.createElement('div')
     let addNewDeck = document.querySelector('#more-cards')
     addNewDeck.style.display = "flex";
 
@@ -634,14 +628,24 @@ function newDeckQuery() {
         addAnotherDeck();
       });
 
-    addNewDeck.innerText = "You have insufficient cards in your current deck"
-    addNewDeck.classList.add("more-cards-pop-up")
-    startAgain.appendChild(addNewDeck);
-    addNewDeck.appendChild(reDraw);
-    addNewDeck.appendChild(playAgain);
+    gameEndQuery.innerText = "You have insufficient cards in your current deck"
+    gameEndQuery.classList.add("more-cards-pop-up")
+    addNewDeck.appendChild(gameEndQuery);
+    gameEndQuery.appendChild(reDraw);
+    gameEndQuery.appendChild(playAgain);
 }
 
 function addAnotherDeck() {
+    // remove the options display
+    // use reset code from earlier
+    function removeAllChildNodes(parent) {
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
+    }
+    let addNewDeck = document.querySelector('#more-cards');
+    removeAllChildNodes(addNewDeck);
+    addNewDeck.style.display = "none";
     // make a new deck
     let gameDeck = createDeck();
 
