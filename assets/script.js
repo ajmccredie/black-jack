@@ -64,18 +64,11 @@ function howToPlay() {
 
 function dealStartCards() {
     let shuffled = document.getElementById("cards-pile");
-    //console.log(shuffled);
     // alert with too few cards to play
-    // let mixedDeck = [];
-    if (shuffled.length < 6) {
-      window.alert("You do not have enough cards in this deck");
-    //  mixedDeck = addAnotherDeck();
-    //  console.log("this is the new deck");
-    //  console.log(mixedDeck);
+    if (shuffled.children.length < 6) {
+        window.alert("You do not have enough cards in this deck");
+        addAnotherDeck();
     }
-    //shuffled = mixedDeck.concat(shuffled);
-    //console.log("Start cards deck");
-    //console.log(shuffled);
     
     // remove items from the DOM not required for game play
     const gTitle = document.getElementById("game-title");
@@ -304,14 +297,11 @@ function valueCards() {
     //a while loop to deal with the dealer continuing to draw until they beat the player
     while (dealerScore < playerOneScore && dealerScore < 21 && playerOneScore !== 21 && !pOneFiveCardTrick) {
         let shuffled = document.getElementById("cards-pile");
-        //let mixedDeck = [];
+
         if (shuffled.children.length < 1) {
             window.alert("You have run out of cards in this deck");
-        //    mixedDeck = addAnotherDeck();
-        //    console.log("this is the new deck");
-        //    console.log(mixedDeck);
+            addAnotherDeck();
         }
-        //shuffled = mixedDeck.concat(shuffled);
 
         let nextDealerCard = shuffled.lastChild;
         let dealerCardNext = nextDealerCard.innerText;
@@ -414,18 +404,11 @@ function valueCards() {
 }
 
 function drawMore() {
-    //let mixedDeck = [];
     let shuffled = document.getElementById("cards-pile");
     if (shuffled.children.length < 5) {
         window.alert("You have run out of cards in this deck");
-   //     let mixedDeck = addAnotherDeck();
-   //     console.log("this is the new deck");
-   //     console.log(mixedDeck);
+        addAnotherDeck();
         }
-    //shuffled = mixedDeck.concat(shuffled);
-    //console.log("Draw more deck");
-    //console.log(shuffled);
-    // call in the remaining shuffled cards
 
     let nextPlayerOneCard = shuffled.lastChild;
     let pOCardNext = nextPlayerOneCard.innerText;
