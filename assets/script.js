@@ -1,16 +1,19 @@
 window.onload = function() {
     var gameDeck = createDeck();
-    var shuffled = shuffleDeck(gameDeck);
+    var shuffledCards = shuffleDeck(gameDeck);
     const btn = document.getElementById("start-button");
     btn.style.display = "block";
     const btn2 = document.getElementById("modal-button");
     btn2.style.display = "block";
     console.log("initial game deck");
-    console.log(shuffled);
+    console.log(shuffledCards);
     //store the deck in the DOM
-    var cardPile = document.getElementById("card-pile");
-    cardPile.appendChild(shuffled);
-    return shuffled;
+    var cardsPile = document.getElementById("cards-pile");
+    shuffledCards.forEach(function(card) {
+        var cardElement = document.createElement("div");
+        cardElement.textContent = card;
+        cardsPile.appendChild(cardElement);
+    });
 }
 
 function createDeck() {
@@ -60,19 +63,20 @@ function howToPlay() {
 }
 
 function dealStartCards() {
-
+    let shuffled = document.getElementById("cards-pile");
     //console.log(shuffled);
     // alert with too few cards to play
-    let mixedDeck = [];
+    // let mixedDeck = [];
     if (shuffled.length < 6) {
       window.alert("You do not have enough cards in this deck");
-      mixedDeck = addAnotherDeck();
-      console.log("this is the new deck");
-      console.log(mixedDeck);
+    //  mixedDeck = addAnotherDeck();
+    //  console.log("this is the new deck");
+    //  console.log(mixedDeck);
     }
-    shuffled = mixedDeck.concat(shuffled);
-    console.log("Start cards deck");
-    console.log(shuffled);
+    //shuffled = mixedDeck.concat(shuffled);
+    //console.log("Start cards deck");
+    //console.log(shuffled);
+    
     // remove items from the DOM not required for game play
     const gTitle = document.getElementById("game-title");
     gTitle.style.display = "none";
@@ -88,14 +92,16 @@ function dealStartCards() {
         location.reload();
       });
 
-    console.log(shuffled);
     // set initial dealer total to 0
     let dealerTot = 0;
     let p1Tot = 0;
     // deal dealer cards and split the information of suits and values
-    let dealerCard1 = shuffled.pop();
-    let dc1suit = dealerCard1.slice(-1);
+    let firstDealerCard = shuffled.lastChild;
+    let dealerCard1 = firstDealerCard.innerText;
     console.log(dealerCard1);
+    shuffled.removeChild(firstDealerCard);
+    let dc1suit = dealerCard1.slice(-1);
+    // determine the properties so that the correct graphics will display
     if (dc1suit === '♥') {
         dc1suitColour = "red";
     } else if (dc1suit === '♦') {
@@ -115,7 +121,9 @@ function dealStartCards() {
     } else {
         dc1value = +dc1val;
     }
-    let dealerCard2 = shuffled.pop();
+    let secondDealerCard = shuffled.lastChild;
+    let dealerCard2 = secondDealerCard.innerText;
+    shuffled.removeChild(secondDealerCard);
     let dc2suit = dealerCard2.slice(-1);
     if (dc2suit === '♥') {
         dc2suitColour = "red";
@@ -146,7 +154,9 @@ function dealStartCards() {
     }
     
     // repeat process for player 1
-    let p1Card1 = shuffled.pop();
+    let firstPlayerOneCard = shuffled.lastChild;
+    let p1Card1 = firstPlayerOneCard.innerText;
+    shuffled.removeChild(firstPlayerOneCard);
     let p1c1suit = p1Card1.slice(-1);
     if (p1c1suit === '♥') {
         p1c1suitColour = "red";
@@ -167,7 +177,9 @@ function dealStartCards() {
     } else {
         p1c1value = +p1c1val;
     }
-    let p1Card2 = shuffled.pop();
+    let secondPlayerOneCard = shuffled.lastChild;
+    let p1Card2 = secondPlayerOneCard.innerText;
+    shuffled.removeChild(secondPlayerOneCard);
     let p1c2suit = p1Card2.slice(-1);
     if (p1c2suit === '♥') {
         p1c2suitColour = "red";
@@ -204,7 +216,7 @@ function dealStartCards() {
     dC1Div.dataset.value = `${dc1val} ${dc1suit}`
     dC1Div.classList.add("card", "back", `${dc1suitColour}`)
     dealer.appendChild(dC1Div);
-    dealerScore.innerText = dealerTot
+    dealerScore.innerText = dealerTot;
     dealerScore.classList.add("score")
     dealer.appendChild(dealerScore);
     dealerScore.style.display = "none";
@@ -237,8 +249,6 @@ function dealStartCards() {
     stickButton.style.display = "block";
     const twistButton = document.getElementById("twist");
     twistButton.style.display = "block";
-
-    return shuffled;
 }
 
 function valueCards() {
@@ -293,17 +303,19 @@ function valueCards() {
     
     //a while loop to deal with the dealer continuing to draw until they beat the player
     while (dealerScore < playerOneScore && dealerScore < 21 && playerOneScore !== 21 && !pOneFiveCardTrick) {
-        let mixedDeck = [];
-        if (shuffled.length < 1) {
+        let shuffled = document.getElementById("cards-pile");
+        //let mixedDeck = [];
+        if (shuffled.children.length < 1) {
             window.alert("You have run out of cards in this deck");
-            mixedDeck = addAnotherDeck();
-            console.log("this is the new deck");
-            console.log(mixedDeck);
+        //    mixedDeck = addAnotherDeck();
+        //    console.log("this is the new deck");
+        //    console.log(mixedDeck);
         }
-        shuffled = mixedDeck.concat(shuffled);
-        console.log("Dealer draw more deck");
-        console.log(shuffled);
-        let dealerCardNext = shuffled.pop();
+        //shuffled = mixedDeck.concat(shuffled);
+
+        let nextDealerCard = shuffled.lastChild;
+        let dealerCardNext = nextDealerCard.innerText;
+        shuffled.removeChild(nextDealerCard);
         let dcNsuit = dealerCardNext.slice(-1);
         if (dcNsuit === '♥') {
             dcNsuitColour = "red";
@@ -399,22 +411,25 @@ function valueCards() {
     } else if (dealerScore > 21) {
         displayScore()
     }
-    return shuffled;
 }
 
-function drawMore(shuffled) {
-    let mixedDeck = [];
-    if (shuffled.length < 5) {
+function drawMore() {
+    //let mixedDeck = [];
+    let shuffled = document.getElementById("cards-pile");
+    if (shuffled.children.length < 5) {
         window.alert("You have run out of cards in this deck");
-        let mixedDeck = addAnotherDeck();
-        console.log("this is the new deck");
-        console.log(mixedDeck);
+   //     let mixedDeck = addAnotherDeck();
+   //     console.log("this is the new deck");
+   //     console.log(mixedDeck);
         }
-    shuffled = mixedDeck.concat(shuffled);
-    console.log("Draw more deck");
-    console.log(shuffled);
+    //shuffled = mixedDeck.concat(shuffled);
+    //console.log("Draw more deck");
+    //console.log(shuffled);
     // call in the remaining shuffled cards
-    let pOCardNext = shuffled.pop();
+
+    let nextPlayerOneCard = shuffled.lastChild;
+    let pOCardNext = nextPlayerOneCard.innerText;
+    shuffled.removeChild(nextPlayerOneCard);
     let pOcNsuit = pOCardNext.slice(-1);
     if (pOcNsuit === '♥') {
         pOcNsuitColour = "red";
@@ -579,7 +594,7 @@ function clearCurrentcards() {
     removeAllChildNodes(dealer);
 
     document.getElementById("player-one").style.marginTop = "10px";
-    dealStartCards(shuffled)
+    dealStartCards()
 }
 
 function incrementScore() {
