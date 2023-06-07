@@ -95,6 +95,11 @@ body {
     justify-content: center;
 }
 
+.black-jack-hand img {
+    max-width: 300px;
+    width: auto;
+}
+
 .close {
     color: whitesmoke;
     float: right;
@@ -400,7 +405,9 @@ footer .all-suits-banner img {
   
  /* for medium screen sizes from 950px wide and down */
  @media screen and (max-width: 950px) {
-
+    .black-jack-hand img {
+        max-width: 200px;
+    }
  }
  
  /* for small screens 800px and down */
@@ -501,6 +508,121 @@ footer .all-suits-banner img {
         width: 300px;
         font-size: 28px;
         padding: 30px;
+    }  
+}
+
+ /* for small screens 800px and down */
+ @media screen and (max-width: 800px) {
+    #dealer {
+        margin-top: 50px;
+        width: 90vw;
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+    #player-one {
+        width: 90vw;
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+    #game-title {
+        font-size: 40px;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    footer .all-suits-banner {
+        bottom: 5vh;
+        width: 100%;
+        align-items: center;
     }
     
+    .rules-and-play {
+        font-size: small;
+    }
+       
+    #start-button, #modal-button {
+        font-size: 18px;
+        padding: 10px;
+        width: 150px;
+    }
+
+    .card.front {
+        font-size: 30px;
+        margin: 10px;
+    }
+
+    .card.back {
+        font-size: 0.1px;
+        margin: 10px;
+    }
+
+    .card.front::before {
+        font-size: 16px;
+        line-height: 12px;
+        left: 4px;
+    }
+
+    .card.front::after {
+        font-size: 16px;
+        line-height: 12px;
+        right: 4px;
+    }
+
+    #in-game .exit-game {
+        font-size: medium;
+        font-weight: normal;
+    }
+
+    .game-end-pop-up, .more-cards-pop-up {
+        font-size: 18px;
+        padding: 30px;
+    }
+
+    .game-end-pop-up button, .more-cards-pop-up button {
+        font-size: 15px;
+        width: 190px;
+        margin: 10px 20px;
+        padding: 20px 10px;
+    }
+
+    #start-over {
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+    }
+
+    #more-cards {
+        font-size: 18px;
+    }
+    
+    .game-end-pop-up {
+        width: 300px;
+        font-size: 18px;
+        padding: 30px;
+    }  
+}
+
+@media screen and (max-width: 600px) {
+    #button-area {
+        flex-direction: column;
+    }
+
+    #start-button, #modal-button {
+        margin-top: 7px;
+    }
+
+    .heart img, .diamond img, .club img, .spade img {
+        max-width: 100px;
+        max-height: 120px;
+        width: auto;
+        height: auto;
+    }
+
+    .black-jack-hand img {
+        max-width: 100px;
+    }
 }
