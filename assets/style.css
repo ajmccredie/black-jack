@@ -312,7 +312,7 @@ footer .all-suits-banner img {
     display: flex;
     align-items: center;
     width: fit-content;
-    margin: 20px;
+    margin: 15px;
     padding: 10px;
     background-color: rgb(209, 11, 11);
     justify-content: center;
@@ -321,7 +321,7 @@ footer .all-suits-banner img {
 .running-score-contents {
     display: flex;
     flex-direction: row;
-    font-size: 28px;
+    font-size: 26px;
     font-family: "Libre Bodoni", Times, serif;
     font-weight: 900;
     text-shadow: 1px 1px 2px whitesmoke,
@@ -407,46 +407,100 @@ footer .all-suits-banner img {
  @media screen and (max-width: 800px) {
     #dealer {
         margin-top: 60px;
-        margin-left: 10vw;
+        width: 90vw;
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+    #player-one {
+        width: 90vw;
+        margin-left: 5vw;
+        margin-right: 5vw;
     }
 
     #game-title {
-        font-size: 60px;
+        font-size: 55px;
         padding-left: 10vw;
         padding-right: 10vw;
     }
-       
-    #start-button {
-        font-size: 18px;
-        padding: 10px;
-        height: 60px;
-        width: 200px;
+
+
+
+    footer .all-suits-banner {
+        bottom: 5vh;
+        width: 100%;
+        align-items: center;
     }
 
-    .card.front {
-        font-size: 70px;
+    .heart, .diamond, .club, .spade {
+        height: 120px;
     }
+    
+    .rules-and-play {
+        font-size: medium;
+    }
+       
+    #start-button, #modal-button {
+        font-size: 18px;
+        padding: 10px;
+        width: 150px;
+    }
+
+    .card.front, {
+        font-size: 50px;
+        margin: 10px;
+    }
+
+    .card.back {
+        font-size: 0.1px;
+        margin: 10px;
+    }
+
+    .card.front::before {
+        font-size: 22px;
+        line-height: 18px;
+        left: 6px;
+    }
+
+    .card.front::after {
+        font-size: 22px;
+        line-height: 18px;
+        right: 6px;
+    }
+
+    #in-game .exit-game {
+        font-size: medium;
+        font-weight: normal;
+    }
+
+    .game-end-pop-up, .more-cards-pop-up {
+        font-size: 28px;
+        padding: 30px;
+    }
+
+    .game-end-pop-up button, .more-cards-pop-up button {
+        font-size: 17px;
+        width: 190px;
+        margin: 10px 20px;
+        padding: 20px 10px;
+    }
+
     #start-over {
         width: 100vw;
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 25px;
+    }
+
+    #more-cards {
+        font-size: 25px;
     }
     
     .game-end-pop-up {
-        width: 200px;
-        font-family: "Libre Bodoni", Times, serif;
-        font-size: 38px;
-        color: whitesmoke;
-        background-color: black;
-        display: flex;
-        padding: 50px;
-        align-items: center;
-        flex-direction: column;
-        border-radius: 5px;
-        border: solid whitesmoke 2px;
-        justify-content: center;
-        box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+        width: 300px;
+        font-size: 28px;
+        padding: 30px;
     }
     
 }
