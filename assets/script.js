@@ -65,7 +65,7 @@ function howToPlay() {
 function dealStartCards() {
     let shuffled = document.getElementById("cards-pile");
     // alert with too few cards to play
-    if (shuffled.children.length < 6) {
+    if (shuffled.children.length < 10) {
         window.alert("You do not have enough cards in this deck");
         newDeckQuery();
     }
