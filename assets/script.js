@@ -355,11 +355,9 @@ function valueCards() {
             } else if (dc1val == "A" && validDC1) {
                 dealerScore = +dealerScore - 10;
                 dc1valFind.classList.add("used");
-                console.log("I have subtracted 10 from the total");
             } else if (dc2val == "A" && validDC2) {
                 dealerScore = +dealerScore - 10;
                 dc2valFind.classList.add("used");
-                console.log("I have subtracted 10 from the total");
             } else {
                 dealerScore = +dealerScore;
             }
@@ -374,7 +372,7 @@ function valueCards() {
         //Five card trick code for dealer (note the card count is 6 not 5 due to the score child element)
         var cardCount = document.getElementById("dealer").children.length;
         if (cardCount == 6 && dealerScore <= 21) {
-            displayScore()
+            break
         }
     }
 
