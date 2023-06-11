@@ -408,6 +408,10 @@ footer .all-suits-banner img {
     .black-jack-hand img {
         max-width: 200px;
     }
+    
+    .running-score-contents {
+        font-size: 20px;
+    }
  }
  
  /* for small screens 800px and down */
@@ -431,16 +435,15 @@ footer .all-suits-banner img {
         padding-right: 10vw;
     }
 
-
-
     footer .all-suits-banner {
         bottom: 5vh;
         width: 100%;
         align-items: center;
     }
 
-    .heart, .diamond, .club, .spade {
-        height: 120px;
+    .heart img, .diamond img, .club img, .spade img {
+        height: 115px;
+        width: auto;
     }
     
     .rules-and-play {
@@ -473,6 +476,20 @@ footer .all-suits-banner img {
         font-size: 22px;
         line-height: 18px;
         right: 6px;
+    }
+
+    .score {
+        font-size: 20px;
+        height: fit-content;
+    }
+    
+    #running-score {
+        margin: 10px;
+        padding: 5px;
+    }
+    
+    .running-score-contents {
+        font-size: 18px;
     }
 
     #in-game .exit-game {
@@ -511,8 +528,8 @@ footer .all-suits-banner img {
     }  
 }
 
- /* for small screens 800px and down */
- @media screen and (max-width: 800px) {
+ /* for small screens 670px and down */
+ @media screen and (max-width: 670px) {
     #dealer {
         margin-top: 50px;
         width: 90vw;
@@ -549,25 +566,32 @@ footer .all-suits-banner img {
     }
 
     .card.front {
-        font-size: 30px;
+        font-size: 80px;
         margin: 10px;
+        height: 105px;
+        width: 75px;
     }
 
     .card.back {
+        height: 105px;
+        width: 75px;
+        background-size: 78px 107px;
         font-size: 0.1px;
         margin: 10px;
     }
 
     .card.front::before {
-        font-size: 16px;
-        line-height: 12px;
-        left: 4px;
+        font-size: 19px;
+        line-height: 14px;
+        left: 5px;
+        width: 19px;
     }
 
     .card.front::after {
-        font-size: 16px;
-        line-height: 12px;
-        right: 4px;
+        font-size: 19px;
+        line-height: 14px;
+        right: 5px;
+        width: 19px;
     }
 
     #in-game .exit-game {
@@ -600,12 +624,13 @@ footer .all-suits-banner img {
     }
     
     .game-end-pop-up {
-        width: 300px;
+        width: auto;
         font-size: 18px;
         padding: 30px;
     }  
 }
 
+ /* for small screens 600px and down */
 @media screen and (max-width: 600px) {
     #button-area {
         flex-direction: column;
@@ -625,4 +650,67 @@ footer .all-suits-banner img {
     .black-jack-hand img {
         max-width: 100px;
     }
+
+    .score {
+        font-size: 18px;
+    }
+    
+    #running-score {
+        margin: 10px;
+        padding: 5px;
+    }
+    
+    .running-score-contents {
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .cumulative-scores {
+        width: 25vw;
+    }
 }
+
+ /* for small screens 450px and down */
+ @media screen and (max-width: 450px) {
+    #game-title {
+        text-align: center;
+    }
+
+    .score {
+        font-size: 16px;
+        height: fit-content;
+    }
+
+    .card.front {
+        height: 94px;
+        width: 66px;
+        font-size: 50px;
+    }
+    
+    .card.front::before {
+     /*   font-size: 25px;
+        width: 25px;
+        line-height: 19px;
+        top: 6px;
+        left: 4px;*/
+    }
+    
+    .card.front::after {
+    /*     font-size: 25px;
+        width: 25px;
+        line-height: 19px;
+        bottom: 6px;
+        right: 4px;
+        transform: rotate(180deg);*/
+    }
+    
+    .card.back {
+        height: 94px;
+        width: 66px;
+        background-size: 69px 97px;
+        font-size: 0.1px;
+        border-radius: 5px;
+        margin: 16px;
+        box-shadow: 1px 1px;
+    }
+ }
