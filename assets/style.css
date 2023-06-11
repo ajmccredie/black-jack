@@ -685,23 +685,24 @@ footer .all-suits-banner img {
         height: 94px;
         width: 66px;
         font-size: 50px;
+        margin: 1px;
     }
     
     .card.front::before {
-     /*   font-size: 25px;
-        width: 25px;
+        font-size: 13px;
+        width: 13px;
         line-height: 19px;
-        top: 6px;
-        left: 4px;*/
+        top: 5px;
+        left: 4px;
     }
     
     .card.front::after {
-    /*     font-size: 25px;
-        width: 25px;
+        font-size: 13px;
+        width: 13px;
         line-height: 19px;
-        bottom: 6px;
+        bottom: 5px;
         right: 4px;
-        transform: rotate(180deg);*/
+        transform: rotate(180deg);
     }
     
     .card.back {
