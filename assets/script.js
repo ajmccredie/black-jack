@@ -106,6 +106,7 @@ function dealStartCards() {
     } else {
         dc1suitColour = "black";
     }
+    // allocate the value for the non-numeric cards
     let dc1val = dealerCard1.slice(0, -1);
     if (dc1val === "J") {
         dc1value = 10;
@@ -118,9 +119,11 @@ function dealStartCards() {
     } else {
         dc1value = +dc1val;
     }
+    // obtain the second card for the dealer
     let secondDealerCard = shuffled.lastChild;
     let dealerCard2 = secondDealerCard.innerText;
     shuffled.removeChild(secondDealerCard);
+    // obtain the details to display correctly
     let dc2suit = dealerCard2.slice(-1);
     if (dc2suit === '♥') {
         dc2suitColour = "red";
@@ -129,6 +132,7 @@ function dealStartCards() {
     } else {
         dc2suitColour = "black";
     }
+    // allocate the values to the non-numeric cards
     let dc2val = dealerCard2.slice(0, -1);
     if (dc2val === "J") {
         dc2value = 10;
@@ -151,9 +155,11 @@ function dealStartCards() {
     }
     
     // repeat process for player 1
+    // deal the card
     let firstPlayerOneCard = shuffled.lastChild;
     let p1Card1 = firstPlayerOneCard.innerText;
     shuffled.removeChild(firstPlayerOneCard);
+    // determine the value of the card
     let p1c1suit = p1Card1.slice(-1);
     if (p1c1suit === '♥') {
         p1c1suitColour = "red";
@@ -162,6 +168,7 @@ function dealStartCards() {
     } else {
         p1c1suitColour = "black";
     }
+    // assign the value to the non-numeric cards
     let p1c1val = p1Card1.slice(0, -1);
     if (p1c1val === "J") {
         p1c1value = 10;
@@ -174,9 +181,11 @@ function dealStartCards() {
     } else {
         p1c1value = +p1c1val;
     }
+    // deal the second card
     let secondPlayerOneCard = shuffled.lastChild;
     let p1Card2 = secondPlayerOneCard.innerText;
     shuffled.removeChild(secondPlayerOneCard);
+    // determine the suit
     let p1c2suit = p1Card2.slice(-1);
     if (p1c2suit === '♥') {
         p1c2suitColour = "red";
@@ -185,6 +194,7 @@ function dealStartCards() {
     } else {
         p1c2suitColour = "black";
     }
+    // assign the value
     let p1c2val = p1Card2.slice(0, -1);
     if (p1c2val === "J") {
         p1c2value = 10;
@@ -197,7 +207,7 @@ function dealStartCards() {
     } else {
         p1c2value = +p1c2val;
     }
-    // correctly count the score if both cards are aces on initial deal //
+    // correctly count the score if both cards are aces on initial deal 
     if 	(p1c1val == "A" && p1c2val == "A") {
         p1c1value = 1;
         p1Tot = p1c1value + p1c2value;
@@ -205,7 +215,7 @@ function dealStartCards() {
         p1Tot = p1c1value + p1c2value;
     }
     
-    //show two start cards for player one, //
+    //show two start cards for player one and keep dealer card values hidden
     const dealer = document.getElementById("dealer");
     const dealerScore = document.createElement('div')
     const dC1Div = document.createElement('div')
@@ -225,11 +235,13 @@ function dealStartCards() {
     dC2Div.classList.add("card", "back", `${dc2suitColour}`)
     dealer.appendChild(dC2Div);
 
+    // display player one's score alongside the cards
     const playerOne = document.getElementById("player-one");
     const p1Score = document.createElement('div')
     p1Score.innerText = p1Tot
     p1Score.classList.add("score")
     playerOne.appendChild(p1Score);
+    // display both cards
     const p1C1Div = document.createElement('div')
     p1C1Div.innerText = p1c1suit
     p1C1Div.dataset.value = `${p1c1val} ${p1c1suit}`
@@ -242,6 +254,7 @@ function dealStartCards() {
     p1C2Div.classList.add("card", "front", `${p1c2suitColour}`)
     playerOne.appendChild(p1C2Div);
 
+    // present the stick or twist options to the user
     const stickButton = document.getElementById("stick");
     stickButton.style.display = "block";
     const twistButton = document.getElementById("twist");
@@ -249,6 +262,7 @@ function dealStartCards() {
 }
 
 function valueCards() {
+    /* assess the value of the dealers cards and determine a winner when the player presses 'stick' */
     //dealer needs to draw more on player stick if their score is lower, so need to access dealer score
     dealer = document.querySelector('#dealer');
     dealerScore = dealer.querySelector('.score');
@@ -299,14 +313,15 @@ function valueCards() {
         }
     
     //a while loop to deal with the dealer continuing to draw until they beat the player
-    while (dealerScore < playerOneScore && dealerScore < 21 && playerOneScore !== 21 && !pOneFiveCardTrick) {
+    while (dealerScore <= playerOneScore && dealerScore < 21 && playerOneScore !== 21 && !pOneFiveCardTrick) {
         let shuffled = document.getElementById("cards-pile");
-
+        // check there are sufficient cards in the deck to perform the operation required 
         if (shuffled.children.length < 1) {
             window.alert("You have run out of cards in this deck");
             newDeckQuery();
         }
 
+        // determine the suit and card value in the same way as for the deal
         let nextDealerCard = shuffled.lastChild;
         let dealerCardNext = nextDealerCard.innerText;
         shuffled.removeChild(nextDealerCard);
@@ -331,6 +346,7 @@ function valueCards() {
             dcNvalue = +dcNval;
         }
 
+        // display the new card(s)
         const dCNDiv = document.createElement('div')
         dCNDiv.innerText = dcNsuit
         dCNDiv.dataset.value = `${dcNval} ${dcNsuit}`
@@ -339,14 +355,13 @@ function valueCards() {
 
         let newDealerScore = +dealerScore + dcNvalue;
 
-        //check if the ace has already had 10 subtracted
+        //check if the potential ace in the first card position has already had 10 subtracted
         let voidDc1 = dc1valFind.classList.contains('used');
         console.log(voidDc1);
         let validDC1 = !voidDc1;
         console.log("valid?");
         console.log(validDC1);
-
-        //check if the ace has already subtracted 10
+        //check if the potential ace in the second card position has already had 10 subtracted
         let voidDc2 = dc2valFind.classList.contains('used');
         console.log(voidDc2);
         let validDC2 = !voidDc2;
