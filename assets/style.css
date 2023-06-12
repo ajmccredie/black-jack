@@ -509,15 +509,11 @@ footer .all-suits-banner img {
         padding: 20px 10px;
     }
 
-    #start-over {
+    #start-over, #more-cards {
         width: 100vw;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 25px;
-    }
-
-    #more-cards {
         font-size: 25px;
     }
     
@@ -611,15 +607,11 @@ footer .all-suits-banner img {
         padding: 20px 10px;
     }
 
-    #start-over {
+    #start-over, #more-cards {
         width: 100vw;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 18px;
-    }
-
-    #more-cards {
         font-size: 18px;
     }
     

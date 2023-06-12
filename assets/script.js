@@ -600,13 +600,15 @@ function incrementScore() {
     let dealerCumulative = parseInt(document.querySelector('.dealer-running-total').innerText);
     console.log(dealerCumulative);
 
-    //create and write the text for dealer and player
-
+    //determine the current hand total for the player and dealer
+    //check the number of cards in hand for five card trick points
     let playerOne = document.querySelector('#player-one');
     let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
+    let pOcardCount = document.getElementById("player-one").children.length;
 
     let dealer = document.querySelector('#dealer');
     let dealerScore = parseInt(dealer.querySelector('.score').innerText);
+    let dCardCount = document.getElementById("dealer").children.length;
 
     // determine who to give the point to
     if (playerOneScore > 21) {
@@ -615,12 +617,13 @@ function incrementScore() {
         ++playerOneCumulative
     } else if (playerOneScore >= dealerScore) {
         ++playerOneCumulative
+    } else if (dealerScore <= 21 && dCardCount == 6) {
+        ++dealerCumulative
+    } else if (playerOneScore <= 21 && pOcardCount == 6) {    
+        ++playerOneCumulative
     } else {
         ++dealerCumulative
     }
-
-    console.log(dealerCumulative);
-    console.log(playerOneCumulative);
 
     // access and update both HTML
     document.querySelector('.dealer-running-total').innerText = dealerCumulative;
@@ -628,6 +631,7 @@ function incrementScore() {
 }
 
 function newDeckQuery() {
+    /* offer the user the option of a freshly shuffled deck or to start over when insufficient cards detected */
     const gameEndQuery = document.createElement('div')
     let addNewDeck = document.querySelector('#more-cards')
     addNewDeck.style.display = "flex";
