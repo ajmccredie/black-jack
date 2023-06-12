@@ -412,7 +412,7 @@ function valueCards() {
         dealerScore.style.display = "none";
     }
     
-
+    // display the scores when either the dealer goes bust or wins a five card trick
     if (cardCount !== 6 || dealerScore <= 21) {
         displayScore()
     } else if (dealerScore > 21) {
@@ -421,12 +421,15 @@ function valueCards() {
 }
 
 function drawMore() {
+    /* Allow player one to draw more cards on "twist" */
+    // check there are sufficient cards available
     let shuffled = document.getElementById("cards-pile");
     if (shuffled.children.length < 5) {
         window.alert("You have run out of cards in this deck");
         newDeckQuery();
         }
 
+    // draw the next card and determine the value
     let nextPlayerOneCard = shuffled.lastChild;
     let pOCardNext = nextPlayerOneCard.innerText;
     shuffled.removeChild(nextPlayerOneCard);
@@ -438,7 +441,6 @@ function drawMore() {
     } else {
         pOcNsuitColour = "black";
     }
-
     let pOcNval = pOCardNext.slice(0, -1);
     if (pOcNval === "J") {
         pOcNvalue = 10;
@@ -452,6 +454,7 @@ function drawMore() {
         pOcNvalue = +pOcNval;
     }
 
+    // add the newly created player one card to the DOM
     const playerOne = document.getElementById("player-one");
     const p1CNDiv = document.createElement('div')
     p1CNDiv.innerText = pOcNsuit
@@ -488,6 +491,7 @@ function drawMore() {
             playerOneScore = +playerOneScore;
         }
     }
+    // increment the score for the hand with the new value
     newPOneScore = +playerOneScore + pOcNvalue;
     console.log(newPOneScore);
     playerOneS.querySelector('.score').innerText = newPOneScore;
@@ -497,15 +501,15 @@ function drawMore() {
     if (cardCount == 6 && newPOneScore <= 21) {
         displayScore()
     }
-
+    
+    //display the score if player one goes bust
     if (newPOneScore > 21) {
         displayScore()
     }
-
-    return shuffled;
 }
 
 function displayScore() {
+    /* determine the game winner and display a pop up to tell the user and present their options */
     const stickButton = document.getElementById("stick");
     stickButton.style.display = "none";
     const twistButton = document.getElementById("twist");
@@ -523,30 +527,25 @@ function displayScore() {
     const gameEndQuery = document.createElement('div')
     let startAgain = document.querySelector('#start-over')
     startAgain.style.display = "flex";
+    // determine the winner and display the appropriate message
     if (playerOneScore > 21) {
-        console.log("player one is bust");
         message = `You have gone bust.
                     The dealer wins`;
     } else if (playerOneScore <= 21 && pCardCount == 6) {
-        console.log("player one wins");
         message = `Five Card Trick! 
                     You win!`;
     } else if (dealerScore > 21) {
-        console.log("player one wins");
         message = "You win!";
     } else if (playerOneScore >= dealerScore) {
-        console.log("player one wins");
         message = "You win!";
     } else if (dealerScore <= 21 && dCardCount == 6) {
-        console.log("dealer wins");
         message = `Dealer has Five Card Trick! 
                     The dealer wins.`;
     } else {
-        console.log("player one loses");
         message = "The dealer wins.";
     }
 
-    console.log(message);
+    // present the options to the user
     const reDraw = document.createElement('button')
     reDraw.classList.add("reDraw")
     reDraw.innerText = "Reshuffle and start again"
