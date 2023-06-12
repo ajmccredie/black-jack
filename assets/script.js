@@ -536,11 +536,12 @@ function displayScore() {
                     You win!`;
     } else if (dealerScore > 21) {
         message = "You win!";
-    } else if (playerOneScore >= dealerScore) {
-        message = "You win!";
     } else if (dealerScore <= 21 && dCardCount == 6) {
-        message = `Dealer has Five Card Trick! 
-                    The dealer wins.`;
+            message = `Dealer has Five Card Trick! 
+                        The dealer wins.`;
+    } else if (playerOneScore >= dealerScore) {
+        // this shouldn't come up, but catches the eventuality
+        message = "You win!";
     } else {
         message = "The dealer wins.";
     }
