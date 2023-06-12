@@ -676,6 +676,13 @@ footer .all-suits-banner img {
         text-align: center;
     }
 
+    .heart img, .diamond img, .club img, .spade img {
+        max-width: 90px;
+        max-height: 100px;
+        width: auto;
+        height: auto;
+    }
+
     .score {
         font-size: 16px;
         height: fit-content;
@@ -684,23 +691,23 @@ footer .all-suits-banner img {
     .card.front {
         height: 94px;
         width: 66px;
-        font-size: 50px;
+        font-size: 25px;
         margin: 1px;
     }
     
     .card.front::before {
-        font-size: 13px;
-        width: 13px;
-        line-height: 19px;
-        top: 5px;
+        font-size: 10px;
+        width: 10px;
+        line-height: 12px;
+        top: 4px;
         left: 4px;
     }
     
     .card.front::after {
-        font-size: 13px;
-        width: 13px;
-        line-height: 19px;
-        bottom: 5px;
+        font-size: 10px;
+        width: 10px;
+        line-height: 12px;
+        bottom: 4px;
         right: 4px;
         transform: rotate(180deg);
     }
