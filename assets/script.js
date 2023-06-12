@@ -70,8 +70,9 @@ function dealStartCards() {
     let shuffled = document.getElementById("cards-pile");
     // alert with too few cards to play
     if (shuffled.children.length < 10) {
-        window.alert("You do not have enough cards in this deck");
-        newDeckQuery();
+        setTimeout(function() {
+            newDeckQuery();
+        }, 0);
     }
     
     // remove items from the DOM not required for game play
@@ -317,8 +318,9 @@ function valueCards() {
         let shuffled = document.getElementById("cards-pile");
         // check there are sufficient cards in the deck to perform the operation required 
         if (shuffled.children.length < 1) {
-            window.alert("You have run out of cards in this deck");
-            newDeckQuery();
+            setTimeout(function() {
+                newDeckQuery();
+            }, 0);
         }
 
         // determine the suit and card value in the same way as for the deal
@@ -425,8 +427,9 @@ function drawMore() {
     // check there are sufficient cards available
     let shuffled = document.getElementById("cards-pile");
     if (shuffled.children.length < 5) {
-        window.alert("You have run out of cards in this deck");
-        newDeckQuery();
+        setTimeout(function() {
+            newDeckQuery();
+        }, 0);
         }
 
     // draw the next card and determine the value
