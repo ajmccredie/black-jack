@@ -505,8 +505,6 @@ footer .all-suits-banner img {
     .game-end-pop-up button, .more-cards-pop-up button {
         font-size: 17px;
         width: 190px;
-        margin: 10px 20px;
-        padding: 20px 10px;
     }
 
     #start-over, #more-cards {
@@ -603,8 +601,8 @@ footer .all-suits-banner img {
     .game-end-pop-up button, .more-cards-pop-up button {
         font-size: 15px;
         width: 190px;
-        margin: 10px 20px;
-        padding: 20px 10px;
+        margin: 5px 10px;
+        padding: 10px 5px;
     }
 
     #start-over, #more-cards {
@@ -659,6 +657,16 @@ footer .all-suits-banner img {
 
     .cumulative-scores {
         width: 25vw;
+    }
+
+    #start-over, #more-cards {
+        margin-left: 6vw;
+        margin-right: 6vw;
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
     }
 }
 
