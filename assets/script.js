@@ -1,4 +1,6 @@
 window.onload = function() {
+    /* Ensure that all DOM elements are loaded and allow the user to choose their
+    * first action */
     var gameDeck = createDeck();
     var shuffledCards = shuffleDeck(gameDeck);
     const btn = document.getElementById("start-button");
@@ -17,6 +19,8 @@ window.onload = function() {
 }
 
 function createDeck() {
+    /* Create the deck on game initialisation so that there is no delay when the user
+    * requests to play */
     const SUITS = ['♥', '♦', '♠', '♣'];
     const CARDVALUE = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
     var orderedDeck = []
@@ -29,10 +33,9 @@ function createDeck() {
     return orderedDeck;
 }
 
-//let gameDeck = createDeck();
-
 //the shuffle process of swapping index contents was inspired by XXX
 function shuffleDeck(gameDeck) {
+    /* Shuffle the positions of the card by randomly selecting indexes and swapping the values held */
     var deckSize = gameDeck.length;
         for (let i = deckSize - 1; i > 0; i--) {
             var newIndex = Math.floor(Math.random() * (i + 1))
@@ -43,9 +46,8 @@ function shuffleDeck(gameDeck) {
     return gameDeck
 }
 
-//let shuffled = shuffleDeck(gameDeck);
-
 function howToPlay() {
+    /* Launch and remove the how to play window on user command */
     var modal = document.getElementById("playModal");
     var btn2 = document.getElementById("modal-button");
     var span = document.getElementsByClassName("close")[0];
@@ -63,6 +65,8 @@ function howToPlay() {
 }
 
 function dealStartCards() {
+    /* Start the game with two cards for the player and the dealer */
+    // access the remaining deck in the DOM 
     let shuffled = document.getElementById("cards-pile");
     // alert with too few cards to play
     if (shuffled.children.length < 10) {
@@ -193,15 +197,15 @@ function dealStartCards() {
     } else {
         p1c2value = +p1c2val;
     }
+    // correctly count the score if both cards are aces on initial deal //
     if 	(p1c1val == "A" && p1c2val == "A") {
         p1c1value = 1;
-
         p1Tot = p1c1value + p1c2value;
     } else {
         p1Tot = p1c1value + p1c2value;
     }
     
-    //show two start cards//
+    //show two start cards for player one, //
     const dealer = document.getElementById("dealer");
     const dealerScore = document.createElement('div')
     const dC1Div = document.createElement('div')
