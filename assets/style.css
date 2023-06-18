@@ -2,7 +2,7 @@
 
 body {
     height: 100vh;
-    background: rgb(2, 76, 50) center/cover url(/assets/images/freepik_green_textile_texture.jpg) no-repeat;
+    background: rgb(2, 76, 50) center/cover url("../assets/images/freepik_green_textile_texture.jpg") no-repeat;
     overflow: hidden;
 }
 
@@ -141,7 +141,6 @@ body {
 .card.front::before {
     content: attr(data-value);
     display: flex;
-   /* flex-direction: column; */
     font-size: 30px;
     width: 30px;
     line-height: 21px;
@@ -153,7 +152,6 @@ body {
 .card.front::after {
     content: attr(data-value);
     display: flex;
-   /* flex-direction: column; */
     font-size: 30px;
     width: 30px;
     line-height: 21px;
@@ -166,7 +164,7 @@ body {
 .card.back {
     height: 176px;
     width: 124px;
-    background: url("/assets/images/card_back.png") no-repeat center center;
+    background: url("../assets/images/card_back.png") no-repeat center center;
     background-size: 134px 186px;
     overflow: hidden;
     font-size: 0.5px;
