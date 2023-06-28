@@ -51,16 +51,16 @@ function shuffleDeck(gameDeck) {
 function howToPlay() {
     /* Launch and remove the how to play window on user command */
     var modal = document.getElementById("playModal");
-    //var btn2 = document.getElementById("modal-button");
-    var span = document.getElementsByClassName("close")[0];
+    var closeButton = document.getElementsByClassName("close")[0];
     
+    // Display the modal containing the instructions
     modal.style.display = "block";
 
     // Code to close the modal window
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
+    closeButton.onclick = function() {
         modal.style.display = "none";
-    }
+    };
 }
 
 function dealStartCards() {
