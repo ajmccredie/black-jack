@@ -554,7 +554,7 @@ function displayScore() {
     reDraw.innerText = "Reshuffle and start again"
     reDraw.addEventListener("click", function () {
         location.reload();
-        dealStartCards();
+       // dealStartCards();
       });
 
     const playAgain = document.createElement('button')
