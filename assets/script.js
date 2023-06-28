@@ -1,3 +1,5 @@
+ /*jshint esversion: 6 */
+
 window.onload = function() {
     /* Ensure that all DOM elements are loaded and allow the user to choose their
     * first action */
