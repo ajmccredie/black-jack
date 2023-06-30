@@ -75,8 +75,7 @@ function dealStartCards() {
     }
     
     // remove items from the DOM not required for game play
-    const gTitle = document.getElementById("game-title");
-    gTitle.style.display = "none";
+    hideElements(["game-title"]);
     const btn = document.getElementById("start-button");
     btn.style.display = "none";
     const btn2 = document.getElementById("modal-button");
@@ -259,6 +258,16 @@ function dealStartCards() {
     stickButton.style.display = "block";
     const twistButton = document.getElementById("twist");
     twistButton.style.display = "block";
+}
+
+function hideElements(elements) {
+    /* mini function to reduce the number of lines of code within the other functions to remove elements */
+    elements.forEach((elementId) => {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.style.display = "none";
+        }
+    });
 }
 
 function valueCards() {
