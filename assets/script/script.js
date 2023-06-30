@@ -100,17 +100,18 @@ function dealStartCards() {
     }
     // allocate the value for the non-numeric cards
     let dc1val = dealerCard1.slice(0, -1);
-    if (dc1val === "J") {
-        dc1value = 10;
-    } else if (dc1val === "Q") {
-        dc1value = 10;
-    } else if (dc1val === "K") {
-        dc1value = 10;
-    } else if (dc1val === "A") {
-        dc1value = 11;
-    } else {
-        dc1value = +dc1val;
-    }
+    let dc1value = getCardNumericValue(dc1val);
+    //if (dc1val === "J") {
+    //    dc1value = 10;
+    //} else if (dc1val === "Q") {
+    //    dc1value = 10;
+    //} else if (dc1val === "K") {
+    //    dc1value = 10;
+    //} else if (dc1val === "A") {
+    //    dc1value = 11;
+    //} else {
+    //    dc1value = +dc1val;
+    //}
     // obtain the second card for the dealer
     let dealerCard2 = dealCard(shuffled);
     // obtain the details to display correctly
@@ -171,9 +172,8 @@ function dealStartCards() {
         p1c1value = +p1c1val;
     }
     // deal the second card
-    let secondPlayerOneCard = shuffled.lastChild;
-    let p1Card2 = secondPlayerOneCard.innerText;
-    shuffled.removeChild(secondPlayerOneCard);
+    let p1Card2 = dealCard(shuffled);
+   
     // determine the suit
     let p1c2suit = p1Card2.slice(-1);
     if (p1c2suit === '♥') {
@@ -261,10 +261,23 @@ function hideElements(elements) {
 }
 
 function dealCard(deck) {
+    /* deals the next card in the deck and returns it */
     const cardElement = deck.lastChild;
     let cardValue = cardElement.innerText;
     deck.removeChild(deck.lastChild);
     return cardValue;
+}
+
+function getCardNumericValue(cardValue) {
+    if (cardValue === 'A') {
+        return 11;
+    } else if (cardValue === 'J' || cardValue === 'Q' || cardValue === 'K') {
+        return 10;
+    } else if (Number(cardValue)) {
+        return Number(cardValue);
+    } else {
+        return 0;
+    }
 }
 
 function valueCards() {
@@ -329,9 +342,8 @@ function valueCards() {
         }
 
         // determine the suit and card value in the same way as for the deal
-        let nextDealerCard = shuffled.lastChild;
-        let dealerCardNext = nextDealerCard.innerText;
-        shuffled.removeChild(nextDealerCard);
+        let dealerCardNext = dealCard(shuffled);
+
         let dcNsuit = dealerCardNext.slice(-1);
         if (dcNsuit === '♥') {
             dcNsuitColour = "red";
@@ -438,9 +450,8 @@ function drawMore() {
         }
 
     // draw the next card and determine the value
-    let nextPlayerOneCard = shuffled.lastChild;
-    let pOCardNext = nextPlayerOneCard.innerText;
-    shuffled.removeChild(nextPlayerOneCard);
+    let pOCardNext = dealCard(shuffled);
+
     let pOcNsuit = pOCardNext.slice(-1);
     if (pOcNsuit === '♥') {
         pOcNsuitColour = "red";
