@@ -9,8 +9,7 @@ window.onload = function() {
     btn.style.display = "block";
     const btn2 = document.getElementById("modal-button");
     btn2.style.display = "block";
-    console.log("initial game deck");
-    console.log(shuffledCards);
+
     //store the deck in the DOM
     var cardsPile = document.getElementById("cards-pile");
     shuffledCards.forEach(function(card) {
@@ -329,16 +328,11 @@ function valueCards() {
 
         //check if the potential ace in the first card position has already had 10 subtracted
         let voidDc1 = dc1valFind.classList.contains('used');
-        console.log(voidDc1);
         let validDC1 = !voidDc1;
-        console.log("valid?");
-        console.log(validDC1);
+
         //check if the potential ace in the second card position has already had 10 subtracted
         let voidDc2 = dc2valFind.classList.contains('used');
-        console.log(voidDc2);
         let validDC2 = !voidDc2;
-        console.log("valid?");
-        console.log(validDC2);
 
         if (newDealerScore > 21) {
             if (dcNval === "A") {
@@ -373,7 +367,6 @@ function valueCards() {
     // Turn dealer cards to show hand unless player has Black Jack or Five Card Trick
     if (playerOneScore !== 21 && !pOneFiveCardTrick) {
         for (let i = cardPile - 1; i >= 0; i--) {
-            console.log(dealerCards[i]);
             dealerCard = dealerCards[i];
             dealerCard.classList.remove("back");
             dealerCard.classList.add("front");
@@ -457,7 +450,6 @@ function drawMore() {
     }
     // increment the score for the hand with the new value
     newPOneScore = +playerOneScore + pOcNvalue;
-    console.log(newPOneScore);
     playerOneS.querySelector('.score').innerText = newPOneScore;
 
     //Five card trick code (note the card count is 6 not 5 due to the score child element)
@@ -558,9 +550,7 @@ function incrementScore() {
     
     //parseInt of current scores
     let playerOneCumulative = parseInt(document.querySelector('.player-one-running-total').innerText);
-    console.log(playerOneCumulative);
     let dealerCumulative = parseInt(document.querySelector('.dealer-running-total').innerText);
-    console.log(dealerCumulative);
 
     //determine the current hand total for the player and dealer
     //check the number of cards in hand for five card trick points
@@ -641,7 +631,6 @@ function addAnotherDeck() {
                 gameDeck[newIndex] = gameDeck[i]
                 gameDeck[i] = oldCard
             }
-        console.log(gameDeck);
         return gameDeck
     }
 
