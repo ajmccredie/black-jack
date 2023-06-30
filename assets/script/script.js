@@ -75,13 +75,13 @@ function dealStartCards() {
     }
     
     // remove items from the DOM not required for game play
-    hideElements(["game-title", "start-button", "modal-button"]);
+    hideElements(["game-title", "start-button", "modal-button", "pre-game"]);
     //const btn = document.getElementById("start-button");
     //btn.style.display = "none";
     //const btn2 = document.getElementById("modal-button");
     //btn2.style.display = "none";
-    const animatedFooter = document.getElementById("pre-game");
-    animatedFooter.style.display = "none";
+    //const animatedFooter = document.getElementById("pre-game");
+    //animatedFooter.style.display = "none";
     const staticFooter = document.getElementById("in-game");
     staticFooter.style.display = "block";
     staticFooter.addEventListener("click", function () {
@@ -521,10 +521,11 @@ function drawMore() {
 
 function displayScore() {
     /* determine the game winner and display a pop up to tell the user and present their options */
-    const stickButton = document.getElementById("stick");
-    stickButton.style.display = "none";
-    const twistButton = document.getElementById("twist");
-    twistButton.style.display = "none";    
+    hideElements(["stick", "twist"]);
+    //const stickButton = document.getElementById("stick");
+    //stickButton.style.display = "none";
+    //const twistButton = document.getElementById("twist");
+    //twistButton.style.display = "none";    
 
     let playerOne = document.querySelector('#player-one');
     let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
