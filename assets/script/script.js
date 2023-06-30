@@ -521,7 +521,6 @@ function displayScore() {
     reDraw.classList.add("reDraw")
     reDraw.innerText = "Reshuffle and start again"
     reDraw.addEventListener("click", function () {
-        //location.reload();
         reDrawCards();
       });
 
