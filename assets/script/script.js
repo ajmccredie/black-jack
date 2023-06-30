@@ -211,6 +211,23 @@ function dealStartCards() {
     twistButton.style.display = "block";
 }
 
+function reDrawCards() {
+    // clear the page
+    let cardsPile = document.getElementById("cards-pile");
+    let dealer = document.getElementById("dealer");
+    let playerOne = document.getElementById("player-one");
+    cardsPile.innerHTML = "";
+    dealer.innerHTML = "";
+    playerOne.innerHTML = "";
+
+    // create new shuffle deck
+    var gameDeck = createDeck();
+    var shuffledCards = shuffleDeck(gameDeck); 
+    
+    // start the game
+    dealStartCards();
+}
+
 function hideElements(elements) {
     /* mini function to reduce the number of lines of code within the other functions to remove elements */
     elements.forEach((elementId) => {
@@ -592,7 +609,7 @@ function newDeckQuery() {
     reDraw.classList.add("reDraw")
     reDraw.innerText = "Reshuffle and start again"
     reDraw.addEventListener("click", function () {
-        location.reload();
+        reDrawCards();
       });
 
     const playAgain = document.createElement('button')
