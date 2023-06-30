@@ -87,11 +87,8 @@ function dealStartCards() {
     let p1Tot = 0;
     
     // deal dealer cards and split the information of suits and values
-    //let firstDealerCard = shuffled.lastChild;
-    //let dealerCard1 = firstDealerCard.innerText;
     let dealerCard1 = dealCard(shuffled);
-    console.log(dealerCard1);
-    //shuffled.removeChild(firstDealerCard);
+    
     let dc1suit = dealerCard1.slice(-1);
     // determine the properties so that the correct graphics will display
     if (dc1suit === '♥') {
@@ -115,9 +112,7 @@ function dealStartCards() {
         dc1value = +dc1val;
     }
     // obtain the second card for the dealer
-    let secondDealerCard = shuffled.lastChild;
-    let dealerCard2 = secondDealerCard.innerText;
-    shuffled.removeChild(secondDealerCard);
+    let dealerCard2 = dealCard(shuffled);
     // obtain the details to display correctly
     let dc2suit = dealerCard2.slice(-1);
     if (dc2suit === '♥') {
@@ -151,9 +146,8 @@ function dealStartCards() {
     
     // repeat process for player 1
     // deal the card
-    let firstPlayerOneCard = shuffled.lastChild;
-    let p1Card1 = firstPlayerOneCard.innerText;
-    shuffled.removeChild(firstPlayerOneCard);
+    let p1Card1 = dealCard(shuffled);
+
     // determine the value of the card
     let p1c1suit = p1Card1.slice(-1);
     if (p1c1suit === '♥') {
