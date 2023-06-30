@@ -75,11 +75,11 @@ function dealStartCards() {
     }
     
     // remove items from the DOM not required for game play
-    hideElements(["game-title"]);
-    const btn = document.getElementById("start-button");
-    btn.style.display = "none";
-    const btn2 = document.getElementById("modal-button");
-    btn2.style.display = "none";
+    hideElements(["game-title", "start-button", "modal-button"]);
+    //const btn = document.getElementById("start-button");
+    //btn.style.display = "none";
+    //const btn2 = document.getElementById("modal-button");
+    //btn2.style.display = "none";
     const animatedFooter = document.getElementById("pre-game");
     animatedFooter.style.display = "none";
     const staticFooter = document.getElementById("in-game");

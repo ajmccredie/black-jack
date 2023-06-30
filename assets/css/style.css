@@ -164,7 +164,7 @@ body {
 .card.back {
     height: 176px;
     width: 124px;
-    background: url("../assets/images/card_back.png") no-repeat center center;
+    background: url("../../assets/images/card_back.png") no-repeat center center;
     background-size: 134px 186px;
     overflow: hidden;
     font-size: 0.5px;
