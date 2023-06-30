@@ -101,17 +101,7 @@ function dealStartCards() {
     // allocate the value for the non-numeric cards
     let dc1val = dealerCard1.slice(0, -1);
     let dc1value = getCardNumericValue(dc1val);
-    //if (dc1val === "J") {
-    //    dc1value = 10;
-    //} else if (dc1val === "Q") {
-    //    dc1value = 10;
-    //} else if (dc1val === "K") {
-    //    dc1value = 10;
-    //} else if (dc1val === "A") {
-    //    dc1value = 11;
-    //} else {
-    //    dc1value = +dc1val;
-    //}
+    
     // obtain the second card for the dealer
     let dealerCard2 = dealCard(shuffled);
     // obtain the details to display correctly
@@ -125,17 +115,7 @@ function dealStartCards() {
     }
     // allocate the values to the non-numeric cards
     let dc2val = dealerCard2.slice(0, -1);
-    if (dc2val === "J") {
-        dc2value = 10;
-    } else if (dc2val === "Q") {
-        dc2value = 10;
-    } else if (dc2val === "K") {
-        dc2value = 10;
-    } else if (dc2val === "A") {
-        dc2value = 11;
-    } else {
-        dc2value = +dc2val;
-    }
+    let dc2value = getCardNumericValue(dc2val);
 
     //  find the dealer's current card total
     if 	(dc1val == "A" && dc2val == "A") {
@@ -160,17 +140,8 @@ function dealStartCards() {
     }
     // assign the value to the non-numeric cards
     let p1c1val = p1Card1.slice(0, -1);
-    if (p1c1val === "J") {
-        p1c1value = 10;
-    } else if (p1c1val === "Q") {
-        p1c1value = 10;
-    } else if (p1c1val === "K") {
-        p1c1value = 10;
-    } else if (p1c1val === "A") {
-        p1c1value = 11;
-    } else {
-        p1c1value = +p1c1val;
-    }
+    let p1c1value = getCardNumericValue(p1c1val);
+    
     // deal the second card
     let p1Card2 = dealCard(shuffled);
    
@@ -185,17 +156,8 @@ function dealStartCards() {
     }
     // assign the value
     let p1c2val = p1Card2.slice(0, -1);
-    if (p1c2val === "J") {
-        p1c2value = 10;
-    } else if (p1c2val === "Q") {
-        p1c2value = 10;
-    } else if (p1c2val === "K") {
-        p1c2value = 10;
-    } else if (p1c2val === "A") {
-        p1c2value = 11;
-    } else {
-        p1c2value = +p1c2val;
-    }
+    let p1c2value = getCardNumericValue(p1c2val);
+    
     // correctly count the score if both cards are aces on initial deal 
     if 	(p1c1val == "A" && p1c2val == "A") {
         p1c1value = 1;
@@ -293,17 +255,18 @@ function valueCards() {
     dc1values = dc1valFind.dataset.value;
     dc1val = dc1values[0];
     //determine the actual numerical value of card (to deal with aces appropriately)
-    if (dc1val === "J") {
-        dc1value = 10;
-    } else if (dc1val === "Q") {
-        dc1value = 10;
-    } else if (dc1val === "K") {
-        dc2value = 10;
-    } else if (dc1val === "A") {
-        dc1value = 11;
-    } else {
-        dc1value = +dc1val;
-    }
+    let dc1value = getCardNumericValue(dc1val);
+    //if (dc1val === "J") {
+    //    dc1value = 10;
+    //} else if (dc1val === "Q") {
+    //    dc1value = 10;
+    //} else if (dc1val === "K") {
+    //    dc1value = 10;
+    //} else if (dc1val === "A") {
+    //    dc1value = 11;
+    //} else {
+    //    dc1value = +dc1val;
+    //}
 
     //find the second card already there
     dc2valFind = document.querySelector('#dealer :nth-child(3)');
@@ -353,17 +316,7 @@ function valueCards() {
             dcNsuitColour = "black";
         }
         let dcNval = dealerCardNext.slice(0, -1);
-        if (dcNval === "J") {
-            dcNvalue = 10;
-        } else if (dcNval === "Q") {
-            dcNvalue = 10;
-        } else if (dcNval === "K") {
-            dcNvalue = 10;
-        } else if (dcNval === "A") {
-            dcNvalue = 11;
-        } else {
-            dcNvalue = +dcNval;
-        }
+        let dcNvalue = getCardNumericValue(dcNval);
 
         // display the new card(s)
         const dCNDiv = document.createElement('div')
@@ -461,17 +414,7 @@ function drawMore() {
         pOcNsuitColour = "black";
     }
     let pOcNval = pOCardNext.slice(0, -1);
-    if (pOcNval === "J") {
-        pOcNvalue = 10;
-    } else if (pOcNval === "Q") {
-        pOcNvalue = 10;
-    } else if (pOcNval === "K") {
-        pOcNvalue = 10;
-    } else if (pOcNval === "A") {
-        pOcNvalue = 11;
-    } else {
-        pOcNvalue = +pOcNval;
-    }
+    let pOcNvalue = getCardNumericValue(pOcNval);
 
     // add the newly created player one card to the DOM
     const playerOne = document.getElementById("player-one");
