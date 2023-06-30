@@ -76,12 +76,6 @@ function dealStartCards() {
     
     // remove items from the DOM not required for game play
     hideElements(["game-title", "start-button", "modal-button", "pre-game"]);
-    //const btn = document.getElementById("start-button");
-    //btn.style.display = "none";
-    //const btn2 = document.getElementById("modal-button");
-    //btn2.style.display = "none";
-    //const animatedFooter = document.getElementById("pre-game");
-    //animatedFooter.style.display = "none";
     const staticFooter = document.getElementById("in-game");
     staticFooter.style.display = "block";
     staticFooter.addEventListener("click", function () {
@@ -91,11 +85,13 @@ function dealStartCards() {
     // set initial dealer total to 0
     let dealerTot = 0;
     let p1Tot = 0;
+    
     // deal dealer cards and split the information of suits and values
-    let firstDealerCard = shuffled.lastChild;
-    let dealerCard1 = firstDealerCard.innerText;
+    //let firstDealerCard = shuffled.lastChild;
+    //let dealerCard1 = firstDealerCard.innerText;
+    let dealerCard1 = dealCard(shuffled);
     console.log(dealerCard1);
-    shuffled.removeChild(firstDealerCard);
+    //shuffled.removeChild(firstDealerCard);
     let dc1suit = dealerCard1.slice(-1);
     // determine the properties so that the correct graphics will display
     if (dc1suit === '♥') {
@@ -268,6 +264,13 @@ function hideElements(elements) {
             element.style.display = "none";
         }
     });
+}
+
+function dealCard(deck) {
+    const cardElement = deck.lastChild;
+    let cardValue = cardElement.innerText;
+    deck.removeChild(deck.lastChild);
+    return cardValue;
 }
 
 function valueCards() {
@@ -472,10 +475,12 @@ function drawMore() {
     p1CNDiv.dataset.value = `${pOcNval} ${pOcNsuit}`
     p1CNDiv.classList.add("card", "front", `${pOcNsuitColour}`)
     playerOne.appendChild(p1CNDiv);
+    
     //need to get current score, add to it and then display new score
     let playerOneS = document.getElementById("player-one");
     let playerOneScore = parseInt(playerOneS.querySelector('.score').innerText);
     let newPOneScore = +playerOneScore + pOcNvalue;
+    
     // need to address the values of the two first cards in order to deal with aces
     //need to access the data-values of divs 2 and 3 of dealer (div 1 is the score)
     pOc1valFind = document.querySelector('#player-one :nth-child(2)');
@@ -521,11 +526,7 @@ function drawMore() {
 
 function displayScore() {
     /* determine the game winner and display a pop up to tell the user and present their options */
-    hideElements(["stick", "twist"]);
-    //const stickButton = document.getElementById("stick");
-    //stickButton.style.display = "none";
-    //const twistButton = document.getElementById("twist");
-    //twistButton.style.display = "none";    
+    hideElements(["stick", "twist"]); 
 
     let playerOne = document.querySelector('#player-one');
     let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
