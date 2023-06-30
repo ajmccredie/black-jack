@@ -2,7 +2,7 @@
 
 body {
     height: 100vh;
-    background: rgb(2, 76, 50) center/cover url("../assets/images/freepik_green_textile_texture.jpg") no-repeat;
+    background: rgb(2, 76, 50) center/cover url("../../assets/images/freepik_green_textile_texture.jpg") no-repeat;
     overflow: hidden;
 }
 
