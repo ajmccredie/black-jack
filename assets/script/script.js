@@ -223,7 +223,7 @@ function reDrawCards() {
     // create new shuffle deck
     var gameDeck = createDeck();
     var shuffledCards = shuffleDeck(gameDeck); 
-    
+
     // start the game
     dealStartCards();
 }
@@ -521,8 +521,8 @@ function displayScore() {
     reDraw.classList.add("reDraw")
     reDraw.innerText = "Reshuffle and start again"
     reDraw.addEventListener("click", function () {
-        location.reload();
-       // dealStartCards();
+        //location.reload();
+        reDrawCards();
       });
 
     const playAgain = document.createElement('button')
