@@ -225,10 +225,8 @@ function reDrawCards() {
     // reset the scores
     let playerOneScore = document.getElementsByClassName("player-one-running-total");
     let dealerScore = document.getElementsByClassName("dealer-running-total");
-    playerOneScore.innerHTML = "";
-    dealerScore.innerHTML = "";
-    playerOneScore.innerText = "0";
-    dealerScore.innerText = "0";
+    playerOneScore.innerText = " 0 ";
+    dealerScore.innerText = " 0 ";
 
     // create new shuffle deck
     var gameDeck = createDeck();
