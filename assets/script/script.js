@@ -223,8 +223,10 @@ function reDrawCards() {
     startOver.innerHTML = "";
 
     // reset the scores
-    let playerOneScore = document.getElementsByClassName("player-one-running-total");
-    let dealerScore = document.getElementsByClassName("dealer-running-total");
+    let playerOneScore = document.getElementsByClassName("player-one-running-total")[0];
+    let dealerScore = document.getElementsByClassName("dealer-running-total")[0];
+    dealerScore.innerHTML = "";
+    playerOneScore.innerHTML = "";
     playerOneScore.innerText = " 0 ";
     dealerScore.innerText = " 0 ";
 
