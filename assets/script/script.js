@@ -223,7 +223,6 @@ function reDrawCards() {
     // create new shuffle deck
     var gameDeck = createDeck();
     var shuffledCards = shuffleDeck(gameDeck); 
-    var cardsPile = document.getElementById("cards-pile");
     shuffledCards.forEach(function(card) {
         var cardElement = document.createElement("div");
         cardElement.textContent = card;
