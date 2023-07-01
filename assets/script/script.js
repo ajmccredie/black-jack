@@ -285,34 +285,13 @@ function valueCards() {
     dc1val = dc1values[0];
     //determine the actual numerical value of card (to deal with aces appropriately)
     let dc1value = getCardNumericValue(dc1val);
-    //if (dc1val === "J") {
-    //    dc1value = 10;
-    //} else if (dc1val === "Q") {
-    //    dc1value = 10;
-    //} else if (dc1val === "K") {
-    //    dc1value = 10;
-    //} else if (dc1val === "A") {
-    //    dc1value = 11;
-    //} else {
-    //    dc1value = +dc1val;
-    //}
 
     //find the second card already there
     dc2valFind = document.querySelector('#dealer :nth-child(3)');
     dc2values = dc2valFind.dataset.value;
     dc2val = dc2values[0];
     //determine its numerical value like card 1
-    if (dc2val === "J") {
-        dc2value = 10;
-    } else if (dc2val === "Q") {
-        dc2value = 10;
-    } else if (dc2val === "K") {
-        dc2value = 10;
-    } else if (dc2val === "A") {
-        dc2value = 11;
-    } else {
-        dc2value = +dc2val;
-    }
+    let dc2value = getCardNumericValue(dc2val);
 
     let playerOne = document.querySelector('#player-one');
     let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
