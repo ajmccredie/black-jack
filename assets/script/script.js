@@ -216,10 +216,17 @@ function reDrawCards() {
     let cardsPile = document.getElementById("cards-pile");
     let dealer = document.getElementById("dealer");
     let playerOne = document.getElementById("player-one");
+    let startOver = document.getElementById("start-over");
     cardsPile.innerHTML = "";
     dealer.innerHTML = "";
     playerOne.innerHTML = "";
-    hideElements(["start-over"]);
+    startOver.innerHTML = "";
+
+    // reset the scores
+    let playerOneScore = document.getElementsByClassName("player-one-running-total");
+    let dealerScore = document.getElementsByClassName("dealer-running-total");
+    playerOneScore.innerText = 0;
+    dealerScore.innerText = 0;
 
     // create new shuffle deck
     var gameDeck = createDeck();
