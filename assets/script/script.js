@@ -219,6 +219,7 @@ function reDrawCards() {
     cardsPile.innerHTML = "";
     dealer.innerHTML = "";
     playerOne.innerHTML = "";
+    hideElements(["start-over"]);
 
     // create new shuffle deck
     var gameDeck = createDeck();
