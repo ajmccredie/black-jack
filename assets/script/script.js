@@ -63,7 +63,8 @@ function howToPlay() {
 }
 
 function enterName() {
-    let person = prompt("Please enter your name", "Player One");
+    let person = prompt("Please enter your name (max 12 characters)", "Player One");
+    person = person.substring(0, 12); // Limit input to 12 characters
     dealStartCards();
     playerName = document.querySelector('.player-name');
     playerName.innerHTML = `${person}: `
