@@ -67,7 +67,7 @@ function enterName() {
     dealStartCards();
     playerNamePosition = document.querySelector('.cumulative-scores');
     playerName = dealer.querySelector('.player-name');
-    playerName.innerText = `${person}: `
+    playerName.innerHTML = `${person}: `
     return person;
 }
 
