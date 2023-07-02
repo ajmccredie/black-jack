@@ -62,6 +62,12 @@ function howToPlay() {
     };
 }
 
+function enterName() {
+    let person = prompt("Please enter your name", "Player One");
+    dealStartCards();
+    return person;
+}
+
 function dealStartCards() {
     /* Start the game with two cards for the player and the dealer */
     // access the remaining deck in the DOM 
@@ -179,29 +185,29 @@ function dealStartCards() {
     dealerScore.style.display = "none";
     dealer.appendChild(dC1Div);
 
-    const dC2Div = document.createElement('div')
-    dC2Div.innerText = dc2suit
-    dC2Div.dataset.value = `${dc2val} ${dc2suit}`
-    dC2Div.classList.add("card", "back", `${dc2suitColour}`)
+    const dC2Div = document.createElement('div');
+    dC2Div.innerText = dc2suit;
+    dC2Div.dataset.value = `${dc2val} ${dc2suit}`;
+    dC2Div.classList.add("card", "back", `${dc2suitColour}`);
     dealer.appendChild(dC2Div);
 
     // display player one's score alongside the cards
     const playerOne = document.getElementById("player-one");
-    const p1Score = document.createElement('div')
-    p1Score.innerText = p1Tot
-    p1Score.classList.add("score")
+    const p1Score = document.createElement('div');
+    p1Score.innerText = p1Tot;
+    p1Score.classList.add("score");
     playerOne.appendChild(p1Score);
     // display both cards
-    const p1C1Div = document.createElement('div')
-    p1C1Div.innerText = p1c1suit
-    p1C1Div.dataset.value = `${p1c1val} ${p1c1suit}`
-    p1C1Div.classList.add("card", "front", `${p1c1suitColour}`)
+    const p1C1Div = document.createElement('div');
+    p1C1Div.innerText = p1c1suit;
+    p1C1Div.dataset.value = `${p1c1val} ${p1c1suit}`;
+    p1C1Div.classList.add("card", "front", `${p1c1suitColour}`);
     playerOne.appendChild(p1C1Div);
 
-    const p1C2Div = document.createElement('div')
-    p1C2Div.innerText = p1c2suit
-    p1C2Div.dataset.value = `${p1c2val} ${p1c2suit}`
-    p1C2Div.classList.add("card", "front", `${p1c2suitColour}`)
+    const p1C2Div = document.createElement('div');
+    p1C2Div.innerText = p1c2suit;
+    p1C2Div.dataset.value = `${p1c2val} ${p1c2suit}`;
+    p1C2Div.classList.add("card", "front", `${p1c2suitColour}`);
     playerOne.appendChild(p1C2Div);
 
     // present the stick or twist options to the user
