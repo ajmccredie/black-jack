@@ -65,8 +65,7 @@ function howToPlay() {
 function enterName() {
     let person = prompt("Please enter your name", "Player One");
     dealStartCards();
-    playerNamePosition = document.querySelector('.cumulative-scores');
-    playerName = playerNamePosition.querySelector('.player-name');
+    playerName = document.querySelector('.player-name');
     playerName.innerHTML = `${person}: `
     return person;
 }
