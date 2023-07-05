@@ -28,6 +28,13 @@ The colour of the suits of the cards is determined by evaluating the suits. <br>
 Whitesmoke is used for text on the black backgrounds, because it was less harsh, but still created a good contrast.
 <br>
 ### Surface:
+The visual hierarchy of the site maintains consistency, with the dealer cards always at the top and the player cards always at the bottom of the page. <br>
+The fonts are selected for two reasons: to maintain the look and feel of elegance and opulance of casinos, and to allow clear communication and instruction for user interactive buttons. <br>
+The animated graphic on the welcome screen is to provide a mild form of entertainment while the user selects which option they wish to follow. The images again infer the neon lighting of casinos. <br>
+Buttons for the user are all shown in red, with the exception of the 'close' 'x' in the corner of the 'How to play', but this does change to red when the user hovers over it. This consistent styke aids useability and makes the game feel more intuitive and familiar.<br>
+The CSS has been written to allow for responsiveness over a variety of screen sizes, including mobile and tablet screens. <br>
+https://ui.dev/amiresponsive?url=https://ajmccredie.github.io/black-jack/ shows the different views in preview:
+**** IMAGE HERE OF RESPONSIVESS ****
 
 
 ## Technologies
