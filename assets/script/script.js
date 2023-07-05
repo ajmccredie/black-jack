@@ -603,6 +603,8 @@ function incrementScore() {
 
 function newDeckQuery() {
     /* offer the user the option of a freshly shuffled deck or to start over when insufficient cards detected */
+    hideElements(["stick", "twist"]); 
+
     const gameEndQuery = document.createElement('div')
     let addNewDeck = document.querySelector('#more-cards')
     addNewDeck.style.display = "flex";
