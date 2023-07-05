@@ -620,6 +620,11 @@ function newDeckQuery() {
     playAgain.innerText = "Add in a brand new shuffled deck and keep playing!"
     playAgain.addEventListener("click", function () {
         addAnotherDeck();
+        // add stick and twist buttons back to the DOM
+        const stickButton = document.getElementById("stick");
+        stickButton.style.display = "block";
+        const twistButton = document.getElementById("twist");
+        twistButton.style.display = "block";
       });
 
     gameEndQuery.innerText = "You have insufficient cards in your current deck"
