@@ -34,7 +34,10 @@ The animated graphic on the welcome screen is to provide a mild form of entertai
 Buttons for the user are all shown in red, with the exception of the 'close' 'x' in the corner of the 'How to play', but this does change to red when the user hovers over it. This consistent styke aids useability and makes the game feel more intuitive and familiar.<br>
 The CSS has been written to allow for responsiveness over a variety of screen sizes, including mobile and tablet screens. <br>
 https://ui.dev/amiresponsive?url=https://ajmccredie.github.io/black-jack/ shows the different views in preview:
-**** IMAGE HERE OF RESPONSIVESS ****
+![Preview of different views](assets/images/readme/responsiveness_check.png)
+
+The user will encounter the included features in a manner similar to the order shown below:
+
 
 
 ## Technologies
@@ -75,7 +78,7 @@ Contributions to the Black Jack project are welcome! If you have any suggestions
 In order to get the project started, I initially really struggled with how to approach building a deck of cards. 
 - Creating the deck in script, shuffling it and rendering the cards in CSS and HTML were heavily reliant on "How to build a simple card game with JavaScript" from Web Dev Simplified (https://www.youtube.com/watch?v=NxRwIZWjLtE&t=195s)
 
-![Screen shot of some of the most relevant code from the video](image.png)
+![Screen shot of some of the most relevant code from the video](assets/images/readme/youtube_code_shot.png)
 
 - Another video (Code Blackjack with JavaScript HTML CSS (Kenny Yip Coding) (https://www.youtube.com/watch?v=bMYCWccL-3U)) was also found. I watched about the first 10 minutes of  this video, but then stopped because I wanted to explore building the different elements myself and did not want to be too heavily influenced with setting up my gameplay.
 
@@ -85,9 +88,24 @@ In order to get the project started, I initially really struggled with how to ap
 
 ## Testing
 ### Code validation
-
+The code was passed through validators for the CSS, HTML and JavaScript.
+### Feature test log for final deployed version
+| Feature | Behaviour | Pass or fail? <br>(Edge, Firefox<br> and Safari) |
+| -------------- | -------------- | -------------- |
+| Load screen animation  | Images fit within bar and appear and disappear according to the timings in the code. Animation does not affect the general running of the screen.   | Pass   |
+| How to play pop up  | Pop-up loads on top of existing screen, displays words and graphic responsively and clearly. <br>Close 'x' for the pop-up clear and works as expected.   | Pass   |
+| Initial buttons for set up | Both the "Let's Play!" and "How to Play" buttons display clearly and work on first click. <br> Buttons direct user to the place they are expecting.   | Pass   |
+| Adding names (maximum 12 characters)  | The system alert pop-up appears when the player presses "Let's Play". <br>The player is asked to enter a name, but a default value of "Player One" is available for those who would rather not enter information here.<br> The user is warned not to enter more than 12 characters, but they are not prevented from doing so.<br> Characters beyond the 12 character limit are cut off in the player name display.<br> User name is displayed with their running score.   | Pass   |
+| Dealer behaviour  | If the player goes "bust", scores 21, or a five card trick, the dealer does nothing when "stick" is pressed by the player (cards stay facing down and no additional cards are drawn)<br> If the player sticks on fewer than 21 points, the dealer will continue to draw cards until they score more than the player, or go bust. These cards and the running total of their hand are shown.   | Pass   |
+| Live hand score  | The player one score is shown and changes with each new card on "twist".<br> The total reflects an accurate valuation of the cards (numerical values of cards, all picture cards valued at 10, and aces at 11 or 1 depending on whether the total score is greater than 21).<br> The value is displayed clearly and helps users to understand their score.<br> Dealer score is hidden until the player "sticks".   | Pass   |
+| Running score of the number of hands won by each | This section appears after the first hand is played.<br>The section remains in place if the user opts to "Reshuffle deck and start again", where it keeps the names, but resets the score to zero.   | Pass   |
+| End of deck options  | When the game runs out of the 52 cards generated for a deck, it offers a choice to exit the game and start again (which reloads the game and requires a new user name to be entered) or to add on a new, freshly shuffled, deck. <br>Selection of a new deck retains all other features (current cards in play, user name and running total).   | Pass   |
+| Exit game and start over  | When clicked the user is taken straight back to the welcome page and will be required to re-enter their name when they want to play. <br>The user has full access to all features which were available to them initially.   | Pass   |
 
 ### Web developer tools
+#### Lighthouse
+The results for the game from Lighthouse are shown:
+
 
 ### Bug fixes
 So far as I have been able to find, the game currently runs bug free. There were many bugs to sort along the development journey:
