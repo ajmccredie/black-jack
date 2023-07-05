@@ -18,8 +18,28 @@ The player is able to continue playing or reshuffle and start again. If they cho
 ### Structure:
 The simple game is on a single page of HTML with elements appearing and disappearing as they are or are not required. <br>
 The initial look is the game title, some user options and a simple animated graphic.<br>
-The game play is presented with the dealer cards at the top of the page and the player cards and options at the bottom. A running total of the hands the player and the dealer have won is added on completion of the first hand.<br>
+![Welcome screen with two options and a simple animated graphic](assets/images/readme/1_welcome_screen.png) 
+<br>
+The "How to Play" is in the form of a pop-up, which can be dismissed once read. This is important, because the game follows a fairly unique set of rules, and this is the communication to player of how to expect the game to behave. <br>
+![How to play pop-up](assets/images/readme/2_how_to_play.png)
+<br>
+The user is asked to enter their name, but an alternative default of "Player One" is offered.<br>
+![Alert with enter user name feature](assets/images/readme/3_name_entry.png)
+The game play is presented with the dealer cards at the top of the page and the player cards and options at the bottom. The player is able to "Stick" (therefore declaring their hand), "Twist" (request an additional card to add to their hand), or "Exit game and return to start" (which refreshes the page and entirely restarts the game, allowing the player access to the "How to play" or to change their name if they choose to play again)<br>
+![How the screen appears on the very first game hand](assets/images/readme/4_first_deal_screen.png)
+A running total of the hands the player and the dealer have won is added on completion of the first hand.<br>
+![Dialogue box shown at the end of each hand explaining who won. The total number of hands display box appears on the first appearance of this summary and remains for the rest of the game](assets/images/readme/5_hand_winner_dialogue.png)<br>
+If the player selects to "reshuffle and start again", the game produces a new 52 card deck and zeroes the running totals, but continues to display the names as before. <br>
+![Screen following the selection of "Reshuffle and restart"](assets/images/readme/6_reshuffle_and_restart_zeroed_scores.png)<br>
 When player one wins the hand or goes bust, if the dealer can draw more cards to beat them (i.e. in a situation where player one has NOT scored 21 or a “five card trick”), the dealers cards are displayed alongside their total.<br>
+![Demonstration of scenarios where dealer cards remain hidden: 21 scored](assets/images/readme/8_player_wins_with_21.png)
+![Demonstration of scenarios where dealer cards remain hidden: Five card trick](assets/images/readme/9_player_wins_five_card_trick.png)<br>
+The dealer draws more cards, and their hand is seen if the player has not already won with  21 or a five card trick. This can result in the dealer gaining a higher score and winning, gaining a five card trick themselves, or going bust.
+![Player wins and dealer goes bust](assets/images/readme/7_player_wins_dealer_bust.png)<br>
+![Dealer wins five card trick](assets/images/readme/10_dealer_five_card_trick.png)<br>
+When the cards that were generated for a 52 card deck are exhausted, the player is presented with an option to restart or to add a freshly shuffled deck and continue. If they restart, the game is reloaded, but if they choose the freshly shuffled deck, the user name and progress are retained and they can continue playing as before.
+![New deck query dialogue](assets/images/readme/11_new_deck_query.png)<br>
+![Game play following addition of new deck, demonstrating the hand remaining the same as the previous image](assets/images/readme/12_post_new_deck_added.png)<br>
 All relevant option screens are presented to the user in the centre of the page.
 <br>
 ### Skeleton:
