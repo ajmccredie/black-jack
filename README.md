@@ -56,8 +56,7 @@ The CSS has been written to allow for responsiveness over a variety of screen si
 https://ui.dev/amiresponsive?url=https://ajmccredie.github.io/black-jack/ shows the different views in preview:
 ![Preview of different views](assets/images/readme/responsiveness_check.png)
 
-The user will encounter the included features in a manner similar to the order shown below:
-
+The user will encounter the included features in a manner similar to the order detailed in the "Structure" description.
 
 
 ## Technologies
@@ -106,9 +105,18 @@ In order to get the project started, I initially really struggled with how to ap
 
 - Creation of the modal "How to Play" adapted from "W3 Schools"
 
+- Encouragement to break down the larger functions into smaller, reuseable functions from mentor Mitko Bachvarov.
+
 ## Testing
 ### Code validation
 The code was passed through validators for the CSS, HTML and JavaScript.
+- CSS
+*** Screenshot of results **
+- HTML
+*** Screenshot of results **
+- JavaScript
+*** Screenshot of results **
+
 ### Feature test log for final deployed version
 | Feature | Behaviour | Pass or fail? <br>(Edge, Firefox<br> and Safari) |
 | -------------- | -------------- | -------------- |
