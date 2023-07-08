@@ -527,8 +527,8 @@ function displayScore() {
         reDrawCards();
       });
 
-    const playAgain = document.createElement('button')
-    playAgain.innerText = "Continue to the next round"
+    const playAgain = document.createElement('button');
+    playAgain.innerText = "Continue to the next round";
     playAgain.addEventListener("click", function () {
         clearCurrentcards();
       });
@@ -538,7 +538,7 @@ function displayScore() {
     startAgain.appendChild(gameEndQuery);
     gameEndQuery.appendChild(reDraw);
     gameEndQuery.appendChild(playAgain);
-    incrementScore() //before the scores are wiped from the board
+    incrementScore(); //before the scores are wiped from the board
 }
 
 function clearCurrentcards() {
@@ -550,7 +550,7 @@ function clearCurrentcards() {
         }
     }
 
-    let startAgain = document.querySelector('#start-over')
+    let startAgain = document.querySelector('#start-over');
     removeAllChildNodes(startAgain);
 
     let playerOne = document.querySelector('#player-one');
@@ -627,8 +627,8 @@ function newDeckQuery() {
         twistButton.style.display = "block";
       });
 
-    gameEndQuery.innerText = "You have insufficient cards in your current deck"
-    gameEndQuery.classList.add("more-cards-pop-up")
+    gameEndQuery.innerText = "You have insufficient cards in your current deck";
+    gameEndQuery.classList.add("more-cards-pop-up");
     addNewDeck.appendChild(gameEndQuery);
     gameEndQuery.appendChild(reDraw);
     gameEndQuery.appendChild(playAgain);
