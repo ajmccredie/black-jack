@@ -65,7 +65,14 @@ function howToPlay() {
 
 function enterName() {
     let person = prompt("Please enter your name (max 12 characters)", "Player One");
-    person = person.substring(0, 12); // Limit input to 12 characters
+    // Rather than insisting on an input, detect if the user deletes the name or
+    // enters blank spaces and replace it with a defaut value for the DOM
+    if (person === null || person.trim() === "") {
+        person = "Player One";
+    } else {
+        person = person.substring(0, 12); // Limit input to 12 characters
+    }
+    
     dealStartCards();
     playerName = document.querySelector('.player-name');
     playerName.innerHTML = `${person}: `;
