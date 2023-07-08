@@ -24,7 +24,7 @@ function createDeck() {
     * requests to play */
     const SUITS = ['♥', '♦', '♠', '♣'];
     const CARDVALUE = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
-    var orderedDeck = []
+    var orderedDeck = [];
     
     for(var suit = 0; suit < 4; suit++) {
         for(var cardNum = 0; cardNum < 13; cardNum++) {
@@ -39,12 +39,12 @@ function shuffleDeck(gameDeck) {
     /* Shuffle the positions of the card by randomly selecting indexes and swapping the values held */
     var deckSize = gameDeck.length;
         for (let i = deckSize - 1; i > 0; i--) {
-            var newIndex = Math.floor(Math.random() * (i + 1))
-            var oldCard = gameDeck[newIndex]
-            gameDeck[newIndex] = gameDeck[i]
-            gameDeck[i] = oldCard
+            var newIndex = Math.floor(Math.random() * (i + 1));
+            var oldCard = gameDeck[newIndex];
+            gameDeck[newIndex] = gameDeck[i];
+            gameDeck[i] = oldCard;
         }
-    return gameDeck
+    return gameDeck;
 }
 
 function howToPlay() {
@@ -67,7 +67,7 @@ function enterName() {
     person = person.substring(0, 12); // Limit input to 12 characters
     dealStartCards();
     playerName = document.querySelector('.player-name');
-    playerName.innerHTML = `${person}: `
+    playerName.innerHTML = `${person}: `;
     return person;
 }
 
@@ -176,14 +176,14 @@ function dealStartCards() {
     
     //show two start cards for player one and keep dealer card values hidden
     const dealer = document.getElementById("dealer");
-    const dealerScore = document.createElement('div')
-    const dC1Div = document.createElement('div')
-    dC1Div.innerText = dc1suit
-    dC1Div.dataset.value = `${dc1val} ${dc1suit}`
-    dC1Div.classList.add("card", "back", `${dc1suitColour}`)
+    const dealerScore = document.createElement('div');
+    const dC1Div = document.createElement('div');
+    dC1Div.innerText = dc1suit;
+    dC1Div.dataset.value = `${dc1val} ${dc1suit}`;
+    dC1Div.classList.add("card", "back", `${dc1suitColour}`);
     dealer.appendChild(dC1Div);
     dealerScore.innerText = dealerTot;
-    dealerScore.classList.add("score")
+    dealerScore.classList.add("score");
     dealer.appendChild(dealerScore);
     dealerScore.style.display = "none";
     dealer.appendChild(dC1Div);
@@ -338,10 +338,10 @@ function valueCards() {
         let dcNvalue = getCardNumericValue(dcNval);
 
         // display the new card(s)
-        const dCNDiv = document.createElement('div')
-        dCNDiv.innerText = dcNsuit
-        dCNDiv.dataset.value = `${dcNval} ${dcNsuit}`
-        dCNDiv.classList.add("card", "back", `${dcNsuitColour}`)
+        const dCNDiv = document.createElement('div');
+        dCNDiv.innerText = dcNsuit;
+        dCNDiv.dataset.value = `${dcNval} ${dcNsuit}`;
+        dCNDiv.classList.add("card", "back", `${dcNsuitColour}`);
         dealer.appendChild(dCNDiv);
 
         let newDealerScore = +dealerScore + dcNvalue;
@@ -377,7 +377,7 @@ function valueCards() {
         //Five card trick code for dealer (note the card count is 6 not 5 due to the score child element)
         var cardCount = document.getElementById("dealer").children.length;
         if (cardCount == 6 && dealerScore <= 21) {
-            break
+            break;
         }
     }
 
@@ -399,9 +399,9 @@ function valueCards() {
     
     // display the scores when either the dealer goes bust or wins a five card trick
     if (cardCount !== 6 || dealerScore <= 21) {
-        displayScore()
+        displayScore();
     } else if (dealerScore > 21) {
-        displayScore()
+        displayScore();
     }
 }
 
@@ -431,10 +431,10 @@ function drawMore() {
 
     // add the newly created player one card to the DOM
     const playerOne = document.getElementById("player-one");
-    const p1CNDiv = document.createElement('div')
-    p1CNDiv.innerText = pOcNsuit
-    p1CNDiv.dataset.value = `${pOcNval} ${pOcNsuit}`
-    p1CNDiv.classList.add("card", "front", `${pOcNsuitColour}`)
+    const p1CNDiv = document.createElement('div');
+    p1CNDiv.innerText = pOcNsuit;
+    p1CNDiv.dataset.value = `${pOcNval} ${pOcNsuit}`;
+    p1CNDiv.classList.add("card", "front", `${pOcNsuitColour}`);
     playerOne.appendChild(p1CNDiv);
     
     //need to get current score, add to it and then display new score
@@ -475,12 +475,12 @@ function drawMore() {
     //Five card trick code (note the card count is 6 not 5 due to the score child element)
     let cardCount = document.getElementById("player-one").children.length;
     if (cardCount == 6 && newPOneScore <= 21) {
-        displayScore()
+        displayScore();
     }
     
     //display the score if player one goes bust
     if (newPOneScore > 21) {
-        displayScore()
+        displayScore();
     }
 }
 
@@ -497,8 +497,8 @@ function displayScore() {
     let pCardCount = document.getElementById("player-one").children.length;
     let dCardCount = document.getElementById("dealer").children.length;
 
-    const gameEndQuery = document.createElement('div')
-    let startAgain = document.querySelector('#start-over')
+    const gameEndQuery = document.createElement('div');
+    let startAgain = document.querySelector('#start-over');
     startAgain.style.display = "flex";
     // determine the winner and display the appropriate message
     if (playerOneScore > 21) {
@@ -520,9 +520,9 @@ function displayScore() {
     }
 
     // present the options to the user
-    const reDraw = document.createElement('button')
-    reDraw.classList.add("reDraw")
-    reDraw.innerText = "Reshuffle and start again"
+    const reDraw = document.createElement('button');
+    reDraw.classList.add("reDraw");
+    reDraw.innerText = "Reshuffle and start again";
     reDraw.addEventListener("click", function () {
         reDrawCards();
       });
@@ -533,8 +533,8 @@ function displayScore() {
         clearCurrentcards();
       });
 
-    gameEndQuery.innerText = message
-    gameEndQuery.classList.add("game-end-pop-up")
+    gameEndQuery.innerText = message;
+    gameEndQuery.classList.add("game-end-pop-up");
     startAgain.appendChild(gameEndQuery);
     gameEndQuery.appendChild(reDraw);
     gameEndQuery.appendChild(playAgain);
@@ -560,7 +560,7 @@ function clearCurrentcards() {
     removeAllChildNodes(dealer);
 
     document.getElementById("player-one").style.marginTop = "10px";
-    dealStartCards()
+    dealStartCards();
 }
 
 function incrementScore() {
@@ -583,17 +583,17 @@ function incrementScore() {
 
     // determine who to give the point to
     if (playerOneScore > 21) {
-        ++dealerCumulative
+        ++dealerCumulative;
     } else if (dealerScore > 21) {
-        ++playerOneCumulative
+        ++playerOneCumulative;
     } else if (playerOneScore >= dealerScore) {
-        ++playerOneCumulative
+        ++playerOneCumulative;
     } else if (dealerScore <= 21 && dCardCount == 6) {
-        ++dealerCumulative
+        ++dealerCumulative;
     } else if (playerOneScore <= 21 && pOcardCount == 6) {    
-        ++playerOneCumulative
+        ++playerOneCumulative;
     } else {
-        ++dealerCumulative
+        ++dealerCumulative;
     }
 
     // access and update both HTML
@@ -605,19 +605,19 @@ function newDeckQuery() {
     /* offer the user the option of a freshly shuffled deck or to start over when insufficient cards detected */
     hideElements(["stick", "twist"]); 
 
-    const gameEndQuery = document.createElement('div')
-    let addNewDeck = document.querySelector('#more-cards')
+    const gameEndQuery = document.createElement('div');
+    let addNewDeck = document.querySelector('#more-cards');
     addNewDeck.style.display = "flex";
 
-    const reDraw = document.createElement('button')
-    reDraw.classList.add("reDraw")
-    reDraw.innerText = "Reshuffle and start again"
+    const reDraw = document.createElement('button');
+    reDraw.classList.add("reDraw");
+    reDraw.innerText = "Reshuffle and start again";
     reDraw.addEventListener("click", function () {
         reDrawCards();
       });
 
-    const playAgain = document.createElement('button')
-    playAgain.innerText = "Add in a brand new shuffled deck and keep playing!"
+    const playAgain = document.createElement('button');
+    playAgain.innerText = "Add in a brand new shuffled deck and keep playing!";
     playAgain.addEventListener("click", function () {
         addAnotherDeck();
         // add stick and twist buttons back to the DOM
@@ -648,16 +648,17 @@ function addAnotherDeck() {
     // make a new deck
     let gameDeck = createDeck();
 
-    //the shuffle process of swapping index contents was inspired by XXX
+    //the shuffle process of swapping index contents was inspired by "How to build a simple card game with JavaScript" 
+    //from Web Dev Simplified
     function shuffleDeck(gameDeck) {
         var deckSize = gameDeck.length;
             for (let i = deckSize - 1; i > 0; i--) {
-                var newIndex = Math.floor(Math.random() * (i + 1))
-                var oldCard = gameDeck[newIndex]
-                gameDeck[newIndex] = gameDeck[i]
-                gameDeck[i] = oldCard
+                var newIndex = Math.floor(Math.random() * (i + 1));
+                var oldCard = gameDeck[newIndex];
+                gameDeck[newIndex] = gameDeck[i];
+                gameDeck[i] = oldCard;
             }
-        return gameDeck
+        return gameDeck;
     }
 
     // the newly made deck is inserted straight into the cards-pile in front of the remaining cards
