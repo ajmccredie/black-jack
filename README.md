@@ -111,11 +111,11 @@ In order to get the project started, I initially really struggled with how to ap
 ### Code validation
 The code was passed through validators for the CSS, HTML and JavaScript.
 - CSS
-*** Screenshot of results **
+![CSS validator results](assets/images/readme/css_validation.png)
 - HTML
-*** Screenshot of results **
+![HTML validator results](assets/images/readme/html_validation.png)
 - JavaScript
-*** Screenshot of results **
+![JSHint validator results](assets/images/readme/js_validation.png)
 
 ### Feature test log for final deployed version
 | Feature | Behaviour | Pass or fail? <br>(Edge, Firefox<br> and Safari) |
@@ -133,7 +133,8 @@ The code was passed through validators for the CSS, HTML and JavaScript.
 ### Web developer tools
 #### Lighthouse
 The results for the game from Lighthouse are shown:
-
+![Lighthouse results](assets/images/readme/lighthouse_analysis.png)
+The page accessibility scored 100.
 
 ### Bug fixes
 So far as I have been able to find, the game currently runs bug free. There were many bugs to sort along the development journey:
