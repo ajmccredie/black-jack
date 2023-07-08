@@ -139,6 +139,15 @@ The page accessibility scored 100.
 ### Bug fixes
 So far as I have been able to find, the game currently runs bug free. There were many bugs to sort along the development journey:
 - The game itself was extensively tested, including (as required) with a modified deck. The hardest issue and main source of bugs to get the game working was dealing with the Aces correctly. A log of the bugs and the fixes are shown below.
+
+| Bug Description | Screenshot | Fix |
+|-----------------|------------|-----|
+| The "end of hand" dialogue was appearing twice  | ![Bug 1 The generation of two pop ups for the end of the hand notification](assets/images/readme/bug_1_example_1.png)  | Located and removed the duplicate call in the script.  |
+| Both values for the aces counting as '11' on the initial draw  | ![Bug 2 The total of 22 incorrectly rendering the dealer 'bust'](assets/images/readme/bug_2_incorrect_double_ace_calculation.png)  | Description of fix |
+| Bug 3  | ![Bug 3]()  | Description of fix  |
+| Bug 4  | ![Bug 4]()  | Description of fix |
+
+<br>
 - The other issues that arose were linked with how to suitably handle running out of cards. This highlighted the issues of holding the shuffled deck as a global variable (done initially due to the large number of functions requiring access to it). Trying to append a new shuffled deck to this did not work, but rather than crashing the programme, was causing no cards to be popped from the end and the deck remaining as 52 cards throughout. To solve this, I utilised the div I had created initially with the intention of using it for game play graphics and to store the shuffled deck there. I tried storing it as a string, but this caused problems for accessing the cards themselves for the game. Creating a deck now appends each card as a separate div within the cards-pile. These are then addressed as child elements and are handled as such. Some refactoring of code to use this new format rather than the previous method of using ‘pop’ to draw cards was required. This fix then allowed for new decks to be made and appended ahead of the remaining cards whenever required (initially coded as automatic and then changed to be a user decision).
 - On deployment to GitHub pages, the background and the back of card images did not render correctly. These were fixed by adding two fullstops before the "/" in the file paths.
 
