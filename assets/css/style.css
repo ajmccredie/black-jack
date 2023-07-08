@@ -40,6 +40,7 @@ body {
         -1px -1px 0 whitesmoke;
 }
 
+/* consistent style for user buttons */
 #start-button, #modal-button {
     font-family: "Josefin", Verdana, sans-serif;
     font-size: larger;
@@ -58,6 +59,7 @@ body {
     letter-spacing: 1.5px;
 }
 
+/* consistent styling within the "how to play" modal */
 .modal-information {
     position: fixed;
     z-index: 1;
@@ -114,6 +116,7 @@ body {
     cursor: pointer;
   }
 
+/* formatting for cards according to the suit */
 .red {
     color: red;
     border: solid black 1px;
@@ -161,6 +164,7 @@ body {
     transform: rotate(180deg);
 }
 
+/* style for the back of the cards */
 .card.back {
     height: 176px;
     width: 124px;
@@ -174,6 +178,7 @@ body {
     box-shadow: 1px 1px;
 }
 
+/* buttons displayed with the same button colours as before */
 #option-buttons {
     display: flex;
     justify-content: center;
@@ -205,6 +210,7 @@ body {
     border-radius: 2px;
 }
 
+/* footer animation for the welcome screen */
 footer .all-suits-banner {
     bottom: 5vh;
     width: 100%;
@@ -245,6 +251,7 @@ footer .all-suits-banner img {
     animation-delay: 3s;
 }
 
+/* button styling for the "exit" button */
 #in-game .exit-game {
     font-family: "Josefin", Verdana, sans-serif;
     font-size: medium;
@@ -263,6 +270,7 @@ footer .all-suits-banner img {
     float: right;
 }
 
+/* in-game pop-ups and buttons styled consistently */
 #start-over, #more-cards {
     width: 100vw;
     display: flex;
@@ -304,6 +312,7 @@ footer .all-suits-banner img {
     flex-wrap: wrap;
 }
 
+/* the running score keeping track of the hands won */
 #outer-running-score {
     width: 100vw;
     display: flex;
