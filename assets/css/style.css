@@ -300,7 +300,8 @@ footer .all-suits-banner img {
     color: whitesmoke;
     cursor: pointer;
     letter-spacing: 1.5px;
-    align-items: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #outer-running-score {
