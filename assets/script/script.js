@@ -34,7 +34,8 @@ function createDeck() {
     return orderedDeck;
 }
 
-//the shuffle process of swapping index contents was inspired by XXX
+//the shuffle process of swapping index contents was inspired by "How to build a simple card game with JavaScript" 
+//from Web Dev Simplified
 function shuffleDeck(gameDeck) {
     /* Shuffle the positions of the card by randomly selecting indexes and swapping the values held */
     var deckSize = gameDeck.length;
