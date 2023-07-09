@@ -64,6 +64,7 @@ function howToPlay() {
 }
 
 function enterName() {
+    /* Allow the user to choose their name */
     let person = prompt("Please enter your name (max 12 characters)", "Player One");
     // Rather than insisting on an input, detect if the user deletes the name or
     // enters blank spaces and replace it with a defaut value for the DOM
@@ -229,6 +230,7 @@ function dealStartCards() {
 }
 
 function reDrawCards() {
+    /* Response to the user selecting a fresh deck and starting again */
     // clear the page
     let cardsPile = document.getElementById("cards-pile");
     let dealer = document.getElementById("dealer");
@@ -279,6 +281,7 @@ function dealCard(deck) {
 }
 
 function getCardNumericValue(cardValue) {
+    /* Determines and returns the value of the card */
     if (cardValue === 'A') {
         return 11;
     } else if (cardValue === 'J' || cardValue === 'Q' || cardValue === 'K') {
@@ -321,7 +324,7 @@ function valueCards() {
         pOneFiveCardTrick = false;
     }
 
-    //a while loop to deal with the dealer continuing to draw until they beat the player
+    // a while loop to deal with the dealer continuing to draw until they beat the player
     while (dealerScore <= playerOneScore && dealerScore < 21 && playerOneScore !== 21 && !pOneFiveCardTrick) {
         let shuffled = document.getElementById("cards-pile");
         // check there are sufficient cards in the deck to perform the operation required 
@@ -354,11 +357,11 @@ function valueCards() {
 
         let newDealerScore = +dealerScore + dcNvalue;
 
-        //check if the potential ace in the first card position has already had 10 subtracted
+        // check if the potential ace in the first card position has already had 10 subtracted
         let voidDc1 = dc1valFind.classList.contains('used');
         let validDC1 = !voidDc1;
 
-        //check if the potential ace in the second card position has already had 10 subtracted
+        // check if the potential ace in the second card position has already had 10 subtracted
         let voidDc2 = dc2valFind.classList.contains('used');
         let validDC2 = !voidDc2;
 
@@ -375,7 +378,7 @@ function valueCards() {
                 dealerScore = +dealerScore;
             }
         }
-        //recalcuate following loop
+        // recalcuate following loop
         newDealerScore = +dealerScore + dcNvalue;
 
         dealerScore.innerText = newDealerScore;
@@ -451,7 +454,7 @@ function drawMore() {
     let newPOneScore = +playerOneScore + pOcNvalue;
 
     // need to address the values of the two first cards in order to deal with aces
-    //need to access the data-values of divs 2 and 3 of dealer (div 1 is the score)
+    // need to access the data-values of divs 2 and 3 of dealer (div 1 is the score)
     pOc1valFind = document.querySelector('#player-one :nth-child(2)');
     pOc1value = pOc1valFind.dataset.value;
     pOc1val = pOc1value[0];
@@ -480,20 +483,20 @@ function drawMore() {
     newPOneScore = +playerOneScore + pOcNvalue;
     playerOneS.querySelector('.score').innerText = newPOneScore;
 
-    //Five card trick code (note the card count is 6 not 5 due to the score child element)
+    // Five card trick code (note the card count is 6 not 5 due to the score child element)
     let cardCount = document.getElementById("player-one").children.length;
     if (cardCount == 6 && newPOneScore <= 21) {
         displayScore();
     }
 
-    //display the score if player one goes bust
+    // display the score if player one goes bust
     if (newPOneScore > 21) {
         displayScore();
     }
 }
 
 function displayScore() {
-    /* determine the game winner and display a pop up to tell the user and present their options */
+    /* Determine the game winner and display a pop up to tell the user and present their options */
     hideElements(["stick", "twist"]);
 
     let playerOne = document.querySelector('#player-one');
@@ -575,12 +578,12 @@ function incrementScore() {
     let scoreArea = document.querySelector('#running-score');
     scoreArea.style.display = "flex";
 
-    //parseInt of current scores
+    // parseInt of current scores
     let playerOneCumulative = parseInt(document.querySelector('.player-one-running-total').innerText);
     let dealerCumulative = parseInt(document.querySelector('.dealer-running-total').innerText);
 
-    //determine the current hand total for the player and dealer
-    //check the number of cards in hand for five card trick points
+    // determine the current hand total for the player and dealer
+    // check the number of cards in hand for five card trick points
     let playerOne = document.querySelector('#player-one');
     let playerOneScore = parseInt(playerOne.querySelector('.score').innerText);
     let pOcardCount = document.getElementById("player-one").children.length;
@@ -656,8 +659,8 @@ function addAnotherDeck() {
     // make a new deck
     let gameDeck = createDeck();
 
-    //the shuffle process of swapping index contents was inspired by "How to build a simple card game with JavaScript" 
-    //from Web Dev Simplified
+    // the shuffle process of swapping index contents was inspired by "How to build a simple card game with JavaScript" 
+    // from Web Dev Simplified
     function shuffleDeck(gameDeck) {
         var deckSize = gameDeck.length;
         for (let i = deckSize - 1; i > 0; i--) {
