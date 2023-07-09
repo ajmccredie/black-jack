@@ -12,8 +12,8 @@ The game has a “How to play” on the first page, detailing the rules governin
 A first time, returning or regular user will get a similar experience from the simple game.
 <br>
 ### Scope:
-The important key features are the displayed cards, the incremented scores both for the hand and for the running total of hands won and the buttons for the users control. <br>
-The player is able to continue playing or reshuffle and start again. If they choose to continue, the game will log their score against the dealer's for the number of hands won.
+The important key features are the displayed cards, the incremented scores both for the hand and for the running total of hands won and the buttons for the user's control. <br>
+The player is able to select whether to continue playing, or reshuffle and start again. If they choose to continue, the game will log their score against the dealer's for the number of hands won.
 <br>
 ### Structure:
 The simple game is on a single page of HTML with elements appearing and disappearing as they are or are not required. <br>
@@ -29,29 +29,29 @@ The game play is presented with the dealer cards at the top of the page and the 
 ![How the screen appears on the very first game hand](assets/images/readme/4_first_deal_screen.png)
 A running total of the hands the player and the dealer have won is added on completion of the first hand.<br>
 ![Dialogue box shown at the end of each hand explaining who won. The total number of hands display box appears on the first appearance of this summary and remains for the rest of the game](assets/images/readme/5_hand_winner_dialogue.png)<br>
-If the player selects to "reshuffle and start again", the game produces a new 52 card deck and zeroes the running totals, but continues to display the names as before. <br>
+If the player selects to "reshuffle and start again", the game produces a new 52-card deck and zeroes the running totals whilst continuing to display the names as before. <br>
 ![Screen following the selection of "Reshuffle and restart"](assets/images/readme/6_reshuffle_and_restart_zeroed_scores.png)<br>
 When player one wins the hand or goes bust, if the dealer can draw more cards to beat them (i.e. in a situation where player one has NOT scored 21 or a “five card trick”), the dealers cards are displayed alongside their total.<br>
 ![Demonstration of scenarios where dealer cards remain hidden: 21 scored](assets/images/readme/8_player_wins_with_21.png)
 ![Demonstration of scenarios where dealer cards remain hidden: Five card trick](assets/images/readme/9_player_wins_five_card_trick.png)<br>
-The dealer draws more cards, and their hand is seen if the player has not already won with  21 or a five card trick. This can result in the dealer gaining a higher score and winning, gaining a five card trick themselves, or going bust.
+The dealer draws more cards, and their hand is shown, if the player has not already won with 21 or a five card trick. This can result in the dealer gaining a higher score and winning, obtaining a five card trick themselves, or going bust.
 ![Player wins and dealer goes bust](assets/images/readme/7_player_wins_dealer_bust.png)<br>
 ![Dealer wins five card trick](assets/images/readme/10_dealer_five_card_trick.png)<br>
-When the cards that were generated for a 52 card deck are exhausted, the player is presented with an option to restart or to add a freshly shuffled deck and continue. If they restart, the game is reloaded, but if they choose the freshly shuffled deck, the user name and progress are retained and they can continue playing as before.
+When the cards that were generated for a 52-card deck are exhausted, the player is presented with an option to restart or to add a freshly shuffled deck and continue. If they restart, the game is reloaded, but if they choose the freshly shuffled deck, the user name and progress are retained and they can continue playing as before.
 ![New deck query dialogue](assets/images/readme/11_new_deck_query.png)<br>
 ![Game play following addition of new deck, demonstrating the hand remaining the same as the previous image](assets/images/readme/12_post_new_deck_added.png)<br>
 All relevant option screens are presented to the user in the centre of the page.
 <br>
 ### Skeleton:
-The colour scheme, in keeping with the theme of card games, is black, white, red and green. An image of a red card back was selected for the backs of cards. A textured green was selected for the “table” for the cards to go on. <br>
-The colour of the suits of the cards is determined by evaluating the suits. <br>
-Whitesmoke is used for text on the black backgrounds, because it was less harsh, but still created a good contrast.
+The colour scheme, in keeping with the theme of card games, is black, white, red and green. An image of a red card back provides the back of the cards. A textured green background provides the “table” for the cards to go on. <br>
+The colour of the suits of the cards is determined by evaluating the suits, withe red allocated to hearts and diamonds, and black to the clubs and spades. <br>
+Whitesmoke is used for text on the black backgrounds, because it is less harsh than plain white, but still creates a good contrast.
 <br>
 ### Surface:
 The visual hierarchy of the site maintains consistency, with the dealer cards always at the top and the player cards always at the bottom of the page. <br>
-The fonts are selected for two reasons: to maintain the look and feel of elegance and opulance of casinos, and to allow clear communication and instruction for user interactive buttons. <br>
+The fonts are selected for two reasons: to maintain the look and feel of elegance and opulence of casinos, and to allow clear communication and instruction for user interactive buttons. <br>
 The animated graphic on the welcome screen is to provide a mild form of entertainment while the user selects which option they wish to follow. The images again infer the neon lighting of casinos. <br>
-Buttons for the user are all shown in red, with the exception of the 'close' 'x' in the corner of the 'How to play', but this does change to red when the user hovers over it. This consistent styke aids useability and makes the game feel more intuitive and familiar.<br>
+Buttons for the user are all shown in red, with the exception of the 'close' 'x' in the corner of the 'How to play' (which is white, but does change to red when the user hovers over it). This consistent style aids useability and makes the game feel more intuitive and familiar.<br>
 The CSS has been written to allow for responsiveness over a variety of screen sizes, including mobile and tablet screens. <br>
 https://ui.dev/amiresponsive?url=https://ajmccredie.github.io/black-jack/ shows the different views in preview:
 ![Preview of different views](assets/images/readme/responsiveness_check.png)
@@ -99,13 +99,13 @@ In order to get the project started, I initially really struggled with how to ap
 
 ![Screen shot of some of the most relevant code from the video](assets/images/readme/youtube_code_shot.png)
 
-- Another video (Code Blackjack with JavaScript HTML CSS (Kenny Yip Coding) (https://www.youtube.com/watch?v=bMYCWccL-3U)) was also found. I watched about the first 10 minutes of  this video, but then stopped because I wanted to explore building the different elements myself and did not want to be too heavily influenced with setting up my gameplay.
+- Another video (Code Blackjack with JavaScript HTML CSS (Kenny Yip Coding) (https://www.youtube.com/watch?v=bMYCWccL-3U)) was also found. I watched about the first 10 minutes of this video, but then stopped because I wanted to explore building the different elements myself and did not want to be too heavily influenced with setting up my gameplay.
 
-- Obtaining socres and manipulating these elements from lessons and the project walk through in Code Institute's Love Maths.
+- Obtaining scores from the DOM and manipulating these elements from lessons and the project walk through in Code Institute's Love Maths.
 
 - Creation of the modal "How to Play" adapted from "W3 Schools"
 
-- Encouragement to break down the larger functions into smaller, reuseable functions from mentor Mitko Bachvarov.
+- Encouragement to break down the larger functions into smaller, reusable functions from mentor Mitko Bachvarov.
 
 ## Testing
 ### Code validation
@@ -121,7 +121,7 @@ The code was passed through validators for the CSS, HTML and JavaScript.
 | Feature | Behaviour | Pass or fail? <br>(Edge, Firefox<br> and Safari) |
 | -------------- | -------------- | -------------- |
 | Load screen animation  | Images fit within bar and appear and disappear according to the timings in the code. Animation does not affect the general running of the screen.   | Pass   |
-| How to play pop up  | Pop-up loads on top of existing screen, displays words and graphic responsively and clearly. <br>Close 'x' for the pop-up clear and works as expected.   | Pass   |
+| How to play pop-up  | Pop-up loads on top of existing screen, displays words and graphic responsively and clearly. <br>Close 'x' for the pop-up clear and works as expected.   | Pass   |
 | Initial buttons for set up | Both the "Let's Play!" and "How to Play" buttons display clearly and work on first click. <br> Buttons direct user to the place they are expecting.   | Pass   |
 | Adding names (maximum 12 characters)  | The system alert pop-up appears when the player presses "Let's Play". <br>The player is asked to enter a name, but a default value of "Player One" is available for those who would rather not enter information here.<br> The user is warned not to enter more than 12 characters, but they are not prevented from doing so.<br> Characters beyond the 12 character limit are cut off in the player name display.<br> User name is displayed with their running score.   | Pass   |
 | Dealer behaviour  | If the player goes "bust", scores 21, or a five card trick, the dealer does nothing when "stick" is pressed by the player (cards stay facing down and no additional cards are drawn)<br> If the player sticks on fewer than 21 points, the dealer will continue to draw cards until they score more than the player, or go bust. These cards and the running total of their hand are shown.   | Pass   |
@@ -138,20 +138,20 @@ The page accessibility scored 100.
 
 ### Bug fixes
 So far as I have been able to find, the game currently runs bug free. There were many bugs to sort along the development journey:
-- The game itself was extensively tested, including (as required) with a modified deck. The hardest issue and main source of bugs to get the game working was dealing with the Aces correctly. A log of the bugs and the fixes are shown below.
+- The game itself was extensively tested, including (as required) with a modified deck. The hardest issue and main source of bugs to get the game working was dealing with the Aces correctly. A log of the significant bugs and the fixes are shown below.
 
 | Bug Description | Screenshot | Fix |
 |-----------------|------------|-----|
-| The "end of hand" dialogue was appearing twice  | ![Bug 1 The generation of two pop ups for the end of the hand notification](assets/images/readme/bug_1_example_1.png)  | Located and removed the duplicate call in the script.  |
+| The "end of hand" dialogue was appearing twice  | ![Bug 1 The generation of two pop-ups for the end of the hand notification](assets/images/readme/bug_1_example_1.png)  | Located and removed the duplicate call in the script.  |
 | Both values for the aces counting as '11' on the initial draw  | ![Bug 2 The total of 22 incorrectly rendering the dealer 'bust'](assets/images/readme/bug_2_incorrect_double_ace_calculation.png)  | If statement added to catch the scenario of both cards being aces and to give the total as '12' not '22' |
-| Subtracting 10 too many times when ace is not the final card drawn. This took a while to work out the root cause because it manefested in different ways (as shown in the screenshot), where the winner would not be correctly calculated and the scores were wrong.  | ![Bug 3 example 1 where the player is not bust, but should be](assets/images/readme/bug_3_example_1_not_bust.png)Example 1 where the player is not bust, but should be<br>![Bug 3 example 2 where the player has been able to draw far too many cards on "Twist"](assets/images/readme/bug_3_example_2_lots_of_player_cards.png)Example 2 where the player has been able to draw far too many cards on "Twist"<br>![Bug 3 example 3 incorrect 5 card trick calculation](assets/images/readme/bug_3_example_3_incorrect_5_card_trick.png)Incorrect 5 card trick calculation<br> ![Bug 3 example 4 dealer drawing too many cards](assets/images/readme/bug_3_example_4_dealer_incorrect.png)Dealer drawing too many cards | After a number of different fix attempts and a while to fully implement, Boolean indicators were added to the card descriptors to allow aces which had already been used to discount 10 from the total to be classed as 'used' and discarded from future subtractions. |
+| Subtracting 10 too many times when ace is not the final card drawn. This took a while to work out the root cause because it manifested in different ways (as shown in the screenshot), where the winner would not be correctly calculated, and the scores were wrong.  | ![Bug 3 example 1 where the player is not bust, but should be](assets/images/readme/bug_3_example_1_not_bust.png)Example 1 where the player is not bust, but should be<br>![Bug 3 example 2 where the player has been able to draw far too many cards on "Twist"](assets/images/readme/bug_3_example_2_lots_of_player_cards.png)Example 2 where the player has been able to draw far too many cards on "Twist"<br>![Bug 3 example 3 incorrect 5 card trick calculation](assets/images/readme/bug_3_example_3_incorrect_5_card_trick.png)Incorrect five card trick calculation<br> ![Bug 3 example 4 dealer drawing too many cards](assets/images/readme/bug_3_example_4_dealer_incorrect.png)Dealer drawing too many cards | After a number of different fix attempts and a while to fully implement, Boolean indicators were added to the card descriptors to allow aces which had already been used to discount 10 from the total to be classed as 'used' and discarded from future subtractions. |
 | Double aces calculating as zero at the start of the game.  | ![Bug 4 double aces counting as zero](assets/images/readme/bug_4_double_aces_to_0.png)  | The code used for the dealer (which worked) was used for the player code too.  |
 | Dealer unnecessarily drawing additional cards when the player has scored 21 and therefore already won.  | ![Bug 5 dealer drawing more and wasting cards](assets/images/readme/bug_5_wasting_cards_drawing_when_player_has_won.png)  | The code was changed to automatically announce the player as having won if they "Stick" on a score of 21. The dealer cards also stay hidden.  |
-| Double pop up generated, which would confuse the user. It also clutters the screen. | ![Bug 6 double pop up with out of cards and end of hand. ](assets/images/readme/bug_6_double_warning_when_out_of_cards.png)  | The code was refactored to keep the backs of the cards facing the player and not to draw more cards in scenarios where Player One had chosen to "Stick" on a score of 21.  |
+| Double pop-up generated, which would confuse the user. It also clutters the screen. | ![Bug 6 double pop-up with out of cards and end of hand. ](assets/images/readme/bug_6_double_warning_when_out_of_cards.png)  | The code was refactored to keep the backs of the cards facing the player and not to draw more cards in scenarios where Player One had chosen to "Stick" on a score of 21.  |
 | New deck not generating following query.  | ![Bug 7 Empty game screen due to non-generation of deck](assets/images/readme/bug_7_deck_failed_to_generate.png)  | No new deck because error generated before alert – fixed using a setTimeout(function() { newDeckQuery(); }, 0); after researching issue on stack overflow  |
-| Dealer does not draw more cards, despite the player having less than 21 and the dealer having the same score as the player so far.  | ![Bug 8 dealer failed to draw more despite not having more than the player](assets/images/readme/bug_8_dealer_failed_to_draw.png)  | The code was refactored to look for the dealer hand to be "less than or equal to player 1s" (and below 21), rather than the previous "less than".  |
-| Images not rendering when first deployed to GitHub  | ![Bug 9 screen without rendered images](assets/images/readme/bug_9_images_not_rendering_when_first_deployed.png)  | Adding two fullstops before the "/" in the file paths.  |
-| Double message generation for 5 card trick  | ![Bug 10 double messages generated for five card trick](assets/images/readme/bug_10_double_message_generation.png)  | Code duplication found and removed.  |
+| Dealer does not draw more cards, despite the player having less than 21 and the dealer having the same score as the player so far.  | ![Bug 8 dealer failed to draw more despite not having more than the player](assets/images/readme/bug_8_dealer_failed_to_draw.png)  | The code was refactored to look for the dealer hand to be "less than or equal to player one's" (and below 21), rather than the previous "less than".  |
+| Images not rendering when first deployed to GitHub  | ![Bug 9 screen without rendered images](assets/images/readme/bug_9_images_not_rendering_when_first_deployed.png)  | Adding two full-stops before the "/" in the file paths.  |
+| Double message generation for five card trick  | ![Bug 10 double messages generated for five card trick](assets/images/readme/bug_10_double_message_generation.png)  | Code duplication found and removed.  |
 | When the option to change the username was added, no validation or back-up were in place, so user could entirely delete the name. | ![Bug 11 user name blank](assets/images/readme/bug_11_no_name.png)  | Whilst this could have been fixed with validation, because the game is so short and to not inconvenience the user, a default of "Player One" has been added to replace a blanked or spaced input.  |
 | "Stick" and "Twist" buttons still operational when the new deck query is shown.<br>Clicking on either button caused the system to generate another new deck query. These could be clicked repeatedly.  | Unavailable (was reported by a friend testing the programme)  | "Stick" and "Twist" buttons removed from DOM while new deck query is presented. |
 
