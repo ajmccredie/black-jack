@@ -161,3 +161,9 @@ So far as I have been able to find, the game currently runs bug free. There were
 
 ## Ideas for future developments (currently beyond the scope of this project)
 I set out and succeeded in building a simple interactive card game which gave the user options and logged the score throughout.
+Possible future developments, using this code as a starting point, could include:
+- The ability to "split hands" if the player has drawn two cards of identical value (for example, two fours or two kings).
+- The addition of one more extra computer controlled "players" (whose behaviour could be pseudo-randomised using probability and if/else statements).
+- The ability of the player to select an avatar from a small selection and/or to "choose" the dealer from a list of names and avatars.
+- The ability to change the design on the back of the cards.
+- The addition of some form of in-game "currency" and the ability to place wagers.
